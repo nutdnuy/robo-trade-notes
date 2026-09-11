@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+data/private/
+.venv/
+
+/outputs/
+/*.pdf
+/AGENTS.md
+.DS_Store
+
+/_site/

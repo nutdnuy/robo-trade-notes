@@ -1,0 +1,229 @@
+{
+  "title": "Robo Trade Notes",
+  "subtitle": "Python · Webull OpenAPI",
+  "language": "ภาษาไทย",
+  "description": "จากแนวคิด สู่ระบบจำลองที่ตรวจสอบได้",
+  "edition": "ฉบับครบเล่ม · กันยายน 2026",
+  "apiDocs": "https://developer.webull.co.th/apis/docs/",
+  "defaultTheme": "light",
+  "pages": [
+    {
+      "id": "welcome",
+      "eyebrow": "WELCOME TO ROBO TRADE",
+      "heroImage": "images/robo-trade-welcome.png",
+      "heroAlt": "ประติมากรรมวงริบบิ้นโลหะและกระจกเหนือแท่นทดลองในห้องวิจัย แทนแนวคิดการเรียนรู้อย่างเป็นระบบ",
+      "meta": [
+        "10 บทเรียนภาษาไทย",
+        "10 Python Notebooks",
+        "Python + Webull OpenAPI"
+      ],
+      "primaryLabel": "เริ่มเรียนบทที่ 01",
+      "primaryHref": "#/chapter-01",
+      "secondaryLabel": "ดูสารบัญทั้งเล่ม",
+      "secondaryHref": "#/welcome/start",
+      "kind": "welcome",
+      "label": "Welcome",
+      "file": "intro.md"
+    },
+    {
+      "id": "chapter-01",
+      "number": "01",
+      "eyebrow": "CHAPTER 01 / ROBO TRADE WITH PYTHON",
+      "part": "01 · วางรากฐาน",
+      "outcome": "แปลงแนวคิดเป็นกติกา SMA และแยกสัญญาณออกจากคำสั่งซื้อขาย",
+      "duration": 45,
+      "meta": [
+        "อ่านและทดลอง 45 นาที",
+        "Python Notebook",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เปิดห้องทดลอง",
+      "primaryHref": "#/chapter-01/lab",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-01.ipynb",
+      "kind": "lesson",
+      "label": "จากข้อมูลราคา สู่สัญญาณแรก",
+      "file": "chapters/01-data-to-signal.md"
+    },
+    {
+      "id": "chapter-02",
+      "number": "02",
+      "eyebrow": "CHAPTER 02 / ROBO TRADE WITH PYTHON",
+      "part": "01 · วางรากฐาน",
+      "outcome": "จัดสภาพแวดล้อมและเขียนการคำนวณที่รันซ้ำแล้วตรวจคำตอบได้",
+      "duration": 45,
+      "meta": [
+        "อ่านและทดลอง 45 นาที",
+        "Python Notebook",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-02",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-02.ipynb",
+      "kind": "lesson",
+      "label": "Python สำหรับงานวิจัยกลยุทธ์",
+      "file": "chapters/02-python-foundations.md"
+    },
+    {
+      "id": "chapter-03",
+      "number": "03",
+      "eyebrow": "CHAPTER 03 / ROBO TRADE WITH PYTHON",
+      "part": "01 · วางรากฐาน",
+      "outcome": "ตรวจชนิดข้อมูล เวลา แท่งราคา และปัญหาที่ทำให้ผลทดสอบคลาดเคลื่อน",
+      "duration": 50,
+      "meta": [
+        "อ่านและทดลอง 50 นาที",
+        "Python Notebook",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-03",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-03.ipynb",
+      "kind": "lesson",
+      "label": "ข้อมูลการเงินที่พร้อมใช้งาน",
+      "file": "chapters/03-financial-data.md"
+    },
+    {
+      "id": "chapter-04",
+      "number": "04",
+      "eyebrow": "CHAPTER 04 / ROBO TRADE WITH PYTHON",
+      "part": "02 · วิจัยและทดสอบ",
+      "outcome": "เชื่อมสัญญาณกับราคาที่ซื้อขายได้จริง และคำนวณมูลค่าพอร์ตหลังต้นทุน",
+      "duration": 60,
+      "meta": [
+        "อ่านและทดลอง 60 นาที",
+        "Python Notebook",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-04",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-04.ipynb",
+      "kind": "lesson",
+      "label": "ทดสอบกลยุทธ์แบบเวกเตอร์",
+      "file": "chapters/04-vectorized-backtesting.md"
+    },
+    {
+      "id": "chapter-05",
+      "number": "05",
+      "eyebrow": "CHAPTER 05 / ROBO TRADE WITH PYTHON",
+      "part": "02 · วิจัยและทดสอบ",
+      "outcome": "อ่านผลตอบแทน Drawdown และผลนอกกลุ่มตัวอย่างโดยไม่หลงตัวเลขเดียว",
+      "duration": 55,
+      "meta": [
+        "อ่านและทดลอง 55 นาที",
+        "Python Notebook",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-05",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-05.ipynb",
+      "kind": "lesson",
+      "label": "ประเมินผลอย่างตรงไปตรงมา",
+      "file": "chapters/05-honest-evaluation.md"
+    },
+    {
+      "id": "chapter-06",
+      "number": "06",
+      "eyebrow": "CHAPTER 06 / ROBO TRADE WITH PYTHON",
+      "part": "02 · วิจัยและทดสอบ",
+      "outcome": "สร้างบัญชีพอร์ตจากเหตุการณ์และรายการจับคู่ แทนการอนุมานจากสัญญาณ",
+      "duration": 60,
+      "meta": [
+        "อ่านและทดลอง 60 นาที",
+        "Python Notebook",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-06",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-06.ipynb",
+      "kind": "lesson",
+      "label": "จำลองคำสั่ง เงินสด และสถานะ",
+      "file": "chapters/06-event-simulation.md"
+    },
+    {
+      "id": "chapter-07",
+      "number": "07",
+      "eyebrow": "CHAPTER 07 / ROBO TRADE WITH PYTHON",
+      "part": "02 · วิจัยและทดสอบ",
+      "outcome": "สร้างคุณลักษณะ แบ่งข้อมูลตามเวลา และเปรียบเทียบโมเดลกับกติกาง่าย ๆ",
+      "duration": 65,
+      "meta": [
+        "อ่านและทดลอง 65 นาที",
+        "Python Notebook",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-07",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-07.ipynb",
+      "kind": "lesson",
+      "label": "Machine Learning สำหรับสัญญาณ",
+      "file": "chapters/07-machine-learning.md"
+    },
+    {
+      "id": "chapter-08",
+      "number": "08",
+      "eyebrow": "CHAPTER 08 / ROBO TRADE WITH PYTHON",
+      "part": "03 · จากข้อมูลสู่การทำงานของระบบ",
+      "outcome": "จัดการเวลาเหตุการณ์ แท่งที่ยังไม่ปิด ข้อมูลซ้ำ และข้อมูลล่าช้า",
+      "duration": "50–65",
+      "meta": [
+        "อ่านและทดลอง 50–65 นาที",
+        "Python Notebook",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-08",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-08.ipynb",
+      "kind": "lesson",
+      "label": "เมื่อข้อมูลมาถึงทีละเหตุการณ์",
+      "file": "chapters/08-streaming-data.md"
+    },
+    {
+      "id": "chapter-09",
+      "number": "09",
+      "eyebrow": "CHAPTER 09 / ROBO TRADE WITH PYTHON",
+      "part": "03 · จากข้อมูลสู่การทำงานของระบบ",
+      "outcome": "อ่านขอบเขต API และทดลองวงจรคำสั่งผ่านตัวเชื่อมจำลองที่ตรวจสอบได้",
+      "duration": "60–75",
+      "meta": [
+        "อ่านและทดลอง 60–75 นาที",
+        "Python Notebook",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-09",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-09.ipynb",
+      "kind": "lesson",
+      "label": "เชื่อมแนวคิดกับ Webull OpenAPI",
+      "file": "chapters/09-webull-integration.md"
+    },
+    {
+      "id": "chapter-10",
+      "number": "10",
+      "eyebrow": "CHAPTER 10 / ROBO TRADE WITH PYTHON",
+      "part": "03 · จากข้อมูลสู่การทำงานของระบบ",
+      "outcome": "กู้สถานะ กระทบยอด ตรวจข้อจำกัด และหยุดระบบเมื่อเงื่อนไขไม่พร้อม",
+      "duration": "75–90",
+      "meta": [
+        "อ่านและทดลอง 75–90 นาที",
+        "Python Notebook",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-10",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-10.ipynb",
+      "kind": "lesson",
+      "label": "ดูแลระบบและรับมือความผิดพลาด",
+      "file": "chapters/10-operations.md"
+    }
+  ]
+}

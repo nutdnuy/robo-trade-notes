@@ -1,0 +1,42 @@
+{
+  "name": "robo-trade-learning",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test tests/*.test.mjs",
+    "check:content": "npm run generate:book && node scripts/check_content.mjs",
+    "prebuild": "npm run generate:book && node scripts/prepare_downloads.mjs && node scripts/check_content.mjs && python3 scripts/package_materials.py",
+    "package:source": "python3 scripts/package_source.py",
+    "generate:book": "node scripts/generate_book.mjs",
+    "check:config": "node scripts/generate_book.mjs --check",
+    "predev": "npm run generate:book",
+    "pretest": "npm run generate:book",
+    "build:pages": "npm run prebuild && node scripts/build_standalone.mjs",
+    "build:standalone": "npm run build:pages",
+    "prepackage:source": "npm run generate:book",
+    "package:website": "python3 scripts/package_website.py",
+    "prepackage:website": "npm run build:pages"
+  },
+  "dependencies": {
+    "@fontsource/noto-sans-thai": "5.2.8",
+    "@fontsource/roboto": "5.2.8",
+    "@fontsource/roboto-mono": "5.2.8",
+    "@tabler/icons-react": "3.34.1",
+    "katex": "0.16.22",
+    "motion": "12.23.12",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "react-markdown": "10.1.0",
+    "rehype-katex": "7.0.1",
+    "remark-gfm": "4.0.1",
+    "remark-math": "6.0.0"
+  },
+  "devDependencies": {
+    "vite": "7.3.6",
+    "yaml": "2.8.1"
+  }
+}

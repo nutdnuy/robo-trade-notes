@@ -1,0 +1,133 @@
+/* Editable reading shell. Learning widgets and chart tokens live in src/styles.css.
+   Original implementation, following the two-column reading pattern requested by Nuth. */
+html{scroll-padding-top:30px}
+body{font-size:17px;line-height:1.85}
+.book-layout{display:grid;grid-template-columns:252px minmax(0,848px);gap:80px;max-width:1336px;margin:0 auto;padding:0 40px}
+.book-sidebar{position:sticky;top:0;bottom:auto;left:auto;width:auto;height:100vh;padding:32px 0 24px;border:0;background:var(--bg);overflow-y:auto;scrollbar-width:thin;z-index:20;display:block;transform:none}
+.cover-link{display:block;margin-bottom:21px}
+.book-cover{display:block;width:100%;height:auto;border-radius:3px;aspect-ratio:1942/809;object-fit:contain;background:#121212}
+.book-name{display:block;color:var(--text);font-size:20px;font-weight:500;line-height:1.5;margin-bottom:24px;letter-spacing:-.3px}
+.book-name span{display:block;font-size:12px;letter-spacing:0;color:var(--muted);margin-top:5px;font-weight:400}
+.search-trigger{height:48px;margin-bottom:24px;padding:10px 12px;font-size:13px;background:var(--code);border-radius:5px}
+.search-trigger kbd{font-size:10px;padding:1px 4px;border:1px solid var(--line);border-radius:3px;background:var(--bg);white-space:nowrap}
+.book-pages{gap:3px}
+.book-link{display:flex;gap:8px;align-items:center;min-height:48px;padding:10px 14px;color:var(--muted);font-size:14px;line-height:1.7;border-radius:5px}
+.book-link>span{flex:1}
+.book-link:hover{color:var(--primary);text-decoration:none;background:var(--code)}
+.book-link.current{color:var(--primary);font-weight:500;background:var(--selected)}
+.sidebar-local-toc{display:block;margin:20px 14px 0;border:0;padding:0}
+.sidebar-local-toc>summary{font-size:12px;min-height:48px;color:var(--muted)}
+.chapter-sections{padding:0}
+.chapter-sections a{display:block;padding:9px 0;font-size:12px;min-height:40px;line-height:1.65}
+.chapter-sections a[aria-current]{color:var(--primary)}
+.book-sidebar-footer{display:flex;flex-direction:column;gap:4px;margin:28px 14px 0;padding-top:18px;border-top:1px solid var(--line)}
+.book-sidebar-footer a,.book-sidebar-footer button{display:flex;align-items:center;gap:8px;min-height:44px;color:var(--muted);font-size:12px;text-align:left;padding:4px 0}
+.book-sidebar-footer a:hover,.book-sidebar-footer button:hover{color:var(--primary)}
+.book-main{max-width:none;width:100%;padding:24px 0 48px;margin:0;min-width:0}
+.page-topline{display:flex;align-items:center;justify-content:space-between;gap:16px;color:var(--muted);font-size:12px;margin-bottom:48px;min-height:48px}
+.page-topline button{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);min-height:48px;padding:8px 0}
+.page-topline button:hover{color:var(--primary)}
+.chapter-hero{padding:0 0 4px}
+.book-main h1{font-size:clamp(36px,3.7vw,48px);line-height:1.45;font-weight:500;letter-spacing:-.025em;margin:0 0 26px;max-width:800px}
+.chapter-lead{font-size:21px;font-weight:400;line-height:1.85;color:var(--muted);margin-bottom:24px}
+.chapter-meta{font-size:12px;gap:10px 20px}
+.chapter-meta span{gap:6px}
+.hero-actions{gap:24px;margin-top:24px;font-size:14px}
+.hero-actions>a{min-height:48px;display:inline-flex;gap:9px;align-items:center}
+.hero-actions>a+a{color:var(--muted)}
+.lesson-section,.welcome-article .lesson-section{padding-top:44px;font-size:17px;line-height:1.9}
+.section-heading h2{font-size:28px;line-height:1.6;letter-spacing:-.02em;font-weight:500;margin:0 0 20px;scroll-margin-top:30px}
+.section-heading h2>a{font-size:16px}
+.lesson-section h3,.markdown h3{font-size:21px;font-weight:500;line-height:1.65}
+.markdown p{margin-bottom:22px}
+.markdown li{padding:3px 0}
+.markdown blockquote{font-size:16px;line-height:1.9;background:var(--code);border:0;padding:24px 28px}
+.markdown table{font-size:14px}
+.markdown th{font-size:12px}
+.code-block pre{font-size:12px;line-height:1.95}
+.code-heading{font-size:11px}
+.welcome-art{margin:0 0 36px;border:0;border-radius:5px}
+.welcome-hero h1{font:500 48px/1.2 Roboto,"Noto Sans Thai",sans-serif;margin-bottom:24px}
+.welcome-hero .chapter-lead{font-size:27px;line-height:1.65;letter-spacing:-.02em;color:var(--text);max-width:780px}
+.welcome-hero .chapter-meta{font-size:12px}
+.curriculum-row{padding:24px 0;gap:18px}
+.curriculum-row h3{font-size:21px!important;font-weight:500}
+.curriculum-row p{font-size:15px;line-height:1.9}
+.curriculum-row>div>span{font-size:12px}
+.curriculum-part{font-size:15px!important;letter-spacing:0}
+.welcome-chapter-number{display:none}
+.chapter-pagination{margin-top:56px;padding:24px 0;gap:24px}
+.page-footer{font-size:12px;line-height:1.8;padding:24px 0 0;gap:14px;flex-wrap:wrap}
+.page-footer>span{font-size:12px}
+.lab{margin:28px 0;border-radius:6px;box-shadow:none!important}
+.lab-header h3{font-size:19px}
+.lab-header .eyebrow{font-size:10px;letter-spacing:1px}
+.lab-header .badge{font-size:11px}
+.lab-controls>label,.chart-legend,.day-scrubber,.lab-explanation{font-size:12px}
+.lab-controls input{min-height:36px}
+.lab-readout span,.lab-explanation span,.lab-footnote{font-size:11px}
+.chart-wrap{padding:14px 16px 0}
+.search-dialog{top:10vh;width:min(660px,calc(100vw - 32px))}
+.search-results>a strong{font-size:16px}
+.search-results>a small{font-size:12px}
+.book-mobile-header{display:none}
+@media(max-width:1100px){
+  .book-layout{grid-template-columns:220px minmax(0,1fr);gap:44px;padding:0 28px}
+  .book-sidebar{padding-top:24px}
+  .book-main{padding-top:20px}
+  .page-topline{margin-bottom:36px}
+  .book-main h1{font-size:38px}
+  .welcome-hero .chapter-lead{font-size:24px}
+}
+@media(max-width:800px){
+  html{scroll-padding-top:86px}
+  .book-layout{display:block;padding:0 24px}
+  .book-mobile-header{display:flex;position:sticky;top:0;z-index:30;align-items:center;justify-content:space-between;gap:16px;padding:8px 20px;background:var(--bg);border-bottom:1px solid var(--line)}
+  .book-mobile-header>a{color:var(--text);font-size:15px;font-weight:500}
+  .book-mobile-header button{display:flex;align-items:center;gap:8px;font-size:13px;min-height:48px;padding:8px 0}
+  .book-sidebar{display:none;position:relative;top:auto;left:auto;bottom:auto;width:100%;height:auto;padding:20px 0;border-bottom:1px solid var(--line);transform:none;overflow:visible;transition:none}
+  .menu-open .book-sidebar{display:block}
+  .book-sidebar .cover-link,.book-sidebar .book-name{display:none}
+  .sidebar-local-toc{display:block;margin-top:16px}
+  .book-sidebar-footer{margin-top:16px}
+  .book-main{padding:28px 0 40px}
+  .page-topline{display:none}
+  .welcome-art{margin:0 0 30px}
+  .book-main h1{font-size:33px;line-height:1.55}
+  .welcome-hero h1{font-size:40px;line-height:1.2}
+  .chapter-lead{font-size:19px;line-height:1.85}
+  .welcome-hero .chapter-lead{font-size:24px;line-height:1.7}
+  .chapter-meta{font-size:11px;gap:8px 14px}
+  .hero-actions{font-size:14px;gap:20px;justify-content:flex-start}
+  .lesson-section,.welcome-article .lesson-section{font-size:16px;line-height:1.95;padding-top:38px}
+  .section-heading h2{font-size:24px;line-height:1.65;scroll-margin-top:88px}
+  .lesson-section h3,.markdown h3{font-size:20px}
+  .markdown blockquote{font-size:15px;padding:20px}
+  .markdown table{font-size:13px}
+  .code-block pre{font-size:11px}
+  .curriculum-row h3{font-size:20px!important}
+  .curriculum-row p{font-size:14px}
+  .lab{margin:24px 0}
+  .lab-header{flex-wrap:wrap;padding:20px 16px}
+  .lab-header h3{font-size:17px}
+  .lab-header .badge{font-size:10px}
+  .lab-controls>label{font-size:11px}
+  .lab-controls input{min-height:40px}
+  .chart-wrap{padding:10px 4px 0}
+  .chart-legend{font-size:10px;line-height:1.7}
+  .day-scrubber{font-size:11px}
+  .lab-explanation{font-size:12px}
+  .lab-footnote{font-size:11px}
+  .search-results>a strong{font-size:14px}
+  .search-results>a small{font-size:11px}
+  .chapter-pagination strong{font-size:14px}
+}
+@media print{
+  .book-layout{display:block;max-width:none;padding:0}
+  .book-mobile-header,.book-sidebar,.page-topline{display:none!important}
+  .book-main{max-width:none;padding:0}
+  .book-main h1{font-size:28pt}
+  .lesson-section,.welcome-article .lesson-section{font-size:11pt;line-height:1.75;padding-top:24px}
+  .section-heading h2{font-size:20pt}
+  .welcome-art{max-width:580px}
+}

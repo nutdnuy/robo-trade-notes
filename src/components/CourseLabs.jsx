@@ -1,0 +1,40 @@
+import React,{useMemo,useState} from 'react';
+import {IconRefresh,IconArrowRight,IconCheck,IconInfoCircle} from '@tabler/icons-react';
+import {runCostExample,drawdownExample,orderExample} from '../lib/course.js';
+import AnimatedList from './reactbits/AnimatedList.jsx';
+const number=n=>n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+function LinePlot({series,labels,title,unit}){
+ const values=series.flatMap(s=>s.values);const min=Math.min(...values),max=Math.max(...values);const pad=Math.max((max-min)*.15,1);const lo=min-pad,hi=max+pad;
+ const x=i=>56+i/(labels.length-1)*580,y=v=>230-(v-lo)/(hi-lo)*190;
+ return <figure className="course-figure"><figcaption>{unit}</figcaption><svg viewBox="0 0 670 280" role="img" aria-label={title}>
+ <title>{title}</title>{[0,1,2,3,4].map(t=>{const value=lo+(hi-lo)*t/4;return <g key={t}><line x1="56" x2="636" y1={y(value)} y2={y(value)} stroke="var(--line)"/><text x="48" y={y(value)+4} textAnchor="end" fill="var(--muted)" fontSize="10">{Math.round(value).toLocaleString('en-US')}</text></g>})}
+ {labels.map((label,i)=><text key={i} x={x(i)} y="257" textAnchor="middle" fill="var(--muted)" fontSize="11">{label}</text>)}
+ {series.map(s=><g key={s.name}><polyline fill="none" points={s.values.map((v,i)=>`${x(i)},${y(v)}`).join(' ')} stroke={s.color} strokeWidth="2.5" strokeDasharray={s.dash||undefined}/>{s.values.map((v,i)=><circle key={i} cx={x(i)} cy={y(v)} r="3" fill={s.color}/>)}</g>)}
+ </svg><div className="course-legend">{series.map(s=><span key={s.name}><i style={{borderTopColor:s.color,borderTopStyle:s.dash?'dashed':'solid'}}/>{s.name}</span>)}</div></figure>;
+}
+export function BacktestLab(){
+ const [bps,setBps]=useState(10);const result=useMemo(()=>runCostExample(bps),[bps]);
+ return <div className="lab course-lab"><div className="lab-header"><div><span className="eyebrow">COST EXPERIMENT</span><h3>สัญญาณเดิม ต้นทุนต่างกัน</h3></div><span className="badge">ข้อมูลจำลอง 8 แท่ง</span></div>
+ <p className="course-intro">SMA 2/3 · ซื้อที่ open แท่ง 4 ราคา 102 · ขายที่ open แท่ง 7 ราคา 99 · เงินเริ่มต้น 10,000 USD</p>
+ <div className="course-controls"><label>ต้นทุนต่อข้าง <strong>{bps} bps = {(bps/100).toFixed(2)}%</strong><input aria-label="ต้นทุนต่อข้างเป็น bps" type="range" min="0" max="100" step="5" value={bps} onChange={e=>setBps(+e.target.value)}/></label><button className="icon-btn" aria-label="คืนค่าต้นทุน 10 bps" onClick={()=>setBps(10)}><IconRefresh size={20}/></button></div>
+ <LinePlot title="มูลค่าพอร์ต ณ open แต่ละแท่ง ก่อนและหลังต้นทุน" unit="มูลค่าพอร์ต ณ open (USD) · แกนนอน: ลำดับแท่ง" labels={result.rows.map(r=>r.bar)} series={[{name:'ก่อนต้นทุน',values:result.rows.map(r=>r.gross),color:'var(--secondary-text)',dash:'6 4'},{name:'หลังต้นทุน',values:result.rows.map(r=>r.net),color:'var(--primary)'}]}/>
+ <div className="course-metrics" aria-live="polite"><div><span>พอร์ตหลังต้นทุน</span><strong>{number(result.final)} <small>USD</small></strong></div><div><span>ส่วนต่างจากก่อนต้นทุน</span><strong>{number(result.gross-result.final)} <small>USD</small></strong></div><div><span>ซื้อถือช่วงเดียวกัน</span><strong>{number(result.benchmark)} <small>USD</small></strong></div></div>
+ <details className="data-details"><summary>ตรวจค่าทุกแท่ง</summary><div className="table-scroll"><table><thead><tr><th>แท่ง</th><th>ก่อนต้นทุน</th><th>หลังต้นทุน (USD)</th></tr></thead><tbody>{result.rows.map(r=><tr key={r.bar}><td>{r.bar}</td><td>{number(r.gross)}</td><td>{number(r.net)}</td></tr>)}</tbody></table></div></details>
+ <div className="lab-footnote">ใช้หุ้นเศษส่วน ลงทุนเงินสดทั้งหมดตอนเข้า ไม่ปรับน้ำหนักระหว่างถือ ต้นทุนคิดจากมูลค่าซื้อขาย เกณฑ์ซื้อถือเริ่ม open แท่ง 4 และขาย open แท่ง 8 ตามช่วงประเมินเดียวกัน ไม่มีดอกเบี้ย ภาษี หรือสภาพคล่อง แบบจำลองนี้ใช้สอนบัญชีพอร์ต ไม่ใช่ผลตลาดจริง</div></div>;
+}
+export function DrawdownLab(){
+ const [loss,setLoss]=useState(25),[recovery,setRecovery]=useState(20);const result=drawdownExample(loss,recovery);
+ return <div className="lab course-lab"><div className="lab-header"><div><span className="eyebrow">DRAWDOWN EXPERIMENT</span><h3>ลงเท่าไร ต้องขึ้นเท่าไรจึงกลับถึงยอดเดิม</h3></div></div><p className="course-intro">ตัวอย่างแยกจากผลใน Notebook: ดัชนีมูลค่าพอร์ตเริ่ม 100 ขึ้นถึง 120 แล้วขาดทุนและฟื้นตัวตามค่าที่ปรับ</p><div className="course-controls two-controls"><label>ลดลงจากยอด <strong>{loss}%</strong><input type="range" aria-label="ลดลงจากยอดเป็นเปอร์เซ็นต์" min="5" max="75" step="5" value={loss} onChange={e=>setLoss(+e.target.value)}/></label><label>ฟื้นจากจุดต่ำ <strong>{recovery}%</strong><input type="range" aria-label="ฟื้นจากจุดต่ำเป็นเปอร์เซ็นต์" min="0" max="100" step="5" value={recovery} onChange={e=>setRecovery(+e.target.value)}/></label></div>
+ <LinePlot title="เส้นทางมูลค่าพอร์ตสมมติ 4 จุด" unit="ดัชนีมูลค่าพอร์ต (เริ่ม 100)" labels={['เริ่ม','ยอดเดิม','ลดลง','ฟื้นตัว']} series={[{name:'พอร์ตสมมติ',values:result.wealth,color:'var(--primary)'},{name:'ยอดเดิม 120',values:[120,120,120,120],color:'var(--secondary-text)',dash:'6 4'}]}/>
+ <div className="course-metrics" aria-live="polite"><div><span>Maximum drawdown</span><strong>{number(result.maxDrawdown*100)}%</strong></div><div><span>กำไรที่ต้องได้จากจุดต่ำ</span><strong>{number(result.requiredRecovery)}%</strong></div><div><span>มูลค่าหลังฟื้นตัว</span><strong>{number(result.wealth.at(-1))}</strong></div></div><div className="lab-footnote">เปอร์เซ็นต์ขาลงเทียบยอดเดิม แต่เปอร์เซ็นต์ฟื้นตัวเทียบฐานที่ต่ำลง จึงใช้ตัวหารต่างกัน Maximum drawdown วัดจากเส้นทางทั้งหมด ไม่หายไปเมื่อพอร์ตฟื้น และไม่ปรับเป็นรายปี</div></div>;
+}
+const fills=[{id:'fill-001',quantity:4,price:99.90,fee:.40},{id:'fill-002',quantity:6,price:100.00,fee:.60}];
+export function ExecutionLab(){
+ const [events,setEvents]=useState([]),[notice,setNotice]=useState('');const state=orderExample(events);
+ const apply=(event,label)=>{setEvents([...events,event]);setNotice(label);};
+ return <div className="lab course-lab"><div className="lab-header"><div><span className="eyebrow">MOCK EXECUTION</span><h3>หนึ่งคำสั่ง อาจได้รับหลายเหตุการณ์</h3></div><span className="badge">OFFLINE MOCK</span></div><p className="course-intro">ซื้อ 10 หุ้น · เงินเริ่มต้น 2,000 USD · fill แรก 99.90 USD / fill ที่สอง 100 USD · ค่าธรรมเนียมสมมติ 0.10 USD ต่อหุ้น · รหัส fill ใช้ระบุเหตุการณ์ที่ประมวลผลแล้ว ตัวอย่างนี้แสดงแนวคิด ไม่ใช่หน้าจอบัญชี Webull</p>
+ <div className="execution-actions"><button className="button secondary" disabled={state.quantity>0} onClick={()=>apply(fills[0],'รับ fill แรก 4 หุ้นแล้ว')}>รับ fill 4 หุ้น<IconArrowRight size={16}/></button><button className="button secondary" disabled={!state.quantity} onClick={()=>apply(fills[0],'ได้รับ fill-001 ซ้ำ: ยอดคงเดิม')}>ส่งเหตุการณ์เดิมซ้ำ</button><button className="button secondary" disabled={state.quantity!==4} onClick={()=>apply(fills[1],'รับ fill ที่สอง 6 หุ้น ครบคำสั่งแล้ว')}>รับ fill อีก 6 หุ้น</button><button className="icon-btn" aria-label="เริ่มจำลองคำสั่งใหม่" onClick={()=>{setEvents([]);setNotice('เริ่มตัวอย่างใหม่แล้ว');}}><IconRefresh size={20}/></button></div>
+ <div className="course-metrics" aria-live="polite"><div><span>เงินสด</span><strong>{number(state.cash)} <small>USD</small></strong></div><div><span>หุ้นที่ได้รับ</span><strong>{state.quantity} / 10</strong></div><div><span>สถานะคำสั่งจำลอง</span><strong className="order-state">{state.state}</strong></div></div><p role="status" className="course-status">{notice||'เริ่มจากรับ fill แรก แล้วลองส่งเหตุการณ์เดิมซ้ำ'}</p>
+ <AnimatedList label="บันทึกเหตุการณ์จำลอง" items={state.audit} className="execution-log" renderItem={(event,i)=><div className="execution-event" key={i}><IconCheck size={16}/><span><code>{event.id}</code> · {event.status==='duplicate'?'ข้ามเหตุการณ์ซ้ำ':'บันทึก '+event.fillQuantity+' หุ้น'}<small>หุ้นรวม {event.quantity} · เงินสด {number(event.cash)} USD</small></span></div>}/>
+ <div className="lab-footnote">ตัวอย่างเก็บรหัสที่เห็นในหน่วยความจำเพื่ออธิบายการป้องกันการนับซ้ำ ระบบจริงต้องบันทึกอย่างทนทานและกระทบยอดหลังเริ่มใหม่ นโยบายค่าธรรมเนียมในตัวอย่างเป็นค่าที่สมมติขึ้น</div></div>;
+}

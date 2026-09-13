@@ -4,6 +4,7 @@
  * runs first. `_site` is generated output; edit Markdown, YAML, and CSS sources.
  */
 import {build} from 'vite';
+import {createHash} from 'node:crypto';
 import {mkdtemp, readFile, writeFile, mkdir, readdir, cp, rm, stat} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
@@ -138,9 +139,20 @@ export async function buildStandalone() {
     if (chunks.length!==1 || chunks[0].imports.length || chunks[0].dynamicImports.length || styles.length===0) {
       throw new Error('Offline build must contain one self-contained script and local CSS');
     }
+    // Content-based names prevent browsers from reusing the previous lesson bundle.
+    const versionedFiles=new Map();
+    for (const file of [chunks[0].fileName,...styles]) {
+      const bytes=await readFile(path.join(staging,file));
+      const digest=createHash('sha256').update(bytes).digest('hex').slice(0,12);
+      const extension=path.extname(file);
+      const versioned=file.slice(0,-extension.length)+'.'+digest+extension;
+      await writeFile(path.join(staging,versioned),bytes);
+      await rm(path.join(staging,file));
+      versionedFiles.set(file,versioned);
+    }
     await cp(path.join(projectRoot,'public'),staging,{recursive:true,filter:source=>path.basename(source)!=='.DS_Store'});
     for (const page of pages) {
-      await writeFile(path.join(staging,htmlFilename(page.id)),makeStandaloneHtml(page,book,chunks[0].fileName,styles));
+      await writeFile(path.join(staging,htmlFilename(page.id)),makeStandaloneHtml(page,book,versionedFiles.get(chunks[0].fileName),styles.map(file=>versionedFiles.get(file))));
     }
     const verification=await verifyStandalone(staging,pages);
     const generatedFiles=await filesBelow(staging);

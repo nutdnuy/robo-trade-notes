@@ -23,6 +23,7 @@ export function htmlFilename(pageId) {
 }
 
 export function makeStandaloneHtml(page, book, jsFile, cssFiles) {
+  if(page.kind!=='welcome') return '<!doctype html>\n<html lang="th" data-theme="light" data-standalone="true"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Robo Trade Notes</title></head><body></body></html>\n';
   const label=page.kind==='welcome'?'Welcome':'บทที่ '+page.number;
   const title=label+' · '+page.title+' | '+book.title;
   const styles=cssFiles.map(file=>`<link rel="stylesheet" href="${escapeHtml(file)}"/>`).join('\n');
@@ -40,7 +41,7 @@ ${styles}
 </head>
 <body>
 <div id="root"></div>
-<noscript><main><h1>${escapeHtml(page.title)}</h1><p>เปิด JavaScript เพื่ออ่านหนังสือพร้อมห้องทดลอง หรือเปิดต้นฉบับ Markdown ด้านล่าง</p><a href="${escapeHtml(source)}">อ่านต้นฉบับบทนี้</a></main></noscript>
+<noscript><main><h1>${escapeHtml(page.title)}</h1><p>เปิด JavaScript เพื่ออ่านหน้า Welcome</p></main></noscript>
 <script defer src="${escapeHtml(jsFile)}"></script>
 </body>
 </html>
@@ -150,7 +151,7 @@ export async function buildStandalone() {
       await rm(path.join(staging,file));
       versionedFiles.set(file,versioned);
     }
-    await cp(path.join(projectRoot,'public'),staging,{recursive:true,filter:source=>path.basename(source)!=='.DS_Store'});
+    await cp(path.join(projectRoot,'public'),staging,{recursive:true,filter:source=>!['.DS_Store','downloads'].includes(path.basename(source))});
     for (const page of pages) {
       await writeFile(path.join(staging,htmlFilename(page.id)),makeStandaloneHtml(page,book,versionedFiles.get(chunks[0].fileName),styles.map(file=>versionedFiles.get(file))));
     }

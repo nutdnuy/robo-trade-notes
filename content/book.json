@@ -3,7 +3,7 @@
   "subtitle": "Python · Webull OpenAPI",
   "language": "ภาษาไทย",
   "description": "จากแนวคิด สู่ระบบจำลองที่ตรวจสอบได้",
-  "edition": "ฉบับครบเล่ม · กันยายน 2026",
+  "edition": "Welcome · กันยายน 2026",
   "apiDocs": "https://developer.webull.co.th/apis/docs/",
   "defaultTheme": "light",
   "pages": [
@@ -13,14 +13,8 @@
       "heroImage": "images/robo-trade-welcome.png",
       "heroAlt": "ประติมากรรมวงริบบิ้นโลหะและกระจกเหนือแท่นทดลองในห้องวิจัย แทนแนวคิดการเรียนรู้อย่างเป็นระบบ",
       "meta": [
-        "10 บทเรียนภาษาไทย",
-        "10 Python Notebooks",
         "Python + Webull OpenAPI"
       ],
-      "primaryLabel": "เริ่มเรียนบทที่ 01",
-      "primaryHref": "#/chapter-01",
-      "secondaryLabel": "ดูสารบัญทั้งเล่ม",
-      "secondaryHref": "#/welcome/start",
       "kind": "welcome",
       "label": "Welcome",
       "file": "intro.md"

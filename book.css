@@ -50,6 +50,11 @@ body{font-size:17px;line-height:1.85}
 .welcome-hero h1{font:500 48px/1.2 Roboto,"Noto Sans Thai",sans-serif;margin-bottom:24px}
 .welcome-hero .chapter-lead{font-size:27px;line-height:1.65;letter-spacing:-.02em;color:var(--text);max-width:780px}
 .welcome-hero .chapter-meta{font-size:12px}
+.welcome-setup-links{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 24px;font-size:14px}
+.welcome-setup-links a{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:10px 20px;border:1px solid var(--primary);border-radius:5px;line-height:1.65}
+.welcome-setup-links a:first-child{background:var(--primary);color:var(--on-primary)}
+.welcome-setup-links a:hover{text-decoration:underline;text-underline-offset:4px}
+.welcome-setup-links a:focus-visible{outline:3px solid var(--primary);outline-offset:4px}
 .curriculum-row{padding:24px 0;gap:18px}
 .curriculum-row h3{font-size:21px!important;font-weight:500}
 .curriculum-row p{font-size:15px;line-height:1.9}

@@ -95,6 +95,7 @@ export default function App(){
         {page.heroImage&&<figure className="welcome-art"><img src={assetUrl(page.heroImage)} alt={page.heroAlt||''} width="1942" height="809" fetchPriority="high"/></figure>}
         <section className={'chapter-hero '+(isWelcome?'welcome-hero':'')} id="page-top">
           <h1>{page.title}</h1>
+          {isWelcome&&<nav className="welcome-setup-links" aria-label="เปิดบัญชีและเตรียม API Key"><a href="https://www.webull.co.th/k/QuantCorner" target="_blank" rel="noreferrer">เปิดบัญชี Webull ผ่าน QuantCorner <IconArrowRight size={17}/></a><a href={pageHref('welcome','webull-start')}>วิธีขอ API Key</a></nav>}
           <div className="chapter-lead"><BookMarkdown source={page.intro} pageId={page.id}/></div>
           <div className="chapter-meta">{page.meta?.map((m,i)=><span key={m}>{i===0?<IconSchool size={17}/>:i===1?<IconCode size={17}/>:<IconBook2 size={17}/>} {m}</span>)}</div>
           <div className="hero-actions">{page.primaryHref&&<a href={page.primaryHref==='#/'+page.id?pageHref(page.id,page.sections[0]?.id):configuredHref(page.primaryHref)}>{page.primaryLabel} <IconArrowRight size={17}/></a>}{page.secondaryHref&&<a href={configuredHref(page.secondaryHref)} download={page.secondaryHref?.endsWith('.ipynb')||undefined}>{page.secondaryLabel}</a>}</div>

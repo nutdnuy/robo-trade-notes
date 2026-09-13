@@ -6,9 +6,23 @@
 
 **[เปิดบัญชี Webull ผ่านลิงก์ QuantCorner →](https://www.webull.co.th/k/QuantCorner)**
 
-สำหรับผู้ที่ต้องการเตรียมบัญชีไว้ทดลองเชื่อมต่อในขั้นถัดไป ใช้ลิงก์แนะนำของ QuantCorner ด้านบน แล้วทำขั้นตอนเปิดบัญชีตามที่ Webull กำหนด ผู้ที่มีบัญชีแล้วไปอ่าน **[วิธีสมัคร OpenAPI และสร้าง API Key ทีละขั้น](#/chapter-09/api-key)** ได้เลย
+ใช้ลิงก์แนะนำของ QuantCorner ด้านบน แล้วทำขั้นตอนเปิดบัญชีและยืนยันตัวตนบน Webull ตามเงื่อนไขที่แสดง ผู้ที่มีบัญชีอยู่แล้วเริ่มจากการเข้าสู่ระบบได้เลย
 
 การเปิดบัญชีและการอนุมัติ OpenAPI เป็นคนละขั้นตอน ส่วนบทเรียนและห้องทดลองจำลองในเว็บนี้เริ่มเรียนได้โดยไม่ต้องมีบัญชี
+
+### ขอ API Key ใน 5 ขั้นตอน
+
+1. **เตรียมบัญชีและเข้าสู่ระบบ** เปิดบัญชีให้เรียบร้อย จากนั้นเข้า [เว็บไซต์ Webull Thailand](https://www.webull.co.th/) แล้วเลือก **Developer Tool** จากเมนูบัญชี
+2. **สมัครสิทธิ์ OpenAPI** เข้า **API Management → My Application** กรอกข้อมูลและส่งคำขอ
+3. **รอผลอนุมัติ** ตรวจสถานะใน **My Application** และอีเมล เมื่อ Webull อนุมัติแล้วจึงไปขั้นถัดไป
+4. **ลงทะเบียนแอป** เข้า **API Management → API Keys Management** แล้วตั้งชื่อแอปสำหรับงานของคุณ
+5. **สร้างและเก็บ Key** เลือก **Generate Key** และยืนยันตัวตนบน Webull ด้วยตนเอง จากนั้นเก็บ **App Key / App Secret** ในที่ปลอดภัย หลีกเลี่ยงการใส่ค่าจริงใน GitHub หรือ Notebook ที่แชร์
+
+**[ดูวิธีขอ API Key แบบละเอียดในบทที่ 09 →](#/chapter-09/api-key)**
+
+เว็บไซต์นี้ไม่รับ Key, Secret หรือ OTP ส่วนสิทธิ์ข้อมูลตลาดสำหรับ OpenAPI ต้องตรวจแยกจากการสมัครข้อมูลผ่านแอป Webull ตาม [Market Data API FAQ](https://developer.webull.co.th/apis/docs/market-data-api/faq/)
+
+อ้างอิง [คู่มือ Webull Thailand: Individual Application Process](https://developer.webull.co.th/apis/docs/authentication/individual-application/) — ตรวจเอกสารวันที่ 13 กันยายน 2026 ชื่อเมนูและหน้าจอจริงอาจต่างจากคู่มือ
 
 ## เปลี่ยนความสงสัยให้เป็นสิ่งที่ทดสอบได้ {#welcome}
 
@@ -56,6 +70,6 @@ Notebook ทุกบทมีข้อมูลอยู่ในตัวห�
 
 เนื้อหาภาษาไทยและตัวอย่างโค้ดเขียนขึ้นใหม่ โดยใช้ [Python for Algorithmic Trading ของ Yves Hilpisch](https://github.com/yhilpisch/py4at) เป็นกรอบแนวคิดด้าน Python การทดสอบ และระบบซื้อขาย ตำแหน่งบทและหน้าที่ตรวจประกอบระบุไว้ท้ายแต่ละบท หนังสือเดิมใช้ Oanda และ FXCM เป็นตัวอย่าง ส่วน Webull เป็นการประยุกต์สำหรับบทเรียนชุดนี้
 
-ข้อเท็จจริงเรื่อง Webull ตรวจจาก [เอกสาร Webull Thailand](https://developer.webull.co.th/apis/docs/webull-open-api-reference/) พร้อมบอกขอบเขตและช่องว่างที่ยังต้องตรวจในบริบทบัญชีของผู้ใช้ วันที่ตรวจแหล่งข้อมูลสำหรับฉบับนี้คือ 11 กันยายน 2026
+ข้อเท็จจริงเรื่อง Webull ตรวจจาก [เอกสาร Webull Thailand](https://developer.webull.co.th/apis/docs/webull-open-api-reference/) พร้อมบอกขอบเขตและช่องว่างที่ยังต้องตรวจในบริบทบัญชีของผู้ใช้ วันที่ตรวจแหล่งข้อมูลระบุไว้ในแต่ละบทและแต่ละคู่มือ
 
 รูปแบบเว็บอ่านหนังสือ สมการ กราฟทดลอง และการแยกไฟล์ได้รับแรงบันดาลใจจาก [Quantitative Finance Notes ของ Nuth](https://github.com/nutdnuy/quantitative-finance-notes) และ [Understanding Quantitative Finance ของ QuantGirl](https://github.com/quantgirluk/Understanding-Quantitative-Finance) เว็บนี้ใช้ React และ Markdown เป็นตัวสร้าง ไม่ใช่ Jupyter Book

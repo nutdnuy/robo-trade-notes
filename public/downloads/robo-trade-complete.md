@@ -2076,14 +2076,3 @@ Notebook มี 5 ตัวอย่าง: เลือก host อ่านส
 ## ทบทวนความเข้าใจ {#quiz}
 
 ::: quiz
-
-## แหล่งข้อมูลและเครดิตภาพ {#references}
-
-1. ภาพขั้นตอน 1–10: [Nonthawat Laonan ใน Webull API Builders Club](https://www.facebook.com/groups/27377504935217042/permalink/27627684326865767/) โพสต์วันที่ 3 กรกฎาคม 2026 ([ลิงก์แชร์โพสต์](https://www.facebook.com/share/p/1F4FzavWPj/)) ตัดเฉพาะส่วนจากภาพคู่มือ “3 ขั้นตอน เริ่มต้นใช้ Webull Open API” จำนวน 4 ภาพ ภาพและเครื่องหมายการค้าคงสิทธิ์ของเจ้าของต้นฉบับ ชื่อเมนูและเงื่อนไขในภาพอาจเปลี่ยนตามบริการ
-2. ขั้นตอนสมัคร ติดตั้ง SDK และเลือก environment: Webull Thailand, [Individual Application Process](https://developer.webull.co.th/apis/docs/authentication/individual-application/), [Getting Started](https://developer.webull.co.th/apis/docs/getting-started/) และ [SDKs and Tools](https://developer.webull.co.th/apis/docs/sdk/)
-3. การเซ็นคำขอและยืนยัน Token: Webull Thailand, [Authentication Overview](https://developer.webull.co.th/apis/docs/authentication/overview/) และ [Token](https://developer.webull.co.th/apis/docs/authentication/token/)
-4. สิทธิ์และการเรียกข้อมูลตลาด: Webull Thailand, [Subscribe Advanced Quotes](https://developer.webull.co.th/apis/docs/market-data-api/subscribe-quotes/), [Market Data FAQ](https://developer.webull.co.th/apis/docs/market-data-api/faq/) และ [Market Data Getting Started](https://developer.webull.co.th/apis/docs/market-data-api/getting-started/)
-
-ตรวจเอกสารวันที่ 23 กันยายน 2026 ตัวอย่าง SDK ตรวจรูปแบบกับเอกสารแล้ว แต่ยังไม่ได้ทดสอบด้วยบัญชี Webull จริง ส่วน Notebook รันด้วยข้อมูลสมมติแบบออฟไลน์
-
-ภาพคำคมเปิดบทสร้างด้วย AI สำหรับ Robo Trade Notes พร้อมข้อความที่เขียนขึ้นสำหรับบทนี้: “เข้าใจก่อนเขียนโค้ด ทดสอบก่อนเทรดจริง”

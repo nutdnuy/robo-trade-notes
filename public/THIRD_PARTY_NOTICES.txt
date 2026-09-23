@@ -491,3 +491,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Webull OpenAPI setup chapter (added 2026-09-23)
+---------------------------------------------
+Ten cropped excerpts in images/webull-openapi-setup/ come from four images in
+Nonthawat Laonan's 2026-07-03 Webull API Builders Club post:
+https://www.facebook.com/groups/27377504935217042/permalink/27627684326865767/
+The source photographs/screenshots and trademarks remain the property of their
+respective owners. No open-source license is asserted for these images.
+The excerpts accompany original explanation and attribution in chapter-11.
+Existing redactions were retained; the credential example panel was excluded.
+Source-photo links, crop coordinates and SHA-256 hashes are recorded in
+references/webull-openapi-setup-images.json in the source repository.

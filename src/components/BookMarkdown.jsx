@@ -8,7 +8,7 @@ import {CodeBlock} from './LessonWidgets.jsx';
 import {assetUrl,splitWidgets} from '../lib/book.js';
 import {pageHref} from '../lib/navigation.js';
 
-export default function BookMarkdown({source,pageId,widgets={}}){
+export default function BookMarkdown({source,pageId,widgets={},imageDimensions={}}){
   const components={
     a:({href='',children})=>{
       const [linkedPage,linkedSection]=href.replace(/^#\//,'').split('/');
@@ -16,7 +16,7 @@ export default function BookMarkdown({source,pageId,widgets={}}){
       const external=/^https?:/.test(url);
       return <a href={url} {...(external?{target:'_blank',rel:'noreferrer'}:{})}>{children}</a>;
     },
-    img:({src,alt})=><img className="content-image" src={assetUrl(src||'')} alt={alt||''} loading="lazy"/>,
+    img:({src,alt})=><img className="content-image" src={assetUrl(src||'')} alt={alt||''} loading="lazy" width={imageDimensions[src]?.[0]} height={imageDimensions[src]?.[1]}/>,
     table:({children})=><div className="table-scroll"><table>{children}</table></div>,
     pre:({children})=>{
       const child=React.Children.toArray(children)[0];

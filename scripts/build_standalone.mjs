@@ -10,6 +10,7 @@ import {tmpdir} from 'node:os';
 import path from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 import {parsePage} from '../src/lib/book.js';
+import {isPublishedPage} from '../src/lib/publishing.js';
 
 const projectRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -23,11 +24,10 @@ export function htmlFilename(pageId) {
 }
 
 export function makeStandaloneHtml(page, book, jsFile, cssFiles) {
-  if(page.kind!=='welcome') return '<!doctype html>\n<html lang="th" data-theme="light" data-standalone="true"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Robo Trade Notes</title></head><body></body></html>\n';
+  if(!isPublishedPage(page.id)) return '<!doctype html>\n<html lang="th" data-theme="light" data-standalone="true"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Robo Trade Notes</title></head><body></body></html>\n';
   const label=page.kind==='welcome'?'Welcome':'บทที่ '+page.number;
   const title=label+' · '+page.title+' | '+book.title;
   const styles=cssFiles.map(file=>`<link rel="stylesheet" href="${escapeHtml(file)}"/>`).join('\n');
-  const source='downloads/content/'+page.file;
   return `<!doctype html>
 <html lang="th" data-theme="light" data-standalone="true">
 <head>
@@ -41,7 +41,7 @@ ${styles}
 </head>
 <body>
 <div id="root"></div>
-<noscript><main><h1>${escapeHtml(page.title)}</h1><p>เปิด JavaScript เพื่ออ่านหน้า Welcome</p></main></noscript>
+<noscript><main><h1>${escapeHtml(page.title)}</h1><p>เปิด JavaScript เพื่ออ่านบทเรียน</p></main></noscript>
 <script defer src="${escapeHtml(jsFile)}"></script>
 </body>
 </html>
@@ -152,6 +152,16 @@ export async function buildStandalone() {
       versionedFiles.set(file,versioned);
     }
     await cp(path.join(projectRoot,'public'),staging,{recursive:true,filter:source=>!['.DS_Store','downloads'].includes(path.basename(source))});
+    // Export only active pages and their examples, never the archived course bundle.
+    for(const page of pages.filter(page=>isPublishedPage(page.id))) {
+      const files=['content/'+page.file];
+      if(page.kind==='lesson') files.push('robo-trade-'+page.number+'.ipynb','lesson_'+page.number+'.py');
+      for(const file of files) {
+        const target=path.join(staging,'downloads',file);
+        await mkdir(path.dirname(target),{recursive:true});
+        await cp(path.join(projectRoot,'public/downloads',file),target);
+      }
+    }
     for (const page of pages) {
       await writeFile(path.join(staging,htmlFilename(page.id)),makeStandaloneHtml(page,book,versionedFiles.get(chunks[0].fileName),styles.map(file=>versionedFiles.get(file))));
     }

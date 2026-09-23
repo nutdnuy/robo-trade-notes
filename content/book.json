@@ -218,6 +218,26 @@
       "kind": "lesson",
       "label": "ดูแลระบบและรับมือความผิดพลาด",
       "file": "chapters/10-operations.md"
+    },
+    {
+      "id": "chapter-11",
+      "number": "11",
+      "eyebrow": "WEBULL OPENAPI / คู่มือภาพ",
+      "part": "เริ่มต้นใช้งาน",
+      "outcome": "สมัคร OpenAPI สร้าง Key ตรวจสิทธิ์ข้อมูล และอ่านคำตอบ API ทีละขั้น",
+      "duration": 45,
+      "meta": [
+        "อ่านและทดลอง 45 นาที",
+        "ภาพประกอบ 10 ภาพ",
+        "Notebook ออฟไลน์"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-11",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-11.ipynb",
+      "kind": "lesson",
+      "label": "เริ่มต้นใช้ Webull OpenAPI ทีละขั้น",
+      "file": "chapters/11-webull-openapi-setup.md"
     }
   ]
 }

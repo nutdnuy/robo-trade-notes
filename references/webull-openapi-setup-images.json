@@ -1,0 +1,209 @@
+{
+  "retrieved": "2026-09-23",
+  "post": "https://www.facebook.com/share/p/1F4FzavWPj/",
+  "creator": "Nonthawat Laonan / Webull API Builders Club",
+  "method": "Cropped original post images; JPEG encoding only. No generated or reconstructed UI. Existing source redactions retained. Credential example block excluded.",
+  "rights": "Source screenshots retain their original rights; no open license asserted. Used as attributed excerpts for this commissioned explanatory chapter.",
+  "images": [
+    {
+      "file": "images/webull-openapi-setup/01-developer-tool.jpg",
+      "sourcePhoto": "https://www.facebook.com/photo/?fbid=2542119646218237&set=pcb.27627684326865767",
+      "sourceSize": [
+        1920,
+        1920
+      ],
+      "cropBoxPixels": [
+        36,
+        492,
+        968,
+        958
+      ],
+      "size": [
+        932,
+        466
+      ],
+      "sourceSha256": "a5523534d78766a4311ac1edf2adafa16efff3489dc7aba2ed017f4779ea8f7f",
+      "sha256": "96cabbe567c4af88b769b03ceb8c10081e79842978f729dfe60c2764c48ec6f0"
+    },
+    {
+      "file": "images/webull-openapi-setup/02-apply-for-api.jpg",
+      "sourcePhoto": "https://www.facebook.com/photo/?fbid=2542119646218237&set=pcb.27627684326865767",
+      "sourceSize": [
+        1920,
+        1920
+      ],
+      "cropBoxPixels": [
+        36,
+        1014,
+        940,
+        1474
+      ],
+      "size": [
+        904,
+        460
+      ],
+      "sourceSha256": "a5523534d78766a4311ac1edf2adafa16efff3489dc7aba2ed017f4779ea8f7f",
+      "sha256": "4703985d768459fa8254e9eafc1b934faf91e2831179b75022f6c1c81d0d8863"
+    },
+    {
+      "file": "images/webull-openapi-setup/03-register-app.jpg",
+      "sourcePhoto": "https://www.facebook.com/photo/?fbid=2542119646218237&set=pcb.27627684326865767",
+      "sourceSize": [
+        1920,
+        1920
+      ],
+      "cropBoxPixels": [
+        974,
+        499,
+        1886,
+        954
+      ],
+      "size": [
+        912,
+        455
+      ],
+      "sourceSha256": "a5523534d78766a4311ac1edf2adafa16efff3489dc7aba2ed017f4779ea8f7f",
+      "sha256": "b05190327fd1538e3544087da0cfb6e15796b642bc2e78aaa18d8b0d713224d3"
+    },
+    {
+      "file": "images/webull-openapi-setup/04-generate-key.jpg",
+      "sourcePhoto": "https://www.facebook.com/photo/?fbid=2542119646218237&set=pcb.27627684326865767",
+      "sourceSize": [
+        1920,
+        1920
+      ],
+      "cropBoxPixels": [
+        958,
+        1016,
+        1846,
+        1469
+      ],
+      "size": [
+        888,
+        453
+      ],
+      "sourceSha256": "a5523534d78766a4311ac1edf2adafa16efff3489dc7aba2ed017f4779ea8f7f",
+      "sha256": "7d5a4764e04fa76f5e11fdbd3b05b690e62ff7f838adf9deb3fe0b3d1b8dc3f8"
+    },
+    {
+      "file": "images/webull-openapi-setup/05-market-data-link.jpg",
+      "sourcePhoto": "https://www.facebook.com/photo/?fbid=2542119636218238&set=pcb.27627684326865767",
+      "sourceSize": [
+        1920,
+        1920
+      ],
+      "cropBoxPixels": [
+        55,
+        660,
+        965,
+        1354
+      ],
+      "size": [
+        910,
+        694
+      ],
+      "sourceSha256": "75f9d5c97c50a810683097e9096c3ac660053784ca150fcfc97e293b66765885",
+      "sha256": "bc7ebf585694aa158e808c989b997635da0178bd524346158e9871bcecee7458"
+    },
+    {
+      "file": "images/webull-openapi-setup/06-openapi-quotes.jpg",
+      "sourcePhoto": "https://www.facebook.com/photo/?fbid=2542119636218238&set=pcb.27627684326865767",
+      "sourceSize": [
+        1920,
+        1920
+      ],
+      "cropBoxPixels": [
+        991,
+        660,
+        1854,
+        1354
+      ],
+      "size": [
+        863,
+        694
+      ],
+      "sourceSha256": "75f9d5c97c50a810683097e9096c3ac660053784ca150fcfc97e293b66765885",
+      "sha256": "af0a409b2cf994bd01fb151115b7445dd52858eb0797e779ee2cefd89a3d7656"
+    },
+    {
+      "file": "images/webull-openapi-setup/07-install-sdk.jpg",
+      "sourcePhoto": "https://www.facebook.com/photo/?fbid=2542119739551561&set=pcb.27627684326865767",
+      "sourceSize": [
+        1920,
+        1920
+      ],
+      "cropBoxPixels": [
+        34,
+        602,
+        994,
+        823
+      ],
+      "size": [
+        960,
+        221
+      ],
+      "sourceSha256": "d467049f1fb55c9efacb0ab41ac094c31691fa1888e53fce14d07459ce03db83",
+      "sha256": "46042eb869554405cd61f8a522b40d908cce1f559c981ad18a02178aac2af700"
+    },
+    {
+      "file": "images/webull-openapi-setup/08-verify-in-app.jpg",
+      "sourcePhoto": "https://www.facebook.com/photo/?fbid=2542119739551561&set=pcb.27627684326865767",
+      "sourceSize": [
+        1920,
+        1920
+      ],
+      "cropBoxPixels": [
+        1012,
+        596,
+        1895,
+        1188
+      ],
+      "size": [
+        883,
+        592
+      ],
+      "sourceSha256": "d467049f1fb55c9efacb0ab41ac094c31691fa1888e53fce14d07459ce03db83",
+      "sha256": "8085d10fd9e217ebbabe96b5666c2792ff0213b6bac8879274f2f1e3d09221c3"
+    },
+    {
+      "file": "images/webull-openapi-setup/09-snapshot-response.jpg",
+      "sourcePhoto": "https://www.facebook.com/photo/?fbid=2542119776218224&set=pcb.27627684326865767",
+      "sourceSize": [
+        1920,
+        1920
+      ],
+      "cropBoxPixels": [
+        262,
+        396,
+        875,
+        1692
+      ],
+      "size": [
+        613,
+        1296
+      ],
+      "sourceSha256": "b930aeca917b5624fa47f39913d344f022407492cfaf8d320cbd669f9c1ad032",
+      "sha256": "67d7de9c94792f3b5f4ea280dfe08a61ccc762767cb274b0654cf4779ceab7bc"
+    },
+    {
+      "file": "images/webull-openapi-setup/10-order-history.jpg",
+      "sourcePhoto": "https://www.facebook.com/photo/?fbid=2542119776218224&set=pcb.27627684326865767",
+      "sourceSize": [
+        1920,
+        1920
+      ],
+      "cropBoxPixels": [
+        1061,
+        998,
+        1674,
+        1722
+      ],
+      "size": [
+        613,
+        724
+      ],
+      "sourceSha256": "b930aeca917b5624fa47f39913d344f022407492cfaf8d320cbd669f9c1ad032",
+      "sha256": "1dd1595d5adbd91c1a037e26f495e12afe9f3dde4571c000e2760876579db152"
+    }
+  ]
+}

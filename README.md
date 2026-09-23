@@ -2,7 +2,7 @@
 
 [Read the book online](https://nutdnuy.github.io/robo-trade-notes/) · [Edit the source on GitHub](https://github.com/nutdnuy/robo-trade-notes)
 
-An original Thai learning book about Python, financial data, strategy research, backtesting, event simulation, machine learning, streaming, Webull integration concepts and system operations. The complete edition contains a Welcome page, 10 chapters, 10 offline notebooks, runnable examples and chapter quizzes. Light is the default theme.
+A Thai learning website about Python and Webull OpenAPI. The published site currently contains Welcome and one illustrated chapter: [เริ่มต้นใช้ Webull OpenAPI ทีละขั้น](https://nutdnuy.github.io/robo-trade-notes/chapter-11.html), with 10 attributed image excerpts, an executed offline notebook and a quiz. The earlier ten-chapter edition remains archived; see [archive/README.md](archive/README.md). Light is the default theme.
 
 ## Edit the book
 
@@ -15,6 +15,7 @@ content/intro.md             Welcome text
 content/chapters/*.md        Original Thai lessons
 content/quizzes/*.json       Questions and explanations
 public/downloads/           Executed notebooks and Python examples
+src/lib/publishing.js       Published-page allowlist (old chapters stay archived)
 book.css                    Book appearance
 references/                 Evidence and verified page locators
 ```

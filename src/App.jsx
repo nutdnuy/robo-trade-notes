@@ -4,6 +4,7 @@ import welcomeSource from '../content/intro.md?raw';
 import webullSource from '../content/chapters/11-webull-openapi-setup.md?raw';
 import webullQuestions from '../content/quizzes/chapter-11.json';
 import webullImages from '../references/webull-openapi-setup-images.json';
+import webullQuote from '../references/webull-learning-quote.json';
 import {parsePage,assetUrl} from './lib/book.js';
 import {pageHref,readRoute} from './lib/navigation.js';
 import {isPublishedPage} from './lib/publishing.js';
@@ -14,7 +15,7 @@ const sources={welcome:welcomeSource,'chapter-11':webullSource};
 const pages=config.pages.map(page=>({...page,...(sources[page.id]?parsePage(sources[page.id]):{})}));
 const publishedPages=pages.filter(page=>isPublishedPage(page.id));
 const noop=()=>{};
-const imageDimensions=Object.fromEntries(webullImages.images.map(image=>[image.file,image.size]));
+const imageDimensions={...Object.fromEntries(webullImages.images.map(image=>[image.file,image.size])),[webullQuote.file]:webullQuote.size};
 
 export default function App(){
   const [route,setRoute]=useState(()=>readRoute(pages));
@@ -57,7 +58,7 @@ export default function App(){
           <section className={'chapter-hero'+(welcome?' welcome-hero':'')} id="page-top">
             <h1>{page.title}</h1>
             {welcome&&<nav className="welcome-setup-links" aria-label="เปิดบัญชีและเตรียม API Key"><a href="https://www.webull.co.th/k/QuantCorner" target="_blank" rel="noreferrer">เปิดบัญชี Webull ผ่าน QuantCorner →</a><a href={pageHref('chapter-11')}>คู่มือภาพเริ่มต้นใช้ OpenAPI</a></nav>}
-            <div className="chapter-lead"><BookMarkdown source={page.intro} pageId={page.id}/></div>
+            <div className="chapter-lead"><BookMarkdown source={page.intro} pageId={page.id} imageDimensions={imageDimensions}/></div>
           </section>
           {page.sections.map(section=><section className="lesson-section" key={section.id}><div className="section-heading"><h2 id={section.id}>{section.label}</h2></div><BookMarkdown source={section.body} pageId={page.id} widgets={widgets} imageDimensions={imageDimensions}/></section>)}
           {!welcome&&<footer className="page-footer"><a href={pageHref('welcome')}>← กลับหน้า Welcome</a><a href={pageHref(page.id,'page-top')}>กลับด้านบน ↑</a></footer>}

@@ -1,0 +1,21 @@
+{
+  "file": "images/webull-openapi-setup/learning-before-automation.webp",
+  "size": [
+    1672,
+    941
+  ],
+  "created": "2026-09-23",
+  "method": "Built-in image_gen; original composition and embedded Thai lettering. WebP encoding only, no compositing or text overlay.",
+  "expectedText": [
+    "เข้าใจก่อนเขียนโค้ด",
+    "ทดสอบก่อนเทรดจริง"
+  ],
+  "attribution": "Original editorial copy created for this chapter; no attributed person.",
+  "brand": "QuantCorner / QuantSeras; light reading layout, restrained purple and teal",
+  "route": "Explicit user request for generated chapter art. Image Generator creates the complete illustration and quote; website placement stays native React/Markdown. User request overrides the default website no-generation guideline for this image only.",
+  "prompt": "Use case: stylized-concept.\nCreate one complete polished editorial quote illustration for a Thai educational article about learning Python and Webull OpenAPI, to be inserted below the article introduction. Landscape 16:9, approximately 1536 x 864 pixels, no border. This is metaphorical editorial artwork, not a screenshot, chart, diagram, or app interface.\nScene: an elegant miniature robotics research still life on a clean matte white gallery table. At the right, a carefully engineered small brushed-aluminum robotic hand with restrained violet joints gently holds a clear glass key above an open ivory notebook. The notebook pages have a few subtle abstract ink strokes, no readable code. A small teal glass accent rests beside it. It should express patient learning and careful experimentation. Realistic sculptural materials, sophisticated soft studio daylight, tactile paper, subtle contact shadows, generous breathing room; quietly optimistic, credible and calm. No human figure, face, mascot eyes, coins, currency, trading chart, screen, dashboard, UI, arrows, process flow, visualized data, or profit imagery.\nComposition: visually balanced editorial landscape. The still life occupies roughly the right 42 percent with ample margins. The left 58 percent contains only a large exceptionally legible Thai quote, in clean Noto Sans Thai-like contemporary sans serif, medium-bold, charcoal #222222. The first line may use a restrained purple #6200EE emphasis on a single word only. Objects remain neutral with small purple #6200EE and teal #03DAC6 accents; white background, no neon glow or decorative gradient backdrop.\nRender this EXACT Thai text, with correct Thai marks, on exactly two lines:\nเข้าใจก่อนเขียนโค้ด\nทดสอบก่อนเทรดจริง\nThis is original editorial copy, so include no person's name or attribution. No quotation mark glyphs, no extra words, no titles, no small print, no logos, no watermark. Quote text should dominate enough to remain readable at a 390px mobile screen. Keep all text and objects safely inside the canvas. Create the entire final visible composition and typography in the generated image.",
+  "validation": [
+    "One image generated and visually inspected: correct two-line Thai text, no invented author, no logos, no data chart or brokerage UI.",
+    "Aspect ratio 16:9; original 1672 x 941, no resizing or cropping for WebP export."
+  ]
+}

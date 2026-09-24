@@ -11,6 +11,7 @@ import '@fontsource/roboto-mono/latin-400.css';
 import App from './App.jsx';
 import './styles.css';
 import '../book.css';
-import './atlas.css';
 import './quantara.css';
+import './field-guide.css';
+import './book-shell.css';
 createRoot(document.getElementById('root')).render(<App/>);

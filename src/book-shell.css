@@ -1,0 +1,60 @@
+/* Shared book navigation. Only published pages are passed to BookShell. */
+.reading-site{background:var(--bg);min-height:100vh}
+.reader-layout{display:grid;grid-template-columns:248px minmax(0,1fr);gap:56px;max-width:1512px;margin:0 auto;padding:0 48px 0 32px;align-items:start}
+.reading-site .book-sidebar{position:sticky;top:0;height:100dvh;max-height:100dvh;overflow-y:auto;scrollbar-width:thin;display:block;width:auto;padding:32px 20px 32px 0;border:0;border-right:1px solid var(--line);background:var(--bg);transform:none;z-index:20}
+.reader-brand{display:flex;align-items:center;gap:12px;margin-bottom:40px;color:var(--text);font-size:19px;line-height:1.4;font-weight:500}
+.reader-brand:hover{text-decoration:none}
+.reader-brand img{flex:none}
+.reader-contents-title{font-size:12px;letter-spacing:.06em;color:var(--muted);margin:0 12px 12px}
+.reading-site .book-pages{display:flex;flex-direction:column;gap:4px}
+.reading-site .book-link{min-height:48px;align-items:start;padding:12px;gap:12px;font-size:14px;line-height:1.65;color:var(--muted);border:0;border-radius:4px}
+.reading-site .book-link.current{color:var(--primary);background:var(--selected);font-weight:500}
+.reading-site .book-link:hover{background:var(--code);color:var(--primary)}
+.reading-site .book-link .reader-chapter-number{flex:0 0 20px;font:12px/1.95 'Roboto Mono',monospace}
+.reading-site .sidebar-local-toc{display:block;margin:28px 0 0;border:0;border-top:1px solid var(--line);padding:12px 0 0}
+.reading-site .sidebar-local-toc>summary{display:list-item;list-style:disclosure-closed;cursor:pointer;min-height:48px;padding:12px;font-size:12px;color:var(--muted)}
+.reading-site .sidebar-local-toc[open]>summary{list-style:disclosure-open}
+.reading-site .sidebar-local-toc>summary::after{content:none}
+.reading-site .chapter-sections{padding:0}
+.reading-site .chapter-sections a{display:block;min-height:48px;padding:12px;font-size:13px;line-height:1.8;border-radius:4px;color:var(--muted);overflow-wrap:anywhere}
+.reading-site .chapter-sections a:hover{color:var(--primary);background:var(--code)}
+.reading-site .chapter-sections a[aria-current=location]{color:var(--primary);background:var(--selected);font-weight:500}
+.reading-site .book-sidebar-footer{margin:28px 12px 0;padding-top:16px}
+.reading-site .book-sidebar-footer a{min-height:48px;justify-content:space-between;font-size:13px}
+.reading-site .reader-main{width:100%;max-width:1080px;margin:0;min-width:0;padding:36px 0 48px;outline-offset:6px}
+.reader-page-label{font-size:13px;color:var(--muted);margin:0 0 32px;line-height:1.5}
+.reader-mobile-header{display:none}
+.reading-site .markdown{overflow-wrap:anywhere}
+.reading-site .markdown p,.reading-site .markdown li{line-height:1.95}
+.reading-site .lesson-section{font-size:17px}
+.reading-site .section-heading h2{scroll-margin-top:28px}
+.reading-site .markdown h3{font-size:21px;line-height:1.6}
+.reading-site .content-image{display:block;width:auto;max-width:100%;height:auto;margin:24px auto;border:1px solid var(--line);border-radius:4px}
+.reading-site .markdown blockquote{border:0;background:var(--code);padding:24px;border-radius:4px}
+.reading-site :is(a,button,summary):focus-visible{outline:3px solid var(--primary);outline-offset:4px}
+.reading-site .page-footer{border-top:1px solid var(--line);margin-top:48px;display:flex;justify-content:space-between}
+.reading-site .page-footer a{display:flex;align-items:center;min-height:48px}
+@media(min-width:1600px){.reader-layout{gap:72px}}
+@media(max-width:1100px){.reader-layout{grid-template-columns:216px minmax(0,1fr);gap:32px;padding:0 28px 0 24px}.reader-brand{font-size:17px}.reading-site .book-sidebar{padding-right:16px}}
+@media(max-width:800px){
+  .reader-mobile-header{display:flex;position:sticky;top:0;z-index:40;justify-content:space-between;align-items:center;gap:16px;padding:8px 24px;background:var(--bg);border-bottom:1px solid var(--line)}
+  .reader-mobile-header>a{font-size:16px;font-weight:500;color:var(--text);min-height:48px;display:flex;align-items:center}
+  .reader-mobile-header button{min-height:48px;padding:10px 12px;font-size:13px;border:1px solid var(--line);border-radius:4px;color:var(--primary)}
+  .reader-layout{display:block;padding:0 24px}
+  .reading-site .book-sidebar{display:none;position:static;height:auto;max-height:none;padding:24px 0;border-right:0;border-bottom:1px solid var(--line);overflow:visible}
+  .reading-site .menu-open .book-sidebar{display:block;position:fixed;inset:65px 0 0;height:auto;max-height:calc(100dvh - 65px);overflow-y:auto;overscroll-behavior:contain;padding:24px;background:var(--bg);z-index:35}
+  .reader-brand{margin-bottom:24px}
+  .reading-site .reader-main{padding-top:24px}
+  .reader-page-label{margin-bottom:24px}
+  .reading-site :is(section,h2,[tabindex='-1']){scroll-margin-top:96px}
+}
+@media(max-width:480px){.reader-layout{padding:0 20px}.reader-mobile-header{padding:8px 20px}.reading-site .lesson-section{font-size:16px}.reading-site .section-heading h2{font-size:24px}.reading-site .markdown h3{font-size:20px}.reading-site .markdown blockquote{padding:20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reading-site *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media print{.reader-mobile-header,.reading-site .book-sidebar,.reader-page-label{display:none!important}.reader-layout{display:block;padding:0;max-width:none}.reading-site .reader-main{padding:0;max-width:none}.reading-site .page-footer{display:none}.reading-site .lesson-section{font-size:12px}}
+
+/* Desktop contents toggle stays available while reading. */
+.reader-page-label{display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:25;background:var(--bg);padding:8px 0}
+.reader-desktop-toggle{min-height:48px;padding:10px 14px;border:1px solid var(--line);border-radius:4px;font-size:13px;color:var(--primary);background:var(--bg)}
+@media(min-width:801px){.reader-layout.sidebar-collapsed{grid-template-columns:minmax(0,1fr);max-width:1176px;gap:0}.reading-site .sidebar-collapsed .book-sidebar{display:none}.sidebar-collapsed .reader-main{margin:0 auto}}
+@media(max-width:800px){.reader-desktop-toggle{display:none}.reader-page-label{position:static;padding:0}}
+@media print{.reader-desktop-toggle{display:none!important}}

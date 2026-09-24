@@ -28,7 +28,9 @@ for(const page of pages){
     const quiz=JSON.parse(readFileSync(new URL('content/quizzes/'+page.id+'.json',root),'utf8'));
     assert(quiz.length>=3,page.id+': at least three questions');
     for(const q of quiz){assert(q.title&&q.explanation);assert(Array.isArray(q.options)&&q.options.length>1);assert(Number.isInteger(q.answer)&&q.answer>=0&&q.answer<q.options.length);questionCount++;}
-    assert.equal(chunks.filter(c=>c.widget==='quiz').length,1,page.id+': one quiz');
+    // Why Robo Trade ends with a summary; its existing supplementary files stay validated.
+    const expectedQuizCount=page.id==='chapter-12'?0:1;
+    assert.equal(chunks.filter(c=>c.widget==='quiz').length,expectedQuizCount,page.id+': expected quiz count');
     const notebook=JSON.parse(readFileSync(new URL('public/downloads/robo-trade-'+page.number+'.ipynb',root),'utf8'));
     const code=notebook.cells.filter(c=>c.cell_type==='code');assert(code.length>=5,'Notebook needs worked examples');
     for(const cell of code){assert(Number.isInteger(cell.execution_count),page.id+': notebook has unexecuted cells');assert(!cell.outputs.some(o=>o.output_type==='error'),page.id+': notebook has errors');}

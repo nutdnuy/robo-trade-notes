@@ -21,7 +21,7 @@ const pages=config.pages.map(page=>({...page,navigationTitle:page.label,...(sour
 const publishedPages=pages.filter(page=>isPublishedPage(page.id));
 const lessonPresentation={
   'chapter-11':{questions:webullQuestions,meta:'Python / Webull OpenAPI',start:'before-start',startLabel:'Start with the checklist',art:'images/deltaris-workshop-v2.png',width:1536,height:1024,alt:'โรงงานริมทะเลแห่ง Deltaris ช่างฝีมือกำลังประกอบโกเลมทองเหลือง ภาพประกอบโลก Quantara'},
-  'chapter-12':{questions:whyRoboQuestions,meta:'Trading / Investing / Quant',start:'why-robo',startLabel:'ทำไมต้อง Robo Trade',art:'images/deltaris-masters.png',width:1024,height:1536,alt:'ช่างและหุ่นกลในโรงช่าง Deltaris ภาพประกอบโลกสมมติ Quantara'}
+  'chapter-12':{secondarySection:'summary',secondaryLabel:'สรุปท้ายบท',questions:whyRoboQuestions,meta:'Trading / Investing / Quant',start:'why-robo',startLabel:'ทำไมต้อง Robo Trade',art:'images/deltaris-masters.png',width:1024,height:1536,alt:'ช่างและหุ่นกลในโรงช่าง Deltaris ภาพประกอบโลกสมมติ Quantara'}
 };
 const noop=()=>{};
 const imageDimensions={...Object.fromEntries(webullImages.images.map(image=>[image.file,image.size])),[webullQuote.file]:webullQuote.size,'images/quantara-story-horizons.png':[1536,1024],'images/quantara-story-discarded-plans.png':[1536,1024],'images/quantara-story-delivery.png':[1536,1024]};
@@ -69,7 +69,7 @@ export default function App(){
               <div className="field-guide-cover-meta">{presentation.meta}</div>
               <h1>{page.title}</h1>
               <div className="chapter-lead" lang="th"><BookMarkdown source={lessonIntro} pageId={page.id} imageDimensions={imageDimensions} imageVariants={whyRoboVisuals}/></div>
-              <nav className="field-guide-actions" aria-label="Start or practice"><a href={pageHref(page.id,presentation.start)}>{presentation.startLabel} <span aria-hidden="true">↓</span></a><a href={pageHref(page.id,'practice')}>Notebook & files <span aria-hidden="true">↗</span></a></nav>
+              <nav className="field-guide-actions" aria-label="Start or practice"><a href={pageHref(page.id,presentation.start)}>{presentation.startLabel} <span aria-hidden="true">↓</span></a><a href={pageHref(page.id,presentation.secondarySection||'practice')}>{presentation.secondaryLabel||'Notebook & files'} <span aria-hidden="true">↗</span></a></nav>
             </div>
           </header>
           {page.id==='chapter-11'?<aside className="field-guide-lore" aria-labelledby="gem-story-title" lang="th">

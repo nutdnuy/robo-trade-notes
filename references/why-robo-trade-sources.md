@@ -82,3 +82,7 @@ Historical market-share claims in the course materials are not presented as curr
 - The pre-event decision section is headed “บังคับให้ตัดสินใจก่อนเหตุการณ์เกิดขึ้น”; its FINRA Regulatory Notice paragraph and unused citation were removed.
 - “ผู้จัดการเงินลงทุน” was changed to “ผู้จัดการกองทุน”.
 - The three separate illustrated Quantara story interludes remain as requested.
+
+## 24 September 2026 — shortened ending
+
+At Nuth's request, the chapter now stops after the model-blending section and ends with an original Thai summary. The previous Advantages and Disadvantages section and everything after it (including the third illustrated story, exercise, quiz display and closing reference list) were removed from the page. Inline citations and this source record preserve provenance. Existing illustrations, quiz source and runnable supplementary files remain unchanged. The chapter's navigation now points to the summary.

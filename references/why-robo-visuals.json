@@ -1,0 +1,37 @@
+{
+  "images/why-robo-system-flow.svg": {
+    "width": 780,
+    "height": 410,
+    "mobile": "images/why-robo-system-flow-mobile.svg",
+    "mobileWidth": 360,
+    "mobileHeight": 546
+  },
+  "images/why-robo-research-flow.svg": {
+    "width": 780,
+    "height": 399,
+    "mobile": "images/why-robo-research-flow-mobile.svg",
+    "mobileWidth": 360,
+    "mobileHeight": 535
+  },
+  "images/why-robo-universe-flow.svg": {
+    "width": 780,
+    "height": 388,
+    "mobile": "images/why-robo-universe-flow-mobile.svg",
+    "mobileWidth": 360,
+    "mobileHeight": 622
+  },
+  "images/why-robo-taxonomy-flow.svg": {
+    "width": 780,
+    "height": 599,
+    "mobile": "images/why-robo-taxonomy-flow-mobile.svg",
+    "mobileWidth": 360,
+    "mobileHeight": 945
+  },
+  "images/why-robo-alpha-beta.svg": {
+    "width": 780,
+    "height": 450,
+    "mobile": "images/why-robo-alpha-beta-mobile.svg",
+    "mobileWidth": 360,
+    "mobileHeight": 735
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "name": "Alpha and Beta: original teaching illustration",
+  "route": "no-image-generator",
+  "design_system": "QuantCorner / QuantSeras, light book theme",
+  "question": "How do deliberately different alpha and beta parameters produce different sample value paths?",
+  "data_status": "Entirely synthetic, not real returns and not a strategy recommendation",
+  "source": "Generated locally by generate_alpha_beta.py",
+  "observation_count": 60,
+  "path_points": 61,
+  "time_axis": "Unitless period index 0–60; no calendar dates or annualization",
+  "seed": 42026,
+  "numpy_rng": "default_rng PCG64",
+  "market_return_formula": "0.005 + 0.012*sin(t*0.29) + 0.008*cos(t*0.85) + Normal(0,0.009); subtract0.025 for periods18–23 and0.031 for43–47",
+  "model": "r_strategy,t = alpha + beta*r_benchmark,t + epsilon_t; Rf = 0 for every period",
+  "wealth_formula": "V0=100; Vt=V(t-1)*(1+r_t); simple returns, identical compounding basis",
+  "residual_construction": "Seeded Gaussian vector projected orthogonal to [constant,market_return], then scaled to stated population standard deviation. Forces sample OLS intercept/beta to the chosen model values by design.",
+  "left": {
+    "alpha_per_period": 0.002,
+    "alpha_percent_per_period": 0.2,
+    "beta": 1,
+    "residual_std": 0.004,
+    "OLS_intercept": 0.0020000000000000026,
+    "OLS_beta": 1.0000000000000004,
+    "final_value": 115.25580286241781,
+    "minimum_value": 99.6605797884581,
+    "maximum_value": 120.96768233591604,
+    "max_drawdown_sample_not_annualized": -0.12678768878140834,
+    "up_periods": 36,
+    "down_periods": 24
+  },
+  "right": {
+    "alpha_per_period": 0,
+    "beta": 1.3,
+    "residual_std": 0.003,
+    "OLS_intercept": 3.359277566366608e-19,
+    "OLS_beta": 1.3,
+    "final_value": 102.62680321126562,
+    "minimum_value": 93.96215752050718,
+    "maximum_value": 117.02875992013522,
+    "max_drawdown_sample_not_annualized": -0.19710199796502625,
+    "up_periods": 35,
+    "down_periods": 25
+  },
+  "benchmark": {
+    "final_value": 102.28751370250568,
+    "minimum_value": 94.69871073051272,
+    "maximum_value": 112.89064070668084,
+    "max_drawdown_sample_not_annualized": -0.161146485326764,
+    "up_periods": 33,
+    "down_periods": 27
+  },
+  "same_scale": {
+    "x": [
+      0,
+      60
+    ],
+    "y": [
+      90,
+      130
+    ]
+  },
+  "exports": {
+    "desktop": [
+      780,
+      450
+    ],
+    "mobile": [
+      360,
+      735
+    ]
+  },
+  "encoding": {
+    "Strategy": {
+      "stroke": "#6200EE",
+      "line": "solid"
+    },
+    "Benchmark": {
+      "stroke": "#03DAC6",
+      "line": "dashed",
+      "contrast_outline": "#007D73",
+      "outline_width": 4.0,
+      "inner_width": 2.8
+    }
+  },
+  "font_sources": [
+    "@fontsource/roboto/files/roboto-latin-400-normal.woff2",
+    "@fontsource/noto-sans-thai/files/noto-sans-thai-thai-400-normal.woff2"
+  ],
+  "font_handling": "Original project WOFF2 embedded in SVG; native editable SVG text. Greek fallback uses DejaVu Sans/system sans-serif.",
+  "limitations": [
+    "Chosen synthetic parameters, not fitted to real performance.",
+    "Orthogonalized residuals are an illustration device, not evidence about live model errors.",
+    "Cumulative value curves alone do not establish alpha or skill.",
+    "The plot omits trading costs, portfolio constraints and live execution."
+  ],
+  "alt_text": "ข้อมูลสมมติ 60 ช่วง เริ่มมูลค่า 100 อัตราปลอดความเสี่ยงเป็นศูนย์ กราฟซ้ายใช้ alpha 0.20% ต่อช่วง และ beta 1 กราฟขวาใช้ alpha 0 และ beta 1.3 เส้นทึบสีม่วงคือ Strategy เส้นประสีเขียวอมฟ้าคือ Benchmark ทั้งสองกราฟใช้แกนตั้ง 90 ถึง 130 เหมือนกัน ค่าพารามิเตอร์กำหนดขึ้นเพื่อสอน ไม่ใช่ผลการซื้อขายจริง และภาพเส้นมูลค่าเพียงอย่างเดียวพิสูจน์ alpha ไม่ได้",
+  "qa": {
+    "numeric_checks": "Passed OLS equality, residual orthogonality, start100, positive wealth factors and both up/down moves.",
+    "visual_checks": "Inspected both PNG exports and actual SVGs in Chrome at their intended intrinsic widths. Thai text, alpha/beta labels, axes and legends are visible with no clipped labels or overlaps.",
+    "csv_checks": "Exported rounded CSV reproduces OLS alpha/beta within 1e-10.",
+    "svg_checks": "Both SVGs retain native text nodes, embedded project fonts, accessible title/description and exact dimensions."
+  }
+}

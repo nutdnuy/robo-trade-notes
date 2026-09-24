@@ -24,3 +24,30 @@
 .field-guide-lore h2{font-size:18px;font-weight:500;line-height:1.7;margin:0 0 16px}
 .field-guide-lore p{font-size:16px;line-height:1.95;margin-bottom:16px}
 .field-guide-lore p:last-child{margin-bottom:0}
+
+/* The second chapter reuses the owner's portrait artwork as a workshop vignette. */
+.why-robo-article .field-guide-art{max-width:280px;justify-self:end}
+.why-robo-article .field-guide-art img{max-height:340px;object-fit:contain;object-position:left top}
+.lesson-pagination{max-width:780px;margin:48px auto 0;display:flex;flex-wrap:wrap;gap:24px;border-top:1px solid var(--line);padding-top:24px}
+.lesson-pagination a{display:flex;flex:1;min-width:200px;flex-direction:column;gap:8px;line-height:1.7;padding:12px 0}
+.lesson-pagination a span{font-size:12px;color:var(--muted)}
+.lesson-pagination .lesson-next{text-align:right;margin-left:auto}
+@media(max-width:600px){.why-robo-article .field-guide-art{max-width:220px;align-self:center}.lesson-pagination .lesson-next{text-align:left}.lesson-pagination a{min-width:0;flex-basis:100%}}
+@media print{.lesson-pagination{display:none}}
+
+/* Diagram layouts follow the available reading width; no sideways panning. */
+.lesson-visual{display:block;margin:32px 0;line-height:0}
+.reading-site .why-robo-article .lesson-diagram{display:block;width:100%;max-width:100%;height:auto;margin:0;border:0;border-radius:0}
+.quantara-story{margin:56px 0 40px;padding:0 0 28px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--text)}
+.reading-site .quantara-story .content-image{width:100%;max-width:100%;height:auto;margin:0 0 24px;border:0;border-radius:4px}
+.quantara-story>p,.quantara-story>h3{max-width:660px;margin-left:auto;margin-right:auto}
+.quantara-story>p:first-child{max-width:none;margin:0}
+.quantara-story>p:nth-child(2){font-size:12px;letter-spacing:.04em;color:var(--muted);margin-bottom:8px}
+.quantara-story h3{font-size:23px;font-weight:500;line-height:1.6;margin-top:0;margin-bottom:18px}
+.quantara-story p{font-size:17px;line-height:1.95}
+.quantara-story p:last-child{margin-bottom:0}
+@media(max-width:600px){.lesson-visual{margin:24px 0}.quantara-story{margin:36px 0 28px;padding-bottom:24px}.quantara-story h3{font-size:21px}.quantara-story p{font-size:16px}.reading-site .quantara-story .content-image{margin-bottom:20px}}
+@media print{.quantara-story{break-inside:auto}.quantara-story .content-image{max-height:240px;object-fit:contain}.lesson-visual{break-inside:avoid}}
+
+.reading-site .lesson-visual{max-width:780px;margin-inline:auto}
+@media(max-width:700px){.reading-site .lesson-visual{max-width:360px}}

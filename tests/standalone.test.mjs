@@ -28,11 +28,14 @@ test('generated filename rules prevent traversal and map welcome to index', () =
  assert.doesNotMatch(html,/<script|Archived lesson|downloads|book\.js/);
  });
 
-test('the new Webull chapter is published while the withdrawn edition stays empty',()=>{
+test('completed lessons are published while the withdrawn edition stays empty',()=>{
   const book={title:'Robo Trade Notes',description:'Thai learning notes'};
   const active=makeStandaloneHtml({id:'chapter-11',kind:'lesson',number:'11',title:'Webull',file:'chapters/11-webull-openapi-setup.md'},book,'assets/book.js',['assets/book.css']);
   assert.match(active,/<div id="root"><\/div>/);
   assert.match(active,/<script defer/);
+  const next=makeStandaloneHtml({id:'chapter-12',kind:'lesson',title:'Why Robo Trade',file:'chapters/12-why-robo-trade.md'},book,'assets/book.js',['assets/book.css']);
+  assert.match(next,/<div id="root"><\/div>/);
+  assert.match(next,/<script defer/);
   for(let n=1;n<=10;n++){
     const archived=makeStandaloneHtml({id:'chapter-'+String(n).padStart(2,'0'),kind:'lesson'},book,'assets/book.js',['assets/book.css']);
     assert.match(archived,/<body><\/body>/);

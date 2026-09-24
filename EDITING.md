@@ -153,6 +153,8 @@ The chapter 01 markers `api-example`, `sma-example`, `sma-formula`, and `bar-que
     secondaryHref: "downloads/robo-trade-11.ipynb"
 ```
 
+Add the completed page ID to `src/lib/publishing.js`, then register its Markdown, quiz and presentation settings in `src/App.jsx`. The sidebar numbers only these active lessons in reading order; stable route and download IDs do not determine the displayed chapter number. Never expose an unfinished placeholder.
+
 Update the Welcome text or labels that state a fixed chapter count. The configuration checker catches duplicate IDs, chapter numbers, missing Markdown files, missing local downloads, invalid durations and broken configured section links.
 
 ## Check changes before sharing

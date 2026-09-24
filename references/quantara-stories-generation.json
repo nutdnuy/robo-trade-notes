@@ -1,0 +1,34 @@
+{
+  "date": "2026-09-24",
+  "tool": "image_gen.imagegen",
+  "route": "original fictional story illustration",
+  "authorization": "Owner asked for original Quantara story illustrations and explicitly permitted continuing the story.",
+  "continuity": "Existing owner-supplied Deltaris craftsman, brass golem and blue chest gem were viewed before drafting prompts. New scenes are text-only original generations; not copied reference illustrations.",
+  "boundary": "Generated art is confined to fictional story interludes. Flows and numerical charts use native vector/code routes.",
+  "assets": [
+    {
+      "id": "horizons",
+      "file": "public/images/quantara-story-horizons.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "dad521fc62eb070123ce0bf3d774685be45ecad3e73f3f397e1800cf680a3494",
+      "prompt": "Use case: illustration-story. Create one complete original text-free 3:2 landscape illustration, 1536x1024 if available, for a fictional Quantara storybook. Character continuity: a huge friendly brass automaton with dark charcoal-blue armored plates traced with fine antique-gold filigree, round glowing cyan eyes, and a prominent faceted sapphire-blue communication crystal in the center of its chest. Its companion is a stout dwarven master craftsman, dark braided beard with brass clasps, goggles on forehead, rolled ivory sleeves, navy mantle, leather apron. Premium painterly fantasy book art, tactile brass and parchment, warm amber light with blue maritime daylight, subtle visual humor from earnest interactions, clear expressive poses. Fictional medieval coastal workshop city Deltaris with stone arches and a distant central communication tower. Not a UI or chart, no readable text, labels, logos, watermark, graphs, modern screens or interface. Natural scene edges, not a framed poster. Keep all main faces, hands and crystal fully in frame, no anatomy errors. Scene: at the open arch of the workshop overlooking the harbor, the craftsman studies a small wooden model of a future foundry expansion resting on a large workbench, while the automaton leans toward a tiny delivery cart of freshly baked crescent pastries beside a small hourglass. One hand points earnestly toward the long building plan, the other delicately holds a single pastry over a waiting plate. The blue chest gem is lit as if receiving a question from the distant tower. The comic disagreement is about the long building schedule versus getting pastries delivered before they cool. Compose a calm mid-wide three-quarter view, central friendship, sunlit harbor visible to one side. No speech bubbles or text."
+    },
+    {
+      "id": "discarded-plans",
+      "file": "public/images/quantara-story-discarded-plans.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "c352d27a4b02e99f862a7ff67c700efe8fcff6e93cd4e430c423d4c2b16861ed",
+      "prompt": "Use case: illustration-story. Create one complete original text-free 3:2 landscape illustration, 1536x1024 if available, for a fictional Quantara storybook. Character continuity: a huge friendly brass automaton with dark charcoal-blue armored plates traced with fine antique-gold filigree, round glowing cyan eyes, and a prominent faceted sapphire-blue communication crystal in the center of its chest. Its companion is a stout dwarven master craftsman, dark braided beard with brass clasps, goggles on forehead, rolled ivory sleeves, navy mantle, leather apron. Premium painterly fantasy book art, tactile brass and parchment, warm amber light with blue maritime daylight, subtle visual humor from earnest interactions, clear expressive poses. Fictional medieval coastal workshop city Deltaris with stone arches and a distant central communication tower. Not a UI or chart, no readable text, labels, logos, watermark, graphs, modern screens or interface. Natural scene edges, not a framed poster. Keep all main faces, hands and crystal fully in frame, no anatomy errors. Scene: inside the workshop archive, the craftsman proudly holds up one clean parchment engineering plan with only a tiny simple mechanical sketch and no writing. Beside him the huge earnest automaton is pushing an absurdly overloaded low wooden handcart piled high with discarded crumpled parchment plans, as if insisting that all failed attempts must also be counted. Some papers spill onto the stone floor, but silhouettes and faces stay clear. The craftsman's embarrassed sideways glance and automaton's dutiful precision are the joke. The sapphire chest gem glows gently toward an arched window with the distant central tower. Medium-wide angle, intimate warm library lamplight, navy and aged brass accents. No money piles, no charts, no readable characters or numbers."
+    },
+    {
+      "id": "delivery",
+      "file": "public/images/quantara-story-delivery.png",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "ee78a4962cbd8e41338e99ba2a7b46adba558b6cbd039a435783899683443627",
+      "prompt": "Use case: illustration-story. Create one complete original text-free 3:2 landscape illustration, 1536x1024 if available, for a fictional Quantara storybook. Character continuity: a huge friendly brass automaton with dark charcoal-blue armored plates traced with fine antique-gold filigree, round glowing cyan eyes, and a prominent faceted sapphire-blue communication crystal in the center of its chest. Its companion is a stout dwarven master craftsman, dark braided beard with brass clasps, goggles on forehead, rolled ivory sleeves, navy mantle, leather apron. Premium painterly fantasy book art, tactile brass and parchment, warm amber light with blue maritime daylight, subtle visual humor from earnest interactions, clear expressive poses. Fictional medieval coastal workshop city Deltaris with stone arches and a distant central communication tower. Not a UI or chart, no readable text, labels, logos, watermark, graphs, modern screens or interface. Natural scene edges, not a framed poster. Keep all main faces, hands and crystal fully in frame, no anatomy errors. Scene: at Deltaris workshop loading bay in soft evening maritime light, the automaton kneels carefully beside an open wooden crate containing a few large brass gear wheels. It compares these with an open ledger of small abstract tally marks, no readable writing. The craftsman raises a patient hand to stop a second tiny delivery trolley arriving behind the first; another sealed crate remains on that trolley. A delivery receipt is pinned under a wrench. The automaton's chest sapphire is lit, communicating with the central tower visible across the harbor. The comic scene is counting what has actually arrived and stopping a duplicate order, not buying more because a message is late. Strong clear focus on the two characters, crate and restrained stop gesture. No chart or UI or readable text."
+    }
+  ]
+}

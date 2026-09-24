@@ -8,15 +8,23 @@ import {CodeBlock} from './LessonWidgets.jsx';
 import {assetUrl,splitWidgets} from '../lib/book.js';
 import {pageHref} from '../lib/navigation.js';
 
-export default function BookMarkdown({source,pageId,widgets={},imageDimensions={}}){
+export default function BookMarkdown({source,pageId,widgets={},imageDimensions={},imageVariants={}}){
   const components={
     a:({href='',children})=>{
       const [linkedPage,linkedSection]=href.replace(/^#\//,'').split('/');
       const url=href.startsWith('#/')?pageHref(linkedPage,linkedSection):href.startsWith('#')?pageHref(pageId,href.slice(1)):assetUrl(href);
       const external=/^https?:/.test(url);
-      return <a href={url} {...(external?{target:'_blank',rel:'noreferrer'}:{})}>{children}</a>;
+      return <a href={url} {...(external?{target:'_blank',rel:'noreferrer'}:{})} {...(/\.(excalidraw|csv)$/.test(href)?{download:true}:{})}>{children}</a>;
     },
-    img:({src,alt})=><img className="content-image" src={assetUrl(src||'')} alt={alt||''} loading="lazy" width={imageDimensions[src]?.[0]} height={imageDimensions[src]?.[1]}/>,
+    img:({src,alt})=>{
+      const variant=imageVariants[src];
+      const image=<img className={'content-image'+(variant?' lesson-diagram':'')} src={assetUrl(src||'')} alt={alt||''} loading="lazy" decoding="async" width={variant?.width||imageDimensions[src]?.[0]} height={variant?.height||imageDimensions[src]?.[1]}/>;
+      return variant?<picture className="lesson-visual"><source media="(max-width:700px)" srcSet={assetUrl(variant.mobile)} width={variant.mobileWidth} height={variant.mobileHeight}/>{image}</picture>:image;
+    },
+    blockquote:({node,children})=>{
+      const illustrated=node.children.some(child=>child.tagName==='p'&&child.children?.some(item=>item.tagName==='img'&&String(item.properties?.src).includes('images/quantara-story-')));
+      return illustrated?<aside className="quantara-story" aria-label="นิทานจาก Quantara">{children}</aside>:<blockquote>{children}</blockquote>;
+    },
     table:({children})=><div className="table-scroll"><table>{children}</table></div>,
     pre:({children})=>{
       const child=React.Children.toArray(children)[0];

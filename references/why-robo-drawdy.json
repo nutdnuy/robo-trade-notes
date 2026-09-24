@@ -1,0 +1,988 @@
+{
+  "board_id": "6ab5293e8dac2495a544d233",
+  "url": "https://drawdy.io/?canvas=6ab5293e8dac2495a544d233",
+  "elements": [
+    {
+      "id": "b6b18140-6fd1-4ef3-ad1c-e8412e5945da",
+      "type": "frame",
+      "x": 0,
+      "y": 0,
+      "width": 960,
+      "height": 1080,
+      "name": "01 · จากสมมติฐานสู่คำสั่ง"
+    },
+    {
+      "id": "24ceb348-0020-4ad8-83a3-19ee0e5d06ff",
+      "type": "frame",
+      "x": 1080,
+      "y": 0,
+      "width": 960,
+      "height": 1170,
+      "name": "02 · สองทางเข้าสู่การทดสอบ"
+    },
+    {
+      "id": "b0229106-240e-4ed8-b7b4-792fa4f34dbe",
+      "type": "text",
+      "x": 40,
+      "y": 44,
+      "width": 800,
+      "height": 60,
+      "text": "จากสมมติฐานสู่คำสั่งซื้อขาย",
+      "fontSize": 36,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222"
+    },
+    {
+      "id": "f533deb9-2807-48a9-ba8e-c6f5172f7ad2",
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 345,
+      "y": 160,
+      "width": 270,
+      "height": 120,
+      "fill": "#EAFBF8",
+      "stroke": "#00A895",
+      "strokeWidth": 2
+    },
+    {
+      "id": "7b7cedf2-c2bc-49c6-9d12-6cdfd15d33d9",
+      "type": "arrow",
+      "from": [
+        480,
+        280
+      ],
+      "to": [
+        480,
+        352
+      ],
+      "stroke": "#6200EE",
+      "strokeWidth": 2
+    },
+    {
+      "id": "d2377c6f-7d47-458e-b88c-2fb0d966b409",
+      "type": "arrow",
+      "from": [
+        325,
+        942
+      ],
+      "to": [
+        43,
+        220
+      ],
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "through": [
+        [
+          25,
+          942
+        ],
+        [
+          25,
+          220
+        ]
+      ]
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 50,
+      "y": 160,
+      "width": 270,
+      "height": 120,
+      "fill": "#F6F0FF",
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "994d38e8-4dcd-4a14-afe1-b8a1f1b5ae35"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 640,
+      "y": 160,
+      "width": 270,
+      "height": 120,
+      "fill": "#F7F7F7",
+      "stroke": "#999999",
+      "strokeWidth": 2,
+      "id": "22d7f92e-5a7c-4e3d-a3f1-25681ef0e055"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 325,
+      "y": 360,
+      "width": 310,
+      "height": 96,
+      "fill": "#F6F0FF",
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "bb1a372a-31f9-4ba9-a527-e2a959eb2bcd"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 325,
+      "y": 510,
+      "width": 310,
+      "height": 84,
+      "fill": "#FFFFFF",
+      "stroke": "#D9D2E3",
+      "strokeWidth": 2,
+      "id": "5f8f0384-5695-4f7a-9402-353bf186b25e"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 325,
+      "y": 650,
+      "width": 310,
+      "height": 84,
+      "fill": "#FFFFFF",
+      "stroke": "#D9D2E3",
+      "strokeWidth": 2,
+      "id": "5b86b440-fa7a-4662-ac67-82345c54aac4"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 325,
+      "y": 790,
+      "width": 310,
+      "height": 84,
+      "fill": "#FFFFFF",
+      "stroke": "#D9D2E3",
+      "strokeWidth": 2,
+      "id": "9372042a-d2e9-48ad-ae4e-8f3c05043482"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 325,
+      "y": 920,
+      "width": 310,
+      "height": 84,
+      "fill": "#EAFBF8",
+      "stroke": "#00A895",
+      "strokeWidth": 2,
+      "id": "938b5045-81fc-4dd7-bac4-5167137794be"
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 104,
+      "width": 850,
+      "height": 35,
+      "text": "ค่าคาดการณ์ยังต้องผ่านพอร์ต ความเสี่ยง และต้นทุน",
+      "fontSize": 22,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#666666",
+      "id": "35fcdd56-cba2-40e6-8525-9d3173e0ca1c"
+    },
+    {
+      "type": "text",
+      "x": 70,
+      "y": 178,
+      "width": 235,
+      "height": 38,
+      "text": "Alpha model",
+      "fontSize": 26,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#6200EE",
+      "id": "735ab9dd-3ecc-49f6-9f2f-d5c14d1f595a"
+    },
+    {
+      "type": "text",
+      "x": 70,
+      "y": 220,
+      "width": 240,
+      "height": 30,
+      "text": "ผลตอบแทนที่คาดการณ์",
+      "fontSize": 21,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "0cbce51c-5c80-420f-b012-9ff39c119000"
+    },
+    {
+      "type": "text",
+      "x": 70,
+      "y": 250,
+      "width": 240,
+      "height": 30,
+      "text": "และความไม่แน่นอน",
+      "fontSize": 21,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "94a8049e-69c8-4872-bc8b-9a8173fb250a"
+    },
+    {
+      "type": "text",
+      "x": 365,
+      "y": 178,
+      "width": 235,
+      "height": 38,
+      "text": "Risk model",
+      "fontSize": 26,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#00A895",
+      "id": "ce6d3c02-d51f-4501-9d41-e9396c087cbf"
+    },
+    {
+      "id": "53c8a1f0-4f9f-4768-85a3-7cf14ff27ca4",
+      "type": "text",
+      "x": 365,
+      "y": 220,
+      "width": 240,
+      "height": 30,
+      "text": "ผันผวน • สัมพันธ์",
+      "fontSize": 21,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222"
+    },
+    {
+      "type": "text",
+      "x": 365,
+      "y": 250,
+      "width": 240,
+      "height": 30,
+      "text": "ขอบเขตความเสี่ยง",
+      "fontSize": 21,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "d6a0f825-9e6c-4839-afca-fa2b31929a91"
+    },
+    {
+      "type": "text",
+      "x": 660,
+      "y": 178,
+      "width": 235,
+      "height": 38,
+      "text": "Cost model",
+      "fontSize": 26,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "bc9b6e14-4a90-480a-a29a-f23e5a5b4928"
+    },
+    {
+      "id": "27790360-70d1-412a-b8e7-fccca6f5c1c3",
+      "type": "text",
+      "x": 660,
+      "y": 220,
+      "width": 240,
+      "height": 30,
+      "text": "ค่าธรรมเนียม • สเปรด",
+      "fontSize": 21,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222"
+    },
+    {
+      "type": "text",
+      "x": 660,
+      "y": 250,
+      "width": 240,
+      "height": 30,
+      "text": "ผลกระทบจากคำสั่ง",
+      "fontSize": 21,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "22b8cac5-7de5-4e1a-a89e-fa3dc24a8505"
+    },
+    {
+      "type": "text",
+      "x": 349,
+      "y": 375,
+      "width": 270,
+      "height": 40,
+      "text": "สร้างพอร์ตเป้าหมาย",
+      "fontSize": 27,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "191a8f69-65c1-472b-864f-c6ccb23f10ba"
+    },
+    {
+      "type": "text",
+      "x": 349,
+      "y": 416,
+      "width": 270,
+      "height": 32,
+      "text": "กำหนดขนาดและข้อจำกัด",
+      "fontSize": 21,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "de2cec43-7446-4e90-aef2-3be6ba4819cd"
+    },
+    {
+      "type": "text",
+      "x": 349,
+      "y": 525,
+      "width": 270,
+      "height": 40,
+      "text": "เทียบกับสิ่งที่ถืออยู่",
+      "fontSize": 26,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "56d9ec80-4a30-4c3a-883c-51f6a13b4681"
+    },
+    {
+      "type": "text",
+      "x": 349,
+      "y": 564,
+      "width": 270,
+      "height": 28,
+      "text": "คำนวณส่วนที่ต้องเปลี่ยน",
+      "fontSize": 20,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "7737f706-491d-4d99-a850-eec71ba513e2"
+    },
+    {
+      "type": "text",
+      "x": 349,
+      "y": 665,
+      "width": 270,
+      "height": 40,
+      "text": "คำสั่งที่เสนอ",
+      "fontSize": 27,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "164e66f2-de41-4b37-a3c2-db90ba7949fb"
+    },
+    {
+      "type": "text",
+      "x": 349,
+      "y": 704,
+      "width": 270,
+      "height": 28,
+      "text": "ตรวจสอบก่อนส่ง",
+      "fontSize": 21,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "3ced3159-777f-4ed5-ba43-dc29f88cc551"
+    },
+    {
+      "type": "text",
+      "x": 349,
+      "y": 805,
+      "width": 270,
+      "height": 40,
+      "text": "ส่งคำสั่งและรับผล",
+      "fontSize": 26,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "3df88ff1-812b-4178-8672-aebcee358a37"
+    },
+    {
+      "type": "text",
+      "x": 349,
+      "y": 844,
+      "width": 270,
+      "height": 28,
+      "text": "อาจจับคู่ได้บางส่วน",
+      "fontSize": 21,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "db4575ab-cb8a-4642-89d1-de20c0eff744"
+    },
+    {
+      "type": "text",
+      "x": 349,
+      "y": 934,
+      "width": 270,
+      "height": 40,
+      "text": "ติดตามและกระทบยอด",
+      "fontSize": 26,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "7ebd3734-b48f-4875-9c48-3a9e89f78825"
+    },
+    {
+      "type": "text",
+      "x": 349,
+      "y": 974,
+      "width": 270,
+      "height": 28,
+      "text": "พอร์ต • คำสั่ง • เงินสด",
+      "fontSize": 21,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "562d3a7c-ed42-4a7d-a9b7-8b7a7b769c7c"
+    },
+    {
+      "type": "text",
+      "x": 53,
+      "y": 840,
+      "width": 240,
+      "height": 32,
+      "text": "กลับไปทบทวน",
+      "fontSize": 22,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#6200EE",
+      "id": "2de3d3b9-fadf-4406-9e6d-6c1c8e9c071d"
+    },
+    {
+      "type": "text",
+      "x": 53,
+      "y": 876,
+      "width": 245,
+      "height": 32,
+      "text": "ข้อมูลและสมมติฐาน",
+      "fontSize": 22,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#6200EE",
+      "id": "296d1491-cb82-4eec-849d-8e0779854dd7"
+    },
+    {
+      "type": "text",
+      "x": 40,
+      "y": 1030,
+      "width": 880,
+      "height": 30,
+      "text": "วงจรที่เรียบเรียงสำหรับบทนี้ • ค่าคาดการณ์ไม่รับรองผลตอบแทน",
+      "fontSize": 20,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#666666",
+      "id": "6d6477aa-e69b-4eb7-8709-b2b0ff79668c"
+    },
+    {
+      "type": "arrow",
+      "from": [
+        185,
+        280
+      ],
+      "to": [
+        365,
+        352
+      ],
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "417a8ef5-d8cb-42cd-8fa3-1b25aca8a7b6"
+    },
+    {
+      "type": "arrow",
+      "from": [
+        775,
+        280
+      ],
+      "to": [
+        595,
+        352
+      ],
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "3a53b6fc-ba4f-455d-aa71-fcbfafa32ea5"
+    },
+    {
+      "type": "arrow",
+      "from": [
+        480,
+        456
+      ],
+      "to": [
+        480,
+        502
+      ],
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "106ecb65-409d-4e25-8263-fc9ce88d9d81"
+    },
+    {
+      "type": "arrow",
+      "from": [
+        480,
+        594
+      ],
+      "to": [
+        480,
+        642
+      ],
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "051094e8-214c-48d7-b4d8-bb840fd8b15b"
+    },
+    {
+      "type": "arrow",
+      "from": [
+        480,
+        734
+      ],
+      "to": [
+        480,
+        782
+      ],
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "67782eeb-2a89-414b-8241-80a75fbf1cba"
+    },
+    {
+      "type": "arrow",
+      "from": [
+        480,
+        874
+      ],
+      "to": [
+        480,
+        912
+      ],
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "65728cfd-80bc-4498-975f-37487fc5f0e6"
+    },
+    {
+      "type": "text",
+      "x": 1120,
+      "y": 44,
+      "width": 840,
+      "height": 60,
+      "text": "สองทางเข้าสู่การทดสอบ",
+      "fontSize": 36,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "12d9d1ba-f86b-414c-80df-cfdfd72df7e0"
+    },
+    {
+      "type": "text",
+      "x": 1120,
+      "y": 104,
+      "width": 860,
+      "height": 35,
+      "text": "เริ่มจากเหตุผล หรือเริ่มจากรูปแบบในข้อมูล",
+      "fontSize": 22,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#666666",
+      "id": "2fc1f3c2-2332-40f9-a2d7-c24ab8990b3a"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 1120,
+      "y": 170,
+      "width": 390,
+      "height": 125,
+      "fill": "#F6F0FF",
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "ea3268ba-f0cd-4778-acd0-00d776d85e63"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 1610,
+      "y": 170,
+      "width": 390,
+      "height": 125,
+      "fill": "#EAFBF8",
+      "stroke": "#00A895",
+      "strokeWidth": 2,
+      "id": "ac228727-2f26-4fea-aeac-d5ed33bc3119"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 1120,
+      "y": 365,
+      "width": 390,
+      "height": 115,
+      "fill": "#FFFFFF",
+      "stroke": "#D9D2E3",
+      "strokeWidth": 2,
+      "id": "b3cf0efd-7789-4a5e-9f4d-f0e2588cbdcc"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 1610,
+      "y": 365,
+      "width": 390,
+      "height": 115,
+      "fill": "#FFFFFF",
+      "stroke": "#D9D2E3",
+      "strokeWidth": 2,
+      "id": "b7ccc437-111e-4109-86a2-135ffc56d065"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 1365,
+      "y": 550,
+      "width": 390,
+      "height": 135,
+      "fill": "#F7F5FC",
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "594090f9-7be1-4d81-8413-f564c6abe6ae"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 1365,
+      "y": 760,
+      "width": 390,
+      "height": 85,
+      "fill": "#FFFFFF",
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "88e07d20-90a5-4113-b8f9-9a95cb29f2ce"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 1120,
+      "y": 940,
+      "width": 390,
+      "height": 115,
+      "fill": "#F7F7F7",
+      "stroke": "#999999",
+      "strokeWidth": 2,
+      "id": "1d629b1c-9c0c-4b51-9dba-0ef493d55c6e"
+    },
+    {
+      "type": "shape",
+      "shape": "rectangle",
+      "x": 1610,
+      "y": 940,
+      "width": 390,
+      "height": 115,
+      "fill": "#EAFBF8",
+      "stroke": "#00A895",
+      "strokeWidth": 2,
+      "id": "cf5ab6ae-9c55-4f85-b4f2-c4670b9b6a7e"
+    },
+    {
+      "type": "text",
+      "x": 1144,
+      "y": 189,
+      "width": 345,
+      "height": 42,
+      "text": "เริ่มจากสมมติฐาน",
+      "fontSize": 29,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#6200EE",
+      "id": "2b91f3f0-0a92-4f95-9917-54f9c1ddefc3"
+    },
+    {
+      "type": "text",
+      "x": 1144,
+      "y": 234,
+      "width": 345,
+      "height": 30,
+      "text": "เหตุผลทางเศรษฐศาสตร์",
+      "fontSize": 23,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "3653552d-bf6e-4300-8033-ac977ee4598d"
+    },
+    {
+      "type": "text",
+      "x": 1144,
+      "y": 266,
+      "width": 345,
+      "height": 30,
+      "text": "หรือพฤติกรรมในตลาด",
+      "fontSize": 23,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "23403589-ae45-47e9-95e8-412ca22c080a"
+    },
+    {
+      "type": "text",
+      "x": 1634,
+      "y": 189,
+      "width": 345,
+      "height": 42,
+      "text": "เริ่มจากข้อมูล",
+      "fontSize": 29,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#00A895",
+      "id": "3c6eb4bc-fbe1-49ce-bd59-3cb9eaff0892"
+    },
+    {
+      "type": "text",
+      "x": 1634,
+      "y": 234,
+      "width": 345,
+      "height": 30,
+      "text": "ค้นหารูปแบบ",
+      "fontSize": 23,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "ede54e27-800c-428b-bd36-d917273278f7"
+    },
+    {
+      "type": "text",
+      "x": 1634,
+      "y": 266,
+      "width": 345,
+      "height": 30,
+      "text": "ในชุดข้อมูลสำหรับฝึก",
+      "fontSize": 23,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "ca5ce081-58d7-4993-a6a4-ec5fe9ee120e"
+    },
+    {
+      "type": "text",
+      "x": 1144,
+      "y": 384,
+      "width": 345,
+      "height": 40,
+      "text": "ระบุสิ่งที่จะคาดการณ์",
+      "fontSize": 26,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "722ee674-852c-4f42-96dc-2f4e18354f77"
+    },
+    {
+      "type": "text",
+      "x": 1144,
+      "y": 428,
+      "width": 345,
+      "height": 35,
+      "text": "และเงื่อนไขที่อาจผิดได้",
+      "fontSize": 24,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "4b9c2216-794e-42a3-9bcf-be794b8edeee"
+    },
+    {
+      "type": "text",
+      "x": 1634,
+      "y": 384,
+      "width": 345,
+      "height": 40,
+      "text": "เลือกแบบจำลอง",
+      "fontSize": 26,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "a759af70-1619-4e77-9706-98326906ffc7"
+    },
+    {
+      "type": "text",
+      "x": 1634,
+      "y": 428,
+      "width": 345,
+      "height": 35,
+      "text": "ตรึงวิธีวัดผลและทดสอบ",
+      "fontSize": 24,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "20fed580-6e40-407d-9f1d-5ec2e5d6c244"
+    },
+    {
+      "type": "text",
+      "x": 1390,
+      "y": 568,
+      "width": 345,
+      "height": 42,
+      "text": "ทดสอบตามลำดับเวลา",
+      "fontSize": 27,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#6200EE",
+      "id": "135cd0a9-c87b-4c29-ae77-bcf4cc690e1c"
+    },
+    {
+      "type": "text",
+      "x": 1390,
+      "y": 610,
+      "width": 345,
+      "height": 33,
+      "text": "ใช้ช่วงข้อมูลที่กันไว้",
+      "fontSize": 23,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "721632c7-5cb5-4e97-b05b-95a73af44edb"
+    },
+    {
+      "type": "text",
+      "x": 1390,
+      "y": 646,
+      "width": 345,
+      "height": 33,
+      "text": "หักต้นทุน • ตรวจความเสี่ยง",
+      "fontSize": 23,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "794c3b74-09fa-492c-94b8-9d2cf9a01311"
+    },
+    {
+      "type": "text",
+      "x": 1390,
+      "y": 782,
+      "width": 345,
+      "height": 42,
+      "text": "หลักฐานยังน่าเชื่อถือหรือไม่?",
+      "fontSize": 24,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "859160dc-4cc5-4dff-9006-d287554af12f"
+    },
+    {
+      "type": "text",
+      "x": 1144,
+      "y": 957,
+      "width": 345,
+      "height": 42,
+      "text": "ไม่ผ่าน: ปรับหรือยุติ",
+      "fontSize": 27,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "f7f9ed33-24d0-4cf2-9085-0d4ae82f9c1b"
+    },
+    {
+      "type": "text",
+      "x": 1144,
+      "y": 1003,
+      "width": 345,
+      "height": 33,
+      "text": "บันทึกเหตุผลที่ไม่ผ่าน",
+      "fontSize": 23,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "aefe66f3-8d82-489d-87fc-be7439ec4ebe"
+    },
+    {
+      "type": "text",
+      "x": 1634,
+      "y": 957,
+      "width": 345,
+      "height": 42,
+      "text": "ผ่าน: ทดสอบวงเล็ก",
+      "fontSize": 27,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#00A895",
+      "id": "8fa31c31-abd4-4979-9964-62f38d6f410e"
+    },
+    {
+      "type": "text",
+      "x": 1634,
+      "y": 1003,
+      "width": 345,
+      "height": 33,
+      "text": "จำกัดความเสี่ยงและติดตาม",
+      "fontSize": 23,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#222222",
+      "id": "d42bb883-d34c-49f7-aa9a-f361df5eb382"
+    },
+    {
+      "type": "text",
+      "x": 1120,
+      "y": 1090,
+      "width": 880,
+      "height": 33,
+      "text": "ตรวจว่ามีข้อมูลอนาคตรั่วเข้ามาหรือไม่ ก่อนเชื่อผลทดสอบ",
+      "fontSize": 21,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#666666",
+      "id": "ac9a110c-3ef2-4f72-9b58-c8cf86ba264a"
+    },
+    {
+      "type": "text",
+      "x": 1120,
+      "y": 1131,
+      "width": 880,
+      "height": 30,
+      "text": "วงจรที่เรียบเรียงสำหรับบทนี้ • ผลในอดีตไม่รับรองผลข้างหน้า",
+      "fontSize": 20,
+      "fontFamily": "Noto Sans Thai",
+      "color": "#666666",
+      "id": "ff7083ff-2da4-47d0-8b06-260ef73a8008"
+    },
+    {
+      "type": "arrow",
+      "from": [
+        1315,
+        295
+      ],
+      "to": [
+        1315,
+        357
+      ],
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "6c08e2ce-af16-4ab4-91a0-8f47c6978891"
+    },
+    {
+      "type": "arrow",
+      "from": [
+        1805,
+        295
+      ],
+      "to": [
+        1805,
+        357
+      ],
+      "stroke": "#00A895",
+      "strokeWidth": 2,
+      "id": "b98f2867-ee81-4e94-9b74-4e2408bbd658"
+    },
+    {
+      "type": "arrow",
+      "from": [
+        1315,
+        480
+      ],
+      "to": [
+        1420,
+        542
+      ],
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "ea23503d-7614-4871-b689-8c69849b47de"
+    },
+    {
+      "type": "arrow",
+      "from": [
+        1805,
+        480
+      ],
+      "to": [
+        1700,
+        542
+      ],
+      "stroke": "#00A895",
+      "strokeWidth": 2,
+      "id": "44bdddc5-62ad-4fa2-a468-20f0df693bb3"
+    },
+    {
+      "type": "arrow",
+      "from": [
+        1560,
+        685
+      ],
+      "to": [
+        1560,
+        752
+      ],
+      "stroke": "#6200EE",
+      "strokeWidth": 2,
+      "id": "a06d48a9-964c-4b8f-a364-a19b0b73cbc0"
+    },
+    {
+      "type": "arrow",
+      "from": [
+        1450,
+        845
+      ],
+      "to": [
+        1315,
+        932
+      ],
+      "stroke": "#777777",
+      "strokeWidth": 2,
+      "id": "ea18ef38-6e72-42b6-8cd7-182530cc6c71"
+    },
+    {
+      "type": "arrow",
+      "from": [
+        1670,
+        845
+      ],
+      "to": [
+        1805,
+        932
+      ],
+      "stroke": "#00A895",
+      "strokeWidth": 2,
+      "id": "0027822b-e03a-4e13-a4df-ceb187da3ef7"
+    }
+  ]
+}

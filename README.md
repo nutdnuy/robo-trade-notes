@@ -2,7 +2,7 @@
 
 [Read the book online](https://nutdnuy.github.io/robo-trade-notes/) · [Edit the source on GitHub](https://github.com/nutdnuy/robo-trade-notes)
 
-A Thai learning website about Python and Webull OpenAPI. The published site currently contains Welcome and one illustrated chapter: [เริ่มต้นใช้ Webull OpenAPI ทีละขั้น](https://nutdnuy.github.io/robo-trade-notes/chapter-11.html), with 10 attributed image excerpts, an executed offline notebook and a quiz. The earlier ten-chapter edition remains archived; see [archive/README.md](archive/README.md). Light is the default theme.
+A Thai learning website about Python and Webull OpenAPI. The book contains Welcome and two lessons: Why Robo Trade (concepts, four original editable flows, a synthetic Alpha/Beta chart, three illustrated Quantara interludes and an offline rules exercise) and the illustrated setup guide, [เริ่มต้นใช้ Webull OpenAPI ทีละขั้น](https://nutdnuy.github.io/robo-trade-notes/chapter-11.html), with 10 attributed image excerpts, an executed offline notebook and a quiz. The earlier ten-chapter edition remains archived; see [archive/README.md](archive/README.md). Light is the default theme.
 
 ## Edit the book
 

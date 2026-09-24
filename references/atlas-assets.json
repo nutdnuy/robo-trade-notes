@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "recordedOn": "2026-09-24",
+  "route": "no-image-generator",
+  "routePolicy": "visual-generation/Nuth-v1",
+  "brand": "QuantCorner",
+  "reuse": "Existing owner-supplied illustrations and approved local logo copied byte-for-byte; no image generation, retouching or redraw performed for this website.",
+  "sourcePathConvention": "~ denotes the owner-provided local source root; no machine-specific username is recorded.",
+  "assets": [
+    {
+      "id": "learning-atlas",
+      "role": "owner-supplied illustration",
+      "sourcePath": "~/.codex/generated_images/01a0c783-6de4-7db3-93e6-1430d20c5da0/exec-a87952d5-a28c-4790-8051-f6dd94359101.png",
+      "targetPath": "public/images/learning-atlas.png",
+      "dimensions": {
+        "width": 1536,
+        "height": 1024,
+        "unit": "px"
+      },
+      "bytes": 4102681,
+      "sourceSha256": "105dc2e068db1bfb77ab614226359ba7bf68e4c2f136196c3e475d6703fd774f",
+      "targetSha256": "105dc2e068db1bfb77ab614226359ba7bf68e4c2f136196c3e475d6703fd774f",
+      "reusedUnchanged": true,
+      "byteEqualityVerified": true
+    },
+    {
+      "id": "deltaris-card",
+      "role": "owner-supplied illustration",
+      "sourcePath": "~/.codex/generated_images/01a0c783-6de4-7db3-93e6-1430d20c5da0/exec-257d5dab-b67f-476a-85cb-b760b2d0be2c.png",
+      "targetPath": "public/images/deltaris-card.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1536,
+        "unit": "px"
+      },
+      "bytes": 3411068,
+      "sourceSha256": "19075a14f7b50c037acea0d8d0f402be5b8d93d2db585bbbb55558f95c490983",
+      "targetSha256": "19075a14f7b50c037acea0d8d0f402be5b8d93d2db585bbbb55558f95c490983",
+      "reusedUnchanged": true,
+      "byteEqualityVerified": true
+    },
+    {
+      "id": "quantcorner-mark-light",
+      "role": "approved QuantCorner logo",
+      "sourcePath": "~/Documents/LLM-Wiki/90 System/design-systems/assets/quantcorner-brand/quantcorner-mark-light.svg",
+      "targetPath": "public/images/quantcorner-mark-light.svg",
+      "dimensions": {
+        "width": 128.0,
+        "height": 128.0,
+        "unit": "svg-user-units",
+        "viewBox": "0 0 128 128"
+      },
+      "bytes": 589,
+      "sourceSha256": "4ef73633892d648259b5fd05ce37feb01778ef22222309e2b937435f66967c05",
+      "targetSha256": "4ef73633892d648259b5fd05ce37feb01778ef22222309e2b937435f66967c05",
+      "reusedUnchanged": true,
+      "byteEqualityVerified": true
+    },
+    {
+      "id": "deltaris-masters",
+      "role": "owner-supplied character reference and website illustration",
+      "sourcePath": "user-attachment:codex-clipboard-fe3e8ae5-0d0c-4db4-9552-1fa92694aafd.png",
+      "targetPath": "public/images/deltaris-masters.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1536,
+        "unit": "px"
+      },
+      "bytes": 2525425,
+      "sourceSha256": "a2314a3aa6e0bdeaf21da282d9461f5bd6684516591f1fa7161d8d4e562c69f3",
+      "targetSha256": "a2314a3aa6e0bdeaf21da282d9461f5bd6684516591f1fa7161d8d4e562c69f3",
+      "reusedUnchanged": true,
+      "byteEqualityVerified": true
+    }
+  ],
+  "currentRevision": "Quantara workshop v2, 2026-09-24",
+  "currentRouteNote": "Native web interface plus a generated fictional illustration explicitly authorized by Nuth for this request. Earlier no-image-generator record describes v1 only.",
+  "ownerInstruction": "Everything is the Kingdom of Quantara; Deltaris people are Algorithmic Trading Masters who build these machines. Image Generator is explicitly permitted for this playful revision."
+}

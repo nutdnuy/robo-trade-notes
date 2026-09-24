@@ -1,0 +1,104 @@
+/* The owner explicitly requested an eccentric fantasy treatment for this revision. */
+.quantara-main{padding-top:8px}
+.quantara-hero{position:relative;min-height:600px;background:#191c19;border:1px solid #867552;border-radius:10px;isolation:isolate;overflow:hidden;color:#f7f1e4;box-shadow:0 12px 40px #30271513}
+.quantara-hero::after{content:'';position:absolute;inset:12px;border:1px solid #e3c68455;border-radius:3px;pointer-events:none;z-index:2}
+.quantara-hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:75% 20%;z-index:-2}
+.quantara-hero::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#121712ef 0%,#121712d9 25%,#12171283 46%,#12171200 67%),linear-gradient(0deg,#1416139e,transparent 25%)}
+.quantara-hero-copy{padding:70px 56px 80px;max-width:650px;position:relative;z-index:1}
+.quantara-kicker{font:500 11px/1.5 Roboto,sans-serif;letter-spacing:.22em;color:#ead8ab;display:flex;gap:12px;align-items:center}
+.quantara-kicker::before{content:'◆';font-size:9px}
+.quantara-hero h1{font:400 clamp(44px,4.8vw,68px)/1.06 Roboto,sans-serif;letter-spacing:-2.5px;margin:30px 0 26px;color:#fffaf0}
+.quantara-hero h1>span{color:#f3d390}
+.quantara-hero-motto{font-size:19px;line-height:1.4;letter-spacing:-.2px;margin:0 0 16px}
+.quantara-hero-thai{font-size:15px;line-height:1.9;color:#e1dfd5;margin-bottom:28px;max-width:390px}
+.quantara-hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.quantara-hero-actions a{display:inline-flex;align-items:center;justify-content:space-between;gap:24px;min-height:48px;padding:12px 20px;font-size:13px;border-radius:4px;font-weight:500}
+.quantara-hero-actions a:first-child{background:#f3d390;color:#29291e;box-shadow:0 2px 4px #0005}
+.quantara-hero-actions a:last-child{border:1px solid #bfc2ad7d;color:#f5f1e6}
+.quantara-hero-actions a:hover{text-decoration:none;transform:translateY(-2px)}
+.quantara-hero-actions a:active{transform:none}
+.quantara-hero-actions a:focus-visible{outline:3px solid white;outline-offset:4px}
+.quantara-hero-footnote{font:10px/1.7 'Roboto Mono',monospace;letter-spacing:.03em;display:block;color:#d5d1bc;margin-top:28px}
+.quantara-location{position:absolute;right:30px;bottom:34px;padding:14px 20px;color:#eee7d8;background:#181c19eb;border:1px solid #b59a68a8;border-radius:4px;z-index:1;max-width:230px}
+.quantara-location>span{display:block;font-size:9px;letter-spacing:.17em;color:#dbc189}
+.quantara-location strong{display:block;font-size:23px;font-weight:400;line-height:1.3;margin:6px 0}
+.quantara-location small{font-size:10px;color:#d9d5c9}
+.quantara-scene-label{position:absolute;right:30px;top:32px;font:9px 'Roboto Mono',monospace;letter-spacing:.08em;color:#fff4dc;text-shadow:0 1px 4px #000;background:#171c17a6;padding:7px 10px;z-index:1}
+.quantara-dispatch{display:flex;align-items:center;gap:24px;margin:0 18px;padding:16px 24px;border:1px solid #d7ccb5;border-top:0;background:#f2eee4;box-shadow:0 4px 8px #483b2010}
+.quantara-dispatch>span:first-child{font:500 9px/1.6 'Roboto Mono',monospace;letter-spacing:.07em;flex-shrink:0;color:#675730}
+.quantara-dispatch p{font-size:12px;line-height:1.8;color:#635f51;margin:0;flex:1}
+.quantara-dispatch>span:last-child{font-size:10px;color:#958259}
+.deltaris-workshop{display:grid;grid-template-columns:minmax(250px,.83fr) minmax(0,1.17fr);gap:80px;max-width:1160px;margin:88px auto 80px;align-items:center;scroll-margin-top:32px;outline-offset:8px}
+.deltaris-portrait-panel{position:relative;border:1px solid #d2c6aa;background:#fffdf6;padding:18px 20px 12px;box-shadow:7px 7px 0 #eae4d6;transform:rotate(-1.1deg);align-self:center}
+.guild-portrait-top{display:flex;justify-content:space-between;gap:16px;font:8px/1.6 'Roboto Mono',monospace;letter-spacing:.04em;border-bottom:1px solid #e3dac7;padding-bottom:12px;color:#746748}
+.deltaris-masters{margin:12px 0 0}
+.deltaris-masters img{display:block;width:100%;height:auto;mix-blend-mode:multiply;max-height:520px;object-fit:contain}
+.deltaris-masters figcaption{text-align:center;border-top:1px solid #e3dac7;padding:18px 0 8px}
+.deltaris-masters figcaption strong{display:block;font-size:15px;font-weight:500}
+.deltaris-masters figcaption span{display:block;font-size:11px;margin-top:5px;color:var(--muted)}
+.deltaris-masters.is-awake img{animation:machine-rattle .42s ease-out 1}
+@keyframes machine-rattle{0%,100%{transform:rotate(0)}25%{transform:rotate(.6deg)}60%{transform:rotate(-.5deg)}}
+.guild-paper-stamp{position:absolute;left:-18px;bottom:80px;border:2px solid #766448;outline:1px solid #766448;outline-offset:-5px;padding:13px 16px;background:#ede5d4f2;transform:rotate(-9deg);font:8px/1.6 'Roboto Mono',monospace;text-align:center;color:#655437;box-shadow:0 3px 4px #0001}
+.guild-paper-stamp strong{font:700 15px/1.7 Roboto,sans-serif;letter-spacing:.06em}
+.deltaris-workshop-copy>.atlas-eyebrow{font-size:10px;letter-spacing:.13em}
+.deltaris-workshop-copy h2{font:400 clamp(32px,3.3vw,48px)/1.1 Roboto,sans-serif;letter-spacing:-1.5px;margin:18px 0 24px}
+.deltaris-workshop-copy h2>span{color:#947342}
+.deltaris-lead{font-size:19px;line-height:1.75;margin:0 0 20px;color:#3c4138}
+.deltaris-lead strong{font-weight:500}
+.deltaris-workshop-copy>p:not(.deltaris-lead){font-size:15px;line-height:1.9;color:var(--muted);max-width:55ch}
+.guild-craft{display:flex;gap:20px;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin:24px 0}
+.guild-craft>span{font-size:9px;letter-spacing:.11em;color:var(--muted);flex-shrink:0}
+.guild-craft p{font-size:13px;margin:0}
+.machine-console{border:1px solid #a79775;background:#ede9df;border-radius:6px;padding:18px 20px;box-shadow:inset 0 0 0 4px #f8f5ee;position:relative}
+.machine-console-heading{display:flex;align-items:center;gap:9px;font:9px/1.6 'Roboto Mono',monospace;letter-spacing:.06em;color:#615d4f}
+.machine-state-light{width:7px;height:7px;display:block;border-radius:50%;background:#8a8a7c;border:1px solid #626252}
+.machine-state-light.is-awake{background:#14876f;border-color:#0d6552}
+.machine-reply{padding:18px 0 10px;min-height:128px}
+.machine-state{font-size:9px;letter-spacing:.1em;color:#6a624e}
+.machine-reply p{font-size:16px;line-height:1.75;margin:9px 0;color:#343a30}
+.machine-reply small{font-size:11px;line-height:1.6;color:#62695c;display:block}
+.machine-actions{display:flex;gap:12px;flex-wrap:wrap}
+.machine-actions>button{min-height:48px;padding:10px 16px;background:#30382f;color:#fffbed;border:1px solid #30382f;border-radius:4px;font-size:12px;display:flex;align-items:center;gap:16px;box-shadow:0 2px 3px #0002;transition:transform .15s,background .15s}
+.machine-actions>button:hover{background:#46523f;transform:translateY(-1px)}
+.machine-actions>button:active{transform:none;box-shadow:none}
+.machine-actions>button.machine-reset{background:transparent;color:#4f5848;box-shadow:none;border-color:#b6b8aa}
+.guild-guide-link{display:flex;align-items:center;flex-wrap:wrap;gap:5px 16px;margin-top:22px;font-size:16px;font-weight:500;min-height:48px;padding:8px 0}
+.guild-guide-link small{width:100%;color:var(--muted);font-size:12px;font-weight:400}
+.quantara-world{padding-top:48px;border-top:1px solid var(--line);scroll-margin-top:24px;outline-offset:8px}
+.quantara-section-heading{display:flex;align-items:end;justify-content:space-between;gap:32px;margin-bottom:28px}
+.quantara-section-heading h2{font:400 clamp(28px,2.5vw,38px)/1.2 Roboto,sans-serif;letter-spacing:-1px;margin:12px 0 0}
+.quantara-section-heading>p{font-size:13px;color:var(--muted);margin:0;line-height:1.8;flex-shrink:0}
+.quantara-map-layout{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:24px;align-items:start}
+.quantara-map-layout .atlas-map{border-radius:5px}
+.quantara-map-layout .atlas-map-caption{left:18px;top:18px;padding:10px 12px}
+.quantara-map-layout .atlas-map-caption>span{font-size:10px}
+.quantara-city-passport{background:#efede5;border:1px solid #d0c6b1;padding:24px;min-height:100%;position:relative;box-shadow:inset 0 0 0 5px #f9f6ef}
+.passport-kicker{font:9px/1.6 'Roboto Mono',monospace;letter-spacing:.1em;color:#6d6757;display:block;border-bottom:1px solid #d2c8b1;padding-bottom:14px;margin-bottom:20px}
+.passport-city-art{display:block;width:104px;height:156px;object-fit:contain;margin:0 auto 22px;box-shadow:0 5px 8px #30251326;transform:rotate(3deg);border-radius:3px}
+.passport-number{font:400 90px/1.3 'Roboto Mono',monospace;color:#d2c9b6;text-align:center;letter-spacing:-8px;margin:0 0 12px}
+.quantara-city-passport>.atlas-eyebrow{font-size:9px;letter-spacing:.08em;text-transform:uppercase}
+.quantara-city-passport h3{font:400 34px/1.2 Roboto,sans-serif;margin:8px 0 16px;letter-spacing:-.8px}
+.quantara-city-passport>p{font-size:13px;color:#626456;line-height:1.85;margin-bottom:24px}
+.passport-lesson{border-top:1px solid #d2c8b1;padding-top:18px}
+.passport-lesson>span{display:block;font-size:9px;letter-spacing:.1em;color:#666451}
+.passport-lesson strong{font-size:14px;line-height:1.5;display:block;margin:9px 0 12px;font-weight:500}
+.passport-lesson a{display:flex;justify-content:space-between;align-items:center;min-height:48px;padding:10px 12px;background:var(--primary);color:white;font-size:12px;border-radius:4px}
+.passport-lesson a:hover{text-decoration:underline;text-underline-offset:4px}
+.quantara-city-selector{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));margin-top:16px;border:1px solid var(--line);border-radius:5px;overflow:hidden}
+.quantara-city-selector button{padding:14px 12px;background:#fffdf8;min-height:94px;font-size:14px;text-align:left;border-right:1px solid var(--line);position:relative;line-height:1.5}
+.quantara-city-selector button:last-child{border-right:0}
+.quantara-city-selector button>span{font:9px 'Roboto Mono',monospace;display:block;margin-bottom:6px;color:var(--muted)}
+.quantara-city-selector button>small{display:block;font-size:9px;color:var(--muted);line-height:1.6;margin-top:4px}
+.quantara-city-selector button[aria-pressed=true]{background:#f2eafa;box-shadow:inset 0 3px var(--primary)}
+.quantara-city-selector button:hover{background:#eceadf}
+.quantara-city-selector button:focus-visible{outline-offset:-5px;outline-width:3px}
+.quantara-source-intro .markdown>p{font-size:17px;color:var(--muted);margin-bottom:32px}
+.quantara-reading .atlas-reading-label h2{font-size:32px;line-height:1.2}
+@media(min-width:1600px){.quantara-hero{min-height:670px}.quantara-hero-copy{padding-top:96px}}
+@media(max-width:1150px){.quantara-hero{min-height:560px}.quantara-hero-copy{padding:62px 36px 70px;max-width:560px}.quantara-hero h1{font-size:58px}.quantara-hero-motto{font-size:17px}.quantara-location{right:24px;bottom:28px;padding:12px 16px;max-width:190px}.quantara-location small{font-size:9px}.deltaris-workshop{gap:48px;margin-top:72px;grid-template-columns:minmax(230px,.8fr) minmax(0,1.2fr)}.deltaris-workshop-copy h2{font-size:39px}.deltaris-lead{font-size:17px}.quantara-map-layout{grid-template-columns:minmax(0,1fr) 230px;gap:16px}.quantara-city-passport{padding:20px}.passport-city-art{width:80px;height:120px}.quantara-city-passport h3{font-size:30px}.quantara-city-passport>p{font-size:12px}.quantara-map-layout .atlas-map-caption>span{font-size:8px}.quantara-map-layout .atlas-map-caption small{font-size:9px}.guild-paper-stamp{left:-12px}}
+@media(max-width:800px){.quantara-main{padding-top:0}.quantara-hero{min-height:580px}.quantara-hero-copy{max-width:480px;padding:54px 32px 106px}.quantara-hero::before{background:linear-gradient(90deg,#121712e6,#121712ac 46%,#1217122b),linear-gradient(0deg,#141613b5,transparent 35%)}.quantara-hero-art{object-position:68% center}.quantara-hero h1{font-size:54px}.quantara-hero-motto{font-size:17px}.quantara-hero-thai{font-size:14px}.quantara-hero-footnote{font-size:8px;max-width:300px}.quantara-location{right:26px;bottom:24px;padding:8px 14px}.quantara-location>span{font-size:8px}.quantara-location strong{font-size:18px;margin:3px 0}.quantara-location small{display:none}.quantara-scene-label{top:25px;right:24px;font-size:7px}.quantara-dispatch{margin:0 10px;padding:14px 16px;gap:12px;align-items:start}.quantara-dispatch>span:first-child{max-width:70px;font-size:8px}.quantara-dispatch p{font-size:11px}.deltaris-workshop{grid-template-columns:1fr 1.2fr;gap:32px;margin:64px auto}.deltaris-portrait-panel{padding:12px}.guild-portrait-top{font-size:7px;display:block}.guild-portrait-top>span:last-child{display:none}.guild-paper-stamp{left:-8px;font-size:7px;padding:12px;bottom:90px}.guild-paper-stamp strong{font-size:12px}.deltaris-masters figcaption strong{font-size:12px}.deltaris-masters figcaption span{font-size:10px}.deltaris-workshop-copy>.atlas-eyebrow{font-size:8px}.deltaris-workshop-copy h2{font-size:32px;letter-spacing:-.8px}.deltaris-lead{font-size:16px}.deltaris-workshop-copy>p:not(.deltaris-lead){font-size:13px}.guild-craft{display:block;margin:18px 0}.guild-craft p{font-size:12px;margin-top:5px}.machine-console{padding:16px}.machine-reply p{font-size:14px}.machine-actions>button{font-size:11px;padding:10px 12px}.guild-guide-link{font-size:14px}.guild-guide-link small{font-size:11px}.quantara-section-heading{display:block;margin-bottom:24px}.quantara-section-heading>p{margin-top:16px;font-size:12px}.quantara-section-heading>p br{display:none}.quantara-map-layout{grid-template-columns:1fr}.quantara-city-passport{display:grid;grid-template-columns:120px minmax(0,1fr);column-gap:24px;min-height:0;padding:24px}.passport-kicker{grid-column:1/-1;margin-bottom:18px}.passport-city-art,.passport-number{grid-column:1;grid-row:2/5;margin:0 auto;align-self:center}.passport-city-art{width:96px;height:144px}.quantara-city-passport>.atlas-eyebrow{grid-column:2;grid-row:2}.quantara-city-passport h3{grid-column:2;grid-row:3;font-size:30px}.quantara-city-passport>p{grid-column:2;grid-row:4;margin-bottom:0;font-size:13px}.passport-lesson{grid-column:1/-1;margin-top:20px;display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:5px 20px;align-items:center}.passport-lesson a{grid-column:2;grid-row:1/3}.passport-lesson strong{margin:0}.quantara-city-selector{grid-template-columns:repeat(3,minmax(0,1fr))}.quantara-city-selector button:nth-child(-n+3){border-bottom:1px solid var(--line)}.quantara-city-selector button:nth-child(3){border-right:0}}
+@media(max-width:560px){.quantara-hero{min-height:620px;border-radius:6px}.quantara-hero-art{object-position:70% center;opacity:.87}.quantara-hero::before{background:linear-gradient(0deg,#141b14fa 0%,#141b14c9 35%,#141b144d 76%,#141b1426)}.quantara-hero::after{inset:8px}.quantara-hero-copy{padding:218px 24px 32px;max-width:none}.quantara-kicker{font-size:8px;letter-spacing:.13em}.quantara-hero h1{font-size:46px;letter-spacing:-1.7px;margin:16px 0}.quantara-hero-motto{font-size:15px}.quantara-hero-thai{font-size:13px;margin-bottom:22px}.quantara-hero-actions{gap:8px}.quantara-hero-actions a{padding:10px 13px;font-size:11px;gap:12px}.quantara-hero-footnote{font-size:7px;margin-top:20px;max-width:none}.quantara-location{left:20px;right:auto;top:24px;bottom:auto;padding:8px 12px;background:#191d19d9}.quantara-location>span{font-size:7px}.quantara-location strong{font-size:18px}.quantara-scene-label{top:32px;right:16px;font-size:6px;max-width:90px;line-height:1.6;text-align:right;padding:0;background:transparent}.wide-only{display:none}.quantara-dispatch{padding:12px;gap:10px;margin:0 8px}.quantara-dispatch>span:first-child{font-size:7px;max-width:55px}.quantara-dispatch p{font-size:10px}.quantara-dispatch>span:last-child{display:none}.deltaris-workshop{display:flex;flex-direction:column;gap:32px;margin:48px auto;align-items:stretch}.deltaris-portrait-panel{max-width:300px;width:90%;margin:0 auto;padding:14px 16px;order:1}.deltaris-workshop-copy{display:contents}.deltaris-workshop-copy>.atlas-eyebrow{order:0;font-size:9px;text-align:center;margin-bottom:-22px}.deltaris-workshop-copy h2{order:0;font-size:38px;line-height:1.08;text-align:center;margin:4px 0 0}.deltaris-lead{order:2;font-size:19px;text-align:center;margin:0}.deltaris-workshop-copy>p:not(.deltaris-lead){order:3;font-size:14px;margin:0}.guild-craft{order:4;margin:0}.machine-console{order:5}.guild-guide-link{order:6;margin-top:0}.deltaris-masters img{max-height:385px}.guild-portrait-top{display:flex;font-size:7px}.guild-portrait-top>span:last-child{display:block;font-size:6px}.guild-paper-stamp{bottom:90px;left:-14px}.deltaris-masters figcaption strong{font-size:14px}.machine-console-heading{font-size:8px}.machine-reply p{font-size:16px}.machine-actions>button{font-size:12px}.quantara-world{padding-top:32px}.quantara-section-heading h2{font-size:30px;line-height:1.2;max-width:16ch}.quantara-section-heading .atlas-eyebrow{font-size:8px}.quantara-map-layout .atlas-map-caption{left:10px;top:10px;padding:6px 8px}.quantara-map-layout .atlas-map-caption>span{font-size:7px}.quantara-map-layout .atlas-map-caption small{display:none}.quantara-city-passport{grid-template-columns:74px minmax(0,1fr);gap:0 18px;padding:20px}.passport-city-art{width:72px;height:108px}.passport-number{font-size:64px;letter-spacing:-5px}.quantara-city-passport h3{font-size:27px}.quantara-city-passport>.atlas-eyebrow{font-size:8px}.quantara-city-passport>p{font-size:12px}.passport-lesson{grid-template-columns:1fr;gap:10px}.passport-lesson a{grid-column:auto;grid-row:auto}.passport-lesson strong{font-size:14px}.quantara-city-selector button{font-size:13px;padding:12px 10px;min-height:97px}.quantara-city-selector button>small{font-size:8px}.quantara-reading{margin-top:40px}.quantara-source-intro .markdown>p{font-size:16px}.quantara-reading .atlas-reading-label h2{font-size:32px}}
+@media(prefers-reduced-motion:reduce){.deltaris-masters.is-awake img{animation:none}.quantara-hero-actions a:hover,.machine-actions>button:hover{transform:none}}
+@media print{.quantara-hero{min-height:400px;print-color-adjust:exact}.quantara-hero-copy{padding:32px}.quantara-hero-actions,.machine-actions,.quantara-city-selector,.quantara-dispatch,.quantara-scene-label{display:none!important}.deltaris-workshop{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:32px 0}.deltaris-workshop-copy{display:block}.deltaris-portrait-panel{transform:none}.quantara-map-layout{display:block}.quantara-city-passport{display:none}.quantara-section-heading{margin-bottom:16px}}
+
+@media(max-width:560px){.quantara-world .atlas-map-pin{min-width:48px;min-height:48px;padding:0}}

@@ -1,0 +1,46 @@
+{
+  "asset": "Deltaris coastal workshop",
+  "generated_at_date": "2026-09-24",
+  "tool": "built-in image_gen.imagegen",
+  "generation_mode": "new illustration",
+  "image_count": 1,
+  "source_path": "~/.codex/generated_images/01a0d201-79eb-7c02-8f4f-ce64e735ce09/exec-c1ce8bcf-6b25-4dca-aacd-b8cdbb804905.png",
+  "output_path": "public/images/deltaris-workshop-v2.png",
+  "prompt_path": "references/deltaris-workshop-prompt.txt",
+  "prompt": "Use case: illustration-story.\nAsset type: one complete text-free panoramic website illustration, landscape 3:2, 1536 × 1024 if available.\nPrimary request: A delightfully eccentric fantasy workshop in Deltaris, the coastal foundry city in the Kingdom of Quantara, where the Algorithmic Trading Masters build absurdly elaborate brass automatons. This is a fictional imaginative world, with no financial claims or data.\nScene: A vast late-medieval stone workshop with gothic seaside arches, towering dark beams, brass pipes curling improbably through the rafters, a few suspended pulley wheels and gear assemblies, warm forge fire, soft sea mist. Through a tall arched window, a sunlit blue sea and the steep rock islands, gothic foundries, cranes and cliffside harbor of Deltaris.\nMain subject: On the RIGHT half of the composition, an enormous friendly automaton made of charcoal-blue steel plates inlaid with delicate gold crackle filigree and weathered polished brass joints. Broad rounded pauldrons, engraved rivets, a domed rounded head, warm curious cyan-blue crystal eyes, a glowing faceted blue crystal at its exposed mechanical chest. Its giant arm rests on a sturdy workbench. A stocky, stout dwarven master engineer with a dark brown beard braided with brass clasps, brass goggles pushed up on his forehead, rolled ivory sleeves, dark blue hooded mantle, leather apron and worn boots carefully adjusts the giant wrist using an ordinary wrench. The artisan and automaton have a warm, patient working friendship. Clear plausible anatomy, expressive hands.\nWhimsical details: Two tiny apprentice brass automatons earnestly sort unwritten parchment punch cards into wooden trays beneath the workbench. A tiny mechanical tea kettle with little jointed brass legs waddles nearby, letting out one small puff of steam. One comically excessive spiral brass tube feeds the kettle. Let this charming absurdity read through craftsmanship, scale and interaction, never visual slapstick.\nComposition: Richly detailed panoramic storybook plate with the huge automaton and engineer dominating the right half. Reserve the LEFT THIRD as calmer, atmospheric dark charcoal stonework, open floor and gentle warm reflected light, with relatively low contrast and no focal characters, to allow later native HTML headings. Do not render any headings in the image. Keep faces, hands and crystal core safely within frame. Medium-wide view, coherent perspective, full scene, confident focal hierarchy.\nStyle: Premium detailed painterly fantasy book-cover art with elegant oil-brush texture and convincing metal, stone, leather and fabric, richly crafted and warm, whimsical and mysterious; neither flat cartoon nor plastic game render. Broad quiet shadows, amber rim lighting, blue ocean daylight. Warm ivory, burnished antique gold, charcoal slate, weathered leather, and restrained luminous teal-blue accents.\nConstraints: Generate only the art, edge to edge. No card frame, no border, no typography, no readable text, no labels, no logos, no watermark, no UI, no modern screens, no trading charts, no graphs, no currency symbols. No imitation brand marks.",
+  "sha256": "874c15b08d9c62a2781b3bdcdfde146daee210e1fc435a72449d3fd97e45a78c",
+  "width": 1536,
+  "height": 1024,
+  "size_bytes": 3248312,
+  "copied_unedited": true,
+  "brand": "QuantCorner",
+  "fictional_world": "Kingdom of Quantara",
+  "location": "Deltaris",
+  "owner_confirmed_lore": "Deltaris is home to Algorithmic Trading Masters who make the machines.",
+  "route": {
+    "visual_policy": "visual-generation/Nuth-v1",
+    "selected_asset_route": "image-generator-only",
+    "interface_route": "no-image-generator",
+    "exception": "Nuth explicitly authorized Image Generator for this website decoration request on 2026-09-24. The exception is limited to this request. The illustration is generated; all interface, controls, typography and content remain native frontend work."
+  },
+  "visual_reference_inspection": [
+    "user-attachment:codex-clipboard-fe3e8ae5-0d0c-4db4-9552-1fa92694aafd.png",
+    "public/images/deltaris-card.png"
+  ],
+  "reference_handling": "Both source images were visually inspected with view_image. Their visual qualities were described in the new-generation prompt. No source artwork was edited.",
+  "qa": {
+    "status": "visually inspected and accepted",
+    "composition": "Large brass-and-charcoal automaton and dwarven master on the right; comparatively calm shadowed workshop left third; ocean and coastal architecture visible in the central arches.",
+    "details": "Two apprentice automatons visibly sort punch cards; a walking kettle and exaggerated spiral pipe provide the requested playful eccentricity.",
+    "inspected_constraints": [
+      "3:2 landscape at 1536x1024",
+      "No readable text",
+      "No logos or UI",
+      "No financial charts or data",
+      "Faces, hands and crystal core visible",
+      "Original source retained",
+      "Output copy SHA-256 recorded"
+    ],
+    "limitations": "The scene is detailed and includes a bright central window. Place HTML copy in the darker left third and verify its contrast in the actual website; mobile crop must be checked by the frontend owner."
+  }
+}

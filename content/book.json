@@ -10,8 +10,8 @@
     {
       "id": "welcome",
       "eyebrow": "WELCOME TO ROBO TRADE",
-      "heroImage": "images/robo-trade-welcome.png",
-      "heroAlt": "ประติมากรรมวงริบบิ้นโลหะและกระจกเหนือแท่นทดลองในห้องวิจัย แทนแนวคิดการเรียนรู้อย่างเป็นระบบ",
+      "heroImage": "images/learning-atlas.png",
+      "heroAlt": "แผนที่แฟนตาซีของเมืองกลางป่า ภูเขา แม่น้ำ และชายฝั่ง ใช้ประกอบการเลือกหัวข้อเรียน",
       "meta": [
         "Python + Webull OpenAPI"
       ],

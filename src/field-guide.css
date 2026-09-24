@@ -1,0 +1,129 @@
+/* Chapter-only Quantara reading shell. Canonical lesson content stays untouched. */
+.field-guide-page{--primary:#71572d;--on-primary:#fffaf0;--selected:#ebe4d3;--line:#d9d0bd;--code:#f0ede4;--surface:#fffdf7;--muted:#686759;--rb-primary:#71572d;--rb-on-primary:#fffaf0;--rb-focus:#71572d;min-width:0}
+.field-guide-page .atlas-navigation{border-color:#dfd6c3;background:#fffdf7}
+.field-guide-page .atlas-navigation a[aria-current=page]{background:#343a31;color:#fff8e9}
+.field-guide-page .atlas-navigation a:hover{background:#eae4d6;color:#30382f}
+.field-guide-page .atlas-contents-toggle{background:#fffaf0;border-color:#c7baa0;color:#4b4b3a}
+.field-guide-page .book-layout.field-guide-layout{grid-template-columns:244px minmax(0,1fr);gap:40px;max-width:1488px;padding:8px 40px 56px;align-items:start}
+.field-guide-page .field-guide-layout .book-sidebar{position:sticky;top:20px;bottom:auto;height:calc(100dvh - 40px);padding:24px 20px 20px;border:1px solid #d9cfb9;border-radius:5px;background:#f0ece1;box-shadow:inset 0 0 0 5px #f8f5ec;overflow-y:auto;z-index:20}
+.field-guide-sidebar-title{padding:0 4px 20px;border-bottom:1px solid #d9cfb9;margin-bottom:14px}
+.field-guide-sidebar-title>span{font:500 9px/1.6 'Roboto Mono',monospace;letter-spacing:.1em;color:#736440}
+.field-guide-sidebar-title>p{font:400 25px/1.2 Roboto,sans-serif;letter-spacing:-.6px;color:#34392e;margin:12px 0 8px}
+.field-guide-sidebar-title>small{font-size:10px;line-height:1.6;color:#696652;display:block}
+.field-guide-page .book-pages{gap:4px}
+.field-guide-page .book-link{gap:10px;padding:10px 9px;min-height:48px;font-size:12px;color:#555e4c;border-radius:3px;line-height:1.5}
+.field-guide-page .book-link>span{flex:0 0 22px;font:11px 'Roboto Mono',monospace;color:#796b49}
+.field-guide-page .book-link.current{background:#fffaf0;border:1px solid #c8b894;color:#423f2e;box-shadow:0 2px 3px #5c4a2010}
+.field-guide-page .book-link:hover{background:#e7dfce;color:#333b2e}
+.field-guide-page .sidebar-local-toc{display:block;margin:18px 0 0;border-top:1px solid #d9cfb9;padding:10px 0 0}
+.field-guide-page .sidebar-local-toc>summary{display:flex;align-items:center;flex-wrap:wrap;gap:0 6px;min-height:56px;padding:6px 4px;font-size:12px;line-height:1.5;color:#424b3d;cursor:pointer}
+.field-guide-page .sidebar-local-toc>summary>span{font-size:10px;color:#73705f;width:100%;order:2}
+.field-guide-page .sidebar-local-toc>summary::after{margin-left:auto;font-size:17px;color:#80734f}
+.field-guide-page .chapter-sections{padding-top:6px}
+.field-guide-page .chapter-sections a{display:grid;grid-template-columns:22px minmax(0,1fr);align-items:start;gap:10px;min-height:48px;padding:12px 8px;margin:1px 0;font-size:12px;line-height:1.7;color:#5b6052;border-radius:3px;overflow-wrap:anywhere}
+.field-guide-page .chapter-sections a:hover{background:#e9e3d5;color:#373f32;text-decoration:none}
+.field-guide-page .chapter-sections a[aria-current=location]{background:#fffaf0;color:#443b24;box-shadow:inset 0 0 0 1px #c5b68f}
+.field-guide-nav-number{font:10px/2 'Roboto Mono',monospace;color:#80724e}
+.field-guide-sidebar-download{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;min-height:64px;margin-top:20px;padding:16px 4px 2px;border-top:1px solid #d9cfb9;font-size:12px;color:#5e4c2f}
+.field-guide-sidebar-download>small{grid-column:1 / -1;font-size:10px;color:#6c6d5e}
+.field-guide-page .field-guide-main{padding:0;min-width:0;max-width:none;outline-offset:6px}
+.field-guide-article{min-width:0}
+.field-guide-cover{overflow:hidden;border:1px solid #c8b993;background:#fffaf0;border-radius:6px;box-shadow:0 8px 24px #4e452c0b;scroll-margin-top:24px}
+.field-guide-art{position:relative;margin:0;min-height:290px;background:#22281f;isolation:isolate;color:#fff6e6}
+.field-guide-art>img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:66% 40%;z-index:-2}
+.field-guide-art::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#171d16e6,#171d168c 40%,#171d1600 70%),linear-gradient(0deg,#1c201997,transparent 45%)}
+.field-guide-art::after{content:'';position:absolute;inset:12px;border:1px solid #ebd49b59;pointer-events:none}
+.field-guide-art>figcaption{padding:40px 34px;min-height:290px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;max-width:410px}
+.field-guide-art figcaption>span{font:500 9px/1.6 'Roboto Mono',monospace;letter-spacing:.1em;color:#ead5a3}
+.field-guide-art figcaption>strong{font:400 clamp(30px,3.2vw,43px)/1.15 Roboto,sans-serif;letter-spacing:-1.1px;margin:16px 0 18px;max-width:230px;color:#fff8e9}
+.field-guide-art figcaption>small{font:9px/1.6 'Roboto Mono',monospace;letter-spacing:.14em;color:#e9dfc8}
+.field-guide-cover-copy{padding:32px 34px 30px;position:relative}
+.field-guide-cover-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 20px;margin-bottom:20px;font:9px/1.7 'Roboto Mono',monospace;letter-spacing:.08em;color:#7a6948}
+.field-guide-cover-meta>span:first-child{display:flex;align-items:center;gap:10px}
+.field-guide-cover-meta b{font-size:12px;letter-spacing:0;font-weight:400;border:1px solid #c7b994;padding:4px 7px;color:#5a4a2d}
+.field-guide-page .field-guide-main h1{font-size:clamp(29px,3vw,42px);line-height:1.5;font-weight:500;letter-spacing:-.025em;color:#303a2e;max-width:760px;margin:0 0 20px;text-wrap:balance}
+.field-guide-page .field-guide-cover .chapter-lead{font-size:17px;line-height:1.95;color:#626859;margin:0;max-width:760px}
+.field-guide-page .field-guide-cover .chapter-lead .markdown p{margin:0}
+.field-guide-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px 16px;margin-top:24px}
+.field-guide-actions>a{display:inline-flex;align-items:center;justify-content:space-between;gap:20px;min-height:48px;padding:11px 16px;font-size:12px;line-height:1.6;border:1px solid #b5a680;border-radius:3px;color:#5c4a2c;background:#fffdf7;transition:background .15s,box-shadow .15s}
+.field-guide-actions>a:first-child{background:#343c30;color:#fff8e7;border-color:#343c30;box-shadow:0 2px 3px #0002}
+.field-guide-actions>a:hover{background:#e8dfca;color:#343c30;text-decoration:none;box-shadow:0 3px 7px #0002}
+.field-guide-actions>a:active{box-shadow:none}
+.field-guide-reading{padding:0 28px}
+.field-guide-page .field-guide-reading .lesson-section{padding-top:48px;font-size:17px;line-height:1.95}
+.field-guide-page .field-guide-reading .section-heading{display:flex;align-items:flex-start;gap:16px;border-bottom:1px solid #ded5c2;padding-bottom:18px;margin-bottom:24px}
+.field-guide-page .field-guide-reading .field-guide-section-number{display:flex;align-items:center;justify-content:center;flex:0 0 34px;min-height:34px;font:11px 'Roboto Mono',monospace;letter-spacing:0;color:#76603b;border:1px solid #cbbb98;border-radius:3px;margin:5px 0 0;background:#f5efe0}
+.field-guide-page .field-guide-reading .section-heading h2{font-size:27px;line-height:1.65;font-weight:500;letter-spacing:-.02em;color:#343d2e;margin:0;scroll-margin-top:28px}
+.field-guide-page .field-guide-reading .markdown h3{color:#3f4936}
+.field-guide-page .field-guide-reading .content-image{border:1px solid #d5cbb5;border-radius:4px;background:#fff;box-shadow:0 4px 12px #55431d0a}
+.field-guide-page .field-guide-reading .markdown blockquote{background:#f0ece1;border:1px solid #dfd5be;border-radius:3px;color:#5e6252}
+.field-guide-page .page-footer{margin:48px 28px 0;padding:24px 0 0;border-top:1px solid #d9cfb9;font-size:10px;gap:12px;flex-wrap:wrap}
+.field-guide-page .page-footer>a{font-size:12px;min-height:48px;display:flex;align-items:center;color:#625335}
+.field-guide-page .page-footer>span{font:8px/1.6 'Roboto Mono',monospace;letter-spacing:.1em;color:#807454}
+.field-guide-page a:focus-visible,.field-guide-page button:focus-visible,.field-guide-page summary:focus-visible,.field-guide-page main:focus-visible{outline:3px solid #71572d;outline-offset:4px}
+@media(max-width:1150px){
+  .field-guide-page .book-layout.field-guide-layout{grid-template-columns:210px minmax(0,1fr);gap:26px;padding:8px 28px 48px}
+  .field-guide-page .field-guide-layout .book-sidebar{padding:22px 14px 18px}
+  .field-guide-art,.field-guide-art>figcaption{min-height:270px}
+  .field-guide-art>figcaption{padding:32px 28px}
+  .field-guide-cover-copy{padding:28px}
+  .field-guide-page .field-guide-main h1{font-size:34px}
+  .field-guide-page .field-guide-cover .chapter-lead{font-size:16px}
+  .field-guide-reading{padding:0 12px}
+  .field-guide-page .field-guide-reading .section-heading h2{font-size:25px}
+}
+@media(max-width:800px){
+  .field-guide-page .book-layout.field-guide-layout{display:block;padding:8px 24px 40px}
+  .field-guide-page .field-guide-layout .book-sidebar{display:none;position:static;top:auto;height:auto;overflow:visible;margin:0 0 24px;padding:24px 20px;transform:none}
+  .field-guide-page .field-guide-layout.menu-open .book-sidebar{display:block;background:#f0ece1;border:1px solid #d9cfb9;padding:24px 20px;box-shadow:inset 0 0 0 5px #f8f5ec}
+  .field-guide-page .field-guide-main{padding-top:0}
+  .field-guide-art,.field-guide-art>figcaption{min-height:290px}
+  .field-guide-art>img{object-position:65% 40%}
+  .field-guide-art>figcaption{padding:32px}
+  .field-guide-art figcaption>strong{font-size:36px;max-width:210px}
+  .field-guide-cover-copy{padding:28px}
+  .field-guide-reading{padding:0 12px}
+  .field-guide-page .field-guide-reading .section-heading h2{scroll-margin-top:24px}
+  .field-guide-page .page-footer{margin-left:12px;margin-right:12px}
+}
+@media(max-width:560px){
+  .field-guide-page .book-layout.field-guide-layout{padding:0 16px 32px}
+  .field-guide-art,.field-guide-art>figcaption{min-height:236px}
+  .field-guide-art>img{object-position:69% 40%}
+  .field-guide-art::before{background:linear-gradient(90deg,#171d16e8,#171d169e 45%,#171d1620 100%)}
+  .field-guide-art::after{inset:9px}
+  .field-guide-art>figcaption{padding:28px 22px;max-width:220px}
+  .field-guide-art figcaption>span{font-size:8px;max-width:145px}
+  .field-guide-art figcaption>strong{font-size:29px;max-width:170px;margin:14px 0 16px}
+  .field-guide-art figcaption>small{font-size:7px;letter-spacing:.1em}
+  .field-guide-cover-copy{padding:24px 20px}
+  .field-guide-cover-meta{font-size:8px;gap:12px;align-items:flex-start;margin-bottom:16px}
+  .field-guide-cover-meta>span:last-child{max-width:115px;text-align:right}
+  .field-guide-page .field-guide-main h1{font-size:28px;line-height:1.55;margin-bottom:16px;overflow-wrap:anywhere}
+  .field-guide-page .field-guide-cover .chapter-lead{font-size:15px;line-height:1.95}
+  .field-guide-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:20px}
+  .field-guide-actions>a{width:100%;font-size:12px}
+  .field-guide-reading{padding:0 3px}
+  .field-guide-page .field-guide-reading .lesson-section{font-size:16px;padding-top:36px}
+  .field-guide-page .field-guide-reading .section-heading{gap:12px;padding-bottom:16px;margin-bottom:20px}
+  .field-guide-page .field-guide-reading .field-guide-section-number{flex-basis:30px;min-height:30px;font-size:10px}
+  .field-guide-page .field-guide-reading .section-heading h2{font-size:22px;line-height:1.7;overflow-wrap:anywhere}
+  .field-guide-page .field-guide-reading .markdown h3{font-size:20px}
+  .field-guide-page .page-footer{margin:36px 3px 0;padding-top:16px}
+  .field-guide-page .page-footer>span{display:none}
+}
+@media(prefers-reduced-motion:reduce){.field-guide-page *{scroll-behavior:auto!important;transition:none!important}}
+@media print{
+  .field-guide-page .book-layout.field-guide-layout{display:block;padding:0;max-width:none}
+  .field-guide-page .field-guide-layout .book-sidebar,.field-guide-actions,.field-guide-page .page-footer{display:none!important}
+  .field-guide-cover{box-shadow:none;border-color:#bbb;break-inside:avoid}
+  .field-guide-art,.field-guide-art>figcaption{min-height:180px;print-color-adjust:exact}
+  .field-guide-art>figcaption{padding:24px}
+  .field-guide-art figcaption>strong{font-size:26px}
+  .field-guide-cover-copy{padding:24px}
+  .field-guide-page .field-guide-main h1{font-size:25pt}
+  .field-guide-page .field-guide-cover .chapter-lead{font-size:11pt}
+  .field-guide-reading{padding:0}
+  .field-guide-page .field-guide-reading .lesson-section{font-size:11pt;padding-top:28px}
+  .field-guide-page .field-guide-reading .section-heading h2{font-size:18pt}
+}

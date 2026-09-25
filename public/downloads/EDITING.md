@@ -118,8 +118,6 @@ Use `$r_t$` for inline mathematics and `$$` on separate lines for display mathem
 Standalone interactive markers:
 
 - `::: lab` — chapter 01 SMA experiment
-- `::: timing-viz`, `::: volatility-sizing-viz`, `::: drawdown-recovery-viz` — chapter 13 concept experiments for signal timing, position sizing, and drawdown arithmetic
-- `::: backtest-intro-lab` — chapter 13 signal-timing, cost and volatility-target comparisons
 - `::: backtest-lab` — chapter 04 transaction-cost experiment
 - `::: drawdown-lab` — chapter 05 drawdown/recovery experiment
 - `::: execution-lab` — chapter 09 partial fills and duplicate events
@@ -185,7 +183,3 @@ This creates `outputs/robo-trade-editable.zip` with the canonical YAML, Markdown
 ## Package the ready-to-read website
 
 Run `npm run package:website` to rebuild the separate HTML pages and create `outputs/robo-trade-website.zip`. Extract the full folder and open its `index.html`; keep the supporting folders beside it. This reading package does not require Node.js or Python.
-
-## Backtest introduction artifacts
-
-Chapter 13 uses `src/components/BacktestIntroLab.jsx` and `src/lib/backtest-intro.js`. Its original offline Python source is `public/downloads/lesson_13.py`; `scripts/build_backtest_intro.py` executes the notebook and refreshes the synthetic data/results JSON. Rebuild these files together after numerical changes, then run the backtest numerical tests and inspect the chapter at desktop/mobile sizes. The standalone exporter includes both JSON downloads for this chapter.

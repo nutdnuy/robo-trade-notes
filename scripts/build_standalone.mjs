@@ -156,7 +156,6 @@ export async function buildStandalone() {
     for(const page of pages.filter(page=>isPublishedPage(page.id))) {
       const files=['content/'+page.file];
       if(page.kind==='lesson') files.push('robo-trade-'+page.number+'.ipynb','lesson_'+page.number+'.py');
-      if(page.id==='chapter-13') files.push('backtest-intro-data.json','backtest-intro-results.json');
       for(const file of files) {
         const target=path.join(staging,'downloads',file);
         await mkdir(path.dirname(target),{recursive:true});

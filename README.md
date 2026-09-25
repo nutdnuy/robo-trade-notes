@@ -2,7 +2,7 @@
 
 [Read the book online](https://nutdnuy.github.io/robo-trade-notes/) · [Edit the source on GitHub](https://github.com/nutdnuy/robo-trade-notes)
 
-A Thai learning website about Python and Webull OpenAPI. The book contains Welcome and three lessons: Why Robo Trade (concepts, four original editable flows, a synthetic Alpha/Beta chart, two illustrated Quantara interludes and a closing summary) and the illustrated setup guide, [เริ่มต้นใช้ Webull OpenAPI ทีละขั้น](https://nutdnuy.github.io/robo-trade-notes/chapter-11.html), with 10 attributed image excerpts, an executed offline notebook and a quiz. The third lesson, [Introduction of Backtest](https://nutdnuy.github.io/robo-trade-notes/chapter-13.html), explains research integrity, signal timing, backtest types, costs, volatility targeting and tear sheets, with four backtest comparisons, three illustrated Quantara stories, three concept visualizations and an executed offline notebook. The earlier ten-chapter edition remains archived; see [archive/README.md](archive/README.md). Light is the default theme.
+A Thai learning website about Python and Webull OpenAPI. The book contains Welcome and two lessons: Why Robo Trade (concepts, four original editable flows, a synthetic Alpha/Beta chart, two illustrated Quantara interludes and a closing summary) and the illustrated setup guide, [เริ่มต้นใช้ Webull OpenAPI ทีละขั้น](https://nutdnuy.github.io/robo-trade-notes/chapter-11.html), with 10 attributed image excerpts, an executed offline notebook and a quiz. The earlier ten-chapter edition remains archived; see [archive/README.md](archive/README.md). Light is the default theme.
 
 ## Edit the book
 
@@ -91,9 +91,3 @@ Creates `outputs/robo-trade-editable.zip`. The source package includes `_config.
 Teaching prose and examples are original. Hilpisch's *Python for Algorithmic Trading* provides conceptual anchors; Webull-specific claims rely on official Thailand documentation. Chapter references separate historical book examples, verified interface facts and new teaching adaptations. Offline simulations are labeled and do not establish investment performance.
 
 The source PDF stays local and is excluded from exports. Third-party component and source rights are recorded in `public/THIRD_PARTY_NOTICES.txt`.
-
-## Introduction of Backtest
-
-Edit `content/chapters/13-introduction-backtest.md`. Source boundaries and verified page locators are in `references/introduction-backtest-sources.md`. This lesson uses only the owner-supplied resources; the supplied PDFs stay local. Charts and interactive visualizations use deterministic Route 3 rendering. Three fictional Quantara story illustrations were explicitly commissioned separately and generated with the built-in image tool; their prompts and provenance are in `references/backtest-quantara-generation.json`.
-
-Rebuild and execute the standard-library notebook and synthetic fixtures with `python3 scripts/build_backtest_intro.py`. Run `npm test` to verify timing, exact post-fee rebalancing, costs, liquidation, JS/Python consistency and the three concept calculations. The fixed seed is 20260925; the sample is 259 open-to-open intervals (open 60 to open 319). These are synthetic teaching results, not market evidence.

@@ -14,7 +14,6 @@ for page in book['pages']:
                   (folder / f'lesson_{n}.py', f'python/lesson_{n}.py')]
 for name in ['requirements.txt', 'requirements-webull.txt', 'demo_prices.csv', 'README.md']:
     paths.append((folder / name, name))
-paths += [(folder / name, name) for name in ['backtest-intro-data.json', 'backtest-intro-results.json']]
 paths.append((folder / 'webull_bars.py', 'python/webull_bars.py'))
 paths += [(root / 'EDITING.md', 'EDITING.md'), (root / 'content/book.json', 'content/book.json')]
 paths += [(p, 'content/quizzes/' + p.name) for p in sorted((root / 'content/quizzes').glob('chapter-*.json'))]

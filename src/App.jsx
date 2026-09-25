@@ -5,6 +5,7 @@ import webullSource from '../content/chapters/11-webull-openapi-setup.md?raw';
 import backtestSource from '../content/chapters/13-introduction-backtest.md?raw';
 import backtestQuestions from '../content/quizzes/chapter-13.json';
 import BacktestIntroLab from './components/BacktestIntroLab.jsx';
+import {TimingViz,VolatilitySizingViz,DrawdownRecoveryViz} from './components/BacktestConceptViz.jsx';
 import whyRoboSource from '../content/chapters/12-why-robo-trade.md?raw';
 import whyRoboQuestions from '../content/quizzes/chapter-12.json';
 import whyRoboVisuals from '../references/why-robo-visuals.json';
@@ -28,7 +29,7 @@ const lessonPresentation={
   'chapter-12':{secondarySection:'summary',secondaryLabel:'สรุปท้ายบท',questions:whyRoboQuestions,meta:'Trading / Investing / Quant',start:'why-robo',startLabel:'ทำไมต้อง Robo Trade',art:'images/deltaris-masters.png',width:1024,height:1536,alt:'ช่างและหุ่นกลในโรงช่าง Deltaris ภาพประกอบโลกสมมติ Quantara'}
 };
 const noop=()=>{};
-const imageDimensions={...Object.fromEntries(webullImages.images.map(image=>[image.file,image.size])),[webullQuote.file]:webullQuote.size,'images/quantara-story-horizons.png':[1536,1024],'images/quantara-story-discarded-plans.png':[1536,1024],'images/quantara-story-delivery.png':[1536,1024]};
+const imageDimensions={'images/quantara-story-backtest-exam.png':[1536,1024],'images/quantara-story-backtest-letter.png':[1536,1024],'images/quantara-story-backtest-cargo.png':[1536,1024],...Object.fromEntries(webullImages.images.map(image=>[image.file,image.size])),[webullQuote.file]:webullQuote.size,'images/quantara-story-horizons.png':[1536,1024],'images/quantara-story-discarded-plans.png':[1536,1024],'images/quantara-story-delivery.png':[1536,1024]};
 
 export default function App(){
   const [route,setRoute]=useState(()=>readRoute(pages));
@@ -58,7 +59,7 @@ export default function App(){
   const lessonIndex=readingOrder.findIndex(item=>item.id===page.id);
   const previousLesson=readingOrder[lessonIndex-1];
   const nextLesson=readingOrder[lessonIndex+1];
-  const widgets={'backtest-intro-lab':<BacktestIntroLab/>,quiz:<Quiz key={page.id} questions={presentation.questions} onComplete={noop} onReset={noop}/>};
+  const widgets={'timing-viz':<TimingViz/>,'volatility-sizing-viz':<VolatilitySizingViz/>,'drawdown-recovery-viz':<DrawdownRecoveryViz/>,'backtest-intro-lab':<BacktestIntroLab/>,quiz:<Quiz key={page.id} questions={presentation.questions} onComplete={noop} onReset={noop}/>};
   // Retain the canonical Markdown; only the former introductory illustration
   // is replaced in this presentation by the shared Deltaris workshop artwork.
   const lessonIntro=page.intro.split('\n').filter(line=>!line.trim().startsWith('![')||!line.includes(']('+webullQuote.file+')')).join('\n').trim();

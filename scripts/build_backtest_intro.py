@@ -60,7 +60,7 @@ for row in data["rows"][:3] + data["rows"][-2:]:
     markdown("""## 2. เปรียบเทียบสี่กรณีด้วยกฎเดิม
 
 เปลี่ยนเฉพาะความถูกต้องของเวลาและการกำหนดขนาด position
-ตัวเลขที่ดีขึ้นในกรณีใช้ข้อมูลอนาคตไม่ใช่ผลที่นำไปซื้อขายได้จริง
+ผลจากกรณีใช้ข้อมูลอนาคตใช้ประเมินการซื้อขายจริงไม่ได้ ไม่ว่าจะสูงหรือต่ำกว่า
 Volatility targeting เป็นการเปลี่ยน exposure ไม่ใช่หลักประกันว่าจะเพิ่มผลตอบแทนหรือจำกัด drawdown
 """),
     code('''results = compare_backtests(data, cost_bps=5, target_vol=0.1)
@@ -122,6 +122,51 @@ for result in results + [benchmark]:
     assert math.isclose(math.prod(1 + r for r in result["returns"]), result["equity"][-1], rel_tol=1e-12)
     print(result["id"], "final liquidation turnover:", round(result["audit"][-1]["finalLiquidationTurnover"], 6))
 print("Verified: all weights in [0,1], compounded returns equal final equity, entry and final liquidation included.")
+'''),
+    markdown("""## 6. จดหมายตอนเย็น ใช้ตัดสินใจตอนเช้าไม่ได้
+
+ตัวอย่างย่อใช้กฎราคาปิดล่าสุด >100 ให้ Long มิฉะนั้น Cash แยกจาก SMA ในห้องทดลองหลัก
+รู้ close0=99 ก่อน open1=100; ต่อมา close1=108 จึงเกิดสัญญาณ Long สำหรับ open2=110
+สถานะที่ถือระหว่าง open1 กับ open2 ยังเป็น Cash ผลตอบแทนหุ้นของพอร์ตจึงเป็นศูนย์
+"""),
+    code('''close0, open1, close1, open2 = 99.0, 100.0, 108.0, 110.0
+causal_weight = float(close0 > 100)
+future_signal = float(close1 > 100)
+asset_return = open2 / open1 - 1
+actual_return = causal_weight * asset_return
+invalid_hindsight_return = future_signal * asset_return
+assert actual_return == 0
+assert math.isclose(invalid_hindsight_return, 0.1)
+print("Actual cash return:", f"{actual_return:.0%}")
+print("Impossible hindsight claim:", f"{invalid_hindsight_return:.0%}")
+print("The close1 signal can affect the NEXT holding interval, not the completed one.")
+'''),
+    markdown("""## 7. ลมแรงขึ้น จึงลดของบนรถ
+
+ใช้เป้าความผันผวน10% และเพดานน้ำหนัก1 คำนวณ size=min(1,target/estimated_vol)
+ตัวเลข weight × estimated_vol เป็นเพียงค่าประมาณตามสัดส่วนภายใต้สมมติฐานของแบบฝึกหัด
+ไม่รับประกัน realized volatility หรือ drawdown
+"""),
+    code('''target = 0.10
+for estimated_vol in [0.05, 0.20, 0.40]:
+    weight = min(1.0, target / estimated_vol)
+    cash = 1.0 - weight
+    scaled_risk = weight * estimated_vol
+    assert 0 <= weight <= 1
+    print(f"Asset vol {estimated_vol:.0%}: stock {weight:.0%}, cash {cash:.0%}, scaled estimate {scaled_risk:.0%}")
+assert math.isclose(min(1.0, 0.1 / 0.2), 0.5)
+'''),
+    markdown("""## 8. ขาดทุนกับการฟื้นตัวใช้ฐานคนละก้อน
+
+จาก100ลง80คือ−20% แต่+20%จาก80ได้เพียง96 ต้อง+25%จึงกลับ100
+สูตรสำหรับสัดส่วนขาดทุน d คือ recovery=d/(1−d); เป็นเลขคณิต ไม่ใช่คำทำนายการฟื้นตัว
+"""),
+    code('''for loss in [0.20, 0.50, 0.60]:
+    trough = 100 * (1 - loss)
+    equal_percentage_rebound = trough * (1 + loss)
+    required_recovery = loss / (1 - loss)
+    assert math.isclose(trough * (1 + required_recovery), 100)
+    print(f"Loss {loss:.0%}: trough {trough:.2f}; same-percent rebound {equal_percentage_rebound:.2f}; required gain {required_recovery:.0%}")
 '''),
     markdown("""## อ่านผลอย่างไร
 

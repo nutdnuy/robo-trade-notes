@@ -87,6 +87,10 @@ This exact quotation was not found in either of the two supplied papers. It is n
 
 ## Visual provenance
 
-This work uses visual Route 3 for website UI and calculation-driven charts, with no new image generation. Existing local fonts and components are retained. Original charts represent the declared teaching calculations; source-slide screenshots and private PDF pages are not used as website graphics.
+The original chapter used visual Route 3 for website UI and calculation-driven charts. On 2026-09-25 the owner explicitly requested Quantara narratives and new illustrations: three fictional illustrations use the built-in image generator, while all website UI and numerical visualizations remain deterministic Route 3. The imagery contains no charts or performance evidence; prompts and image provenance are in `backtest-quantara-generation.json`. Existing local fonts and components are retained. Original charts represent the declared teaching calculations; source-slide screenshots and private PDF pages are not used as website graphics.
 
 This file records sources and the lab specification. Build, numerical, browser, deployment, and live-site verification are reported separately after those checks are actually executed.
+
+## Concept visualization additions
+
+Three original concept examples extend the same supplied material: information timing with a fixed threshold toy rule (distinct from the SMA lab), capped volatility sizing, and drawdown/recovery arithmetic. They use explicit hypothetical numbers. The Quantara passages are fictional analogies created for this chapter, not quotations or historical events. The notebook now also executes these three concept calculations; no additional research source or market data was introduced.

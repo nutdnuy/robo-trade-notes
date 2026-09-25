@@ -118,6 +118,7 @@ Use `$r_t$` for inline mathematics and `$$` on separate lines for display mathem
 Standalone interactive markers:
 
 - `::: lab` — chapter 01 SMA experiment
+- `::: timing-viz`, `::: volatility-sizing-viz`, `::: drawdown-recovery-viz` — chapter 13 concept experiments for signal timing, position sizing, and drawdown arithmetic
 - `::: backtest-intro-lab` — chapter 13 signal-timing, cost and volatility-target comparisons
 - `::: backtest-lab` — chapter 04 transaction-cost experiment
 - `::: drawdown-lab` — chapter 05 drawdown/recovery experiment

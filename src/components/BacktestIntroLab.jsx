@@ -96,7 +96,7 @@ export default function BacktestIntroLab() {
 
   return <section className="backtest-intro-lab" aria-labelledby={`${id}-title`}>
     <header className="bti-header">
-      <div><span className="bti-eyebrow">BACKTEST EXPERIMENT</span><h3 id={`${id}-title`}>กติกาเดิม ผลต่างกันเพราะอะไร?</h3></div>
+      <div><span className="bti-eyebrow">SIGNAL TIMING / POSITION SIZE / COSTS</span><h3 id={`${id}-title`}>เวลาใช้สัญญาณและขนาดสถานะ เปลี่ยนผล Backtest อย่างไร?</h3></div>
       <span className="bti-data-label">ข้อมูลสังเคราะห์</span>
     </header>
     <p className="bti-lead">เปรียบเทียบเวลาใช้ข้อมูลและการกำหนดน้ำหนักบนราคาเส้นเดียวกัน ทั้งสี่วิธีใช้ SMA 20/50 ชุดเดิม ลองเปลี่ยนต้นทุนและเป้าความผันผวน แล้วอ่านทั้งผลตอบแทนและความเสี่ยง</p>

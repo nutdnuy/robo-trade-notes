@@ -258,6 +258,26 @@
       "kind": "lesson",
       "label": "Why Robo Trade",
       "file": "chapters/12-why-robo-trade.md"
+    },
+    {
+      "id": "chapter-13",
+      "number": "13",
+      "eyebrow": "BACKTESTING / RESEARCH / VALIDATION",
+      "part": "วิจัยและทดสอบ",
+      "outcome": "ตรวจเวลาใช้สัญญาณ ต้นทุน และความเสี่ยง ก่อนเชื่อผล Backtest",
+      "duration": "60–75",
+      "meta": [
+        "อ่านและทดลอง 60–75 นาที",
+        "ห้องทดลอง 4 กรณี",
+        "Notebook ออฟไลน์"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-13/what-is-backtest",
+      "secondaryLabel": "เปิดห้องทดลอง",
+      "secondaryHref": "#/chapter-13/lab",
+      "kind": "lesson",
+      "label": "Introduction of Backtest",
+      "file": "chapters/13-introduction-backtest.md"
     }
   ]
 }

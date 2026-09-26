@@ -1,0 +1,23 @@
+{
+  "images/backtest-type-historical.svg": {
+    "width": 760,
+    "height": 505,
+    "mobile": "images/backtest-type-historical-mobile.svg",
+    "mobileWidth": 360,
+    "mobileHeight": 535
+  },
+  "images/backtest-type-resampling.svg": {
+    "width": 900,
+    "height": 515,
+    "mobile": "images/backtest-type-resampling-mobile.svg",
+    "mobileWidth": 360,
+    "mobileHeight": 1040
+  },
+  "images/backtest-type-monte-carlo.svg": {
+    "width": 760,
+    "height": 430,
+    "mobile": "images/backtest-type-monte-carlo-mobile.svg",
+    "mobileWidth": 360,
+    "mobileHeight": 430
+  }
+}

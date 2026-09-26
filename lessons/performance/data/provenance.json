@@ -1,0 +1,23 @@
+{
+  "provider": "Yahoo Finance",
+  "symbol": "^GSPC",
+  "name": "S&P 500 Price Index",
+  "instrumentType": "INDEX",
+  "priceUnit": "index points",
+  "portfolioCurrency": "USD",
+  "timezone": "America/New_York",
+  "retrievedAtUTC": "2026-09-26T13:42:51.535992+00:00",
+  "sourceURL": "https://query1.finance.yahoo.com/v8/finance/chart/%5EGSPC?period1=1104537600&period2=1790467200&interval=1d",
+  "historyURL": "https://finance.yahoo.com/quote/%5EGSPC/history/",
+  "requestedStart": "2006-09-26",
+  "requestedEnd": "2026-09-25",
+  "evaluationStart": "2006-09-26",
+  "evaluationEnd": "2026-09-25",
+  "warmupStart": "2005-02-24",
+  "warmupBars": 400,
+  "evaluationBars": 5031,
+  "calendarYears": 19.99726214921287,
+  "rawSHA256": "bc8f058f54fef2cf68cf02acd8a994a8f30e62b15cf5562c7fb1694a3886cd4b",
+  "csvSHA256": "0984ca3f98ceb8e35ae61c9b30477b74c3b69a4a7764d7219ccaae3ba28dedf5",
+  "adjustment": "Unadjusted index OHLC; price index excludes dividends. No FX conversion. Index units are a teaching abstraction, not a traded security."
+}

@@ -14,3 +14,9 @@ data/private/
 .DS_Store
 
 /_site/
+
+/public/chapter-14.html
+/public/downloads/performance/
+/lessons/performance/chapter-14-review.html
+/lessons/performance/figures-ema/
+/lessons/performance/qa/

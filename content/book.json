@@ -278,6 +278,26 @@
       "kind": "lesson",
       "label": "Introduction of Backtest",
       "file": "chapters/13-introduction-backtest.md"
+    },
+    {
+      "id": "chapter-14",
+      "number": "14",
+      "eyebrow": "BACKTESTING / RETURN / RISK / TRADING METRICS",
+      "part": "วิจัยและทดสอบ",
+      "outcome": "อ่านและอธิบายรายงาน Backtest พร้อมคำนวณด้วย Python",
+      "duration": "60–90",
+      "meta": [
+        "ข้อมูล S&P 500 รายวัน 20 ปี",
+        "กราฟและห้องทดลอง",
+        "Python Notebook"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-14/what-you-will-learn",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-14.ipynb",
+      "kind": "lesson",
+      "label": "Backtest Performance Evaluation: Return, Risk, and Trading Metrics",
+      "file": "chapters/14-backtest-performance-evaluation.md"
     }
   ]
 }

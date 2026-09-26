@@ -163,8 +163,9 @@ export async function buildStandalone() {
         await cp(path.join(projectRoot,'public/downloads',file),target);
       }
     }
+    await cp(path.join(projectRoot,'public/downloads/performance'),path.join(staging,'downloads/performance'),{recursive:true});
     for (const page of pages) {
-      await writeFile(path.join(staging,htmlFilename(page.id)),makeStandaloneHtml(page,book,versionedFiles.get(chunks[0].fileName),styles.map(file=>versionedFiles.get(file))));
+      await writeFile(path.join(staging,htmlFilename(page.id)),page.id==='chapter-14'?await readFile(path.join(projectRoot,'public/chapter-14.html'),'utf8'):makeStandaloneHtml(page,book,versionedFiles.get(chunks[0].fileName),styles.map(file=>versionedFiles.get(file))));
     }
     const verification=await verifyStandalone(staging,pages);
     const generatedFiles=await filesBelow(staging);

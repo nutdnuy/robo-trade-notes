@@ -19,6 +19,7 @@ paths.append((folder / 'webull_bars.py', 'python/webull_bars.py'))
 paths += [(root / 'EDITING.md', 'EDITING.md'), (root / 'content/book.json', 'content/book.json')]
 paths += [(p, 'content/quizzes/' + p.name) for p in sorted((root / 'content/quizzes').glob('chapter-*.json'))]
 paths += [(root / 'public/THIRD_PARTY_NOTICES.txt', 'THIRD_PARTY_NOTICES.txt')]
+paths += [(p, 'python/data/' + p.name) for p in sorted((root / 'lessons/performance/data').glob('*')) if p.is_file()]
 output = folder / 'robo-trade-complete-materials.zip'
 with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED) as archive:
     for path, name in paths:

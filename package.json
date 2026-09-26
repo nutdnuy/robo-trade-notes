@@ -9,17 +9,18 @@
     "preview": "vite preview --host 127.0.0.1",
     "test": "node --test tests/*.test.mjs",
     "check:content": "npm run generate:book && node scripts/check_content.mjs",
-    "prebuild": "npm run generate:book && node scripts/prepare_downloads.mjs && node scripts/check_content.mjs && python3 scripts/package_materials.py",
+    "prebuild": "npm run build:performance && npm run generate:book && node scripts/prepare_downloads.mjs && node scripts/check_content.mjs && python3 scripts/package_materials.py",
     "package:source": "python3 scripts/package_source.py",
     "generate:book": "node scripts/generate_book.mjs",
     "check:config": "node scripts/generate_book.mjs --check",
-    "predev": "npm run generate:book",
+    "predev": "npm run build:performance && npm run generate:book",
     "pretest": "npm run generate:book",
-    "build:pages": "npm run prebuild && node scripts/build_standalone.mjs",
+    "build:pages": "npm run prebuild && node scripts/build_standalone.mjs && python3 scripts/check_performance_publish.py",
     "build:standalone": "npm run build:pages",
     "prepackage:source": "npm run generate:book",
     "package:website": "python3 scripts/package_website.py",
-    "prepackage:website": "npm run build:pages"
+    "prepackage:website": "npm run build:pages",
+    "build:performance": "node scripts/build_performance.mjs"
   },
   "dependencies": {
     "@fontsource/noto-sans-thai": "5.2.8",

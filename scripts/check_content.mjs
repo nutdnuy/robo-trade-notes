@@ -4,7 +4,7 @@ import katex from 'katex';
 import {parsePage,splitWidgets} from '../src/lib/book.js';
 const root=new URL('../',import.meta.url);
 const book=JSON.parse(readFileSync(new URL('content/book.json',root),'utf8'));
-const known=new Set(['chapter-card','api-example','sma-example','sma-formula','bar-question','lab','quiz','downloads','backtest-lab','backtest-intro-lab','timing-viz','volatility-sizing-viz','drawdown-recovery-viz','drawdown-lab','execution-lab']);
+const known=new Set(['chapter-card','api-example','sma-example','sma-formula','bar-question','lab','quiz','downloads','backtest-lab','backtest-intro-lab','timing-viz','volatility-sizing-viz','drawdown-recovery-viz','drawdown-lab','execution-lab','trade-lab','distribution-lab','expectancy-lab','drawdown-period-lab','risk-lab','cumulative-lab','review-questions']);
 assert(book.pages.length>0,'At least one book page is required');
 assert.equal(new Set(book.pages.map(p=>p.id)).size,book.pages.length,'Page IDs must be unique');
 const pages=book.pages.map(page=>{const raw=readFileSync(new URL('content/'+page.file,root),'utf8');return {...page,raw,...parsePage(raw)};});
@@ -25,12 +25,16 @@ for(const page of pages){
   }
   if(page.heroImage){assert(existsSync(new URL('public/'+page.heroImage,root)),'Missing hero image');assert(page.heroAlt,'Add descriptive heroAlt');}
   if(page.kind==='lesson'){
+    if(page.id==='chapter-14'){
+      assert.equal(chunks.filter(c=>c.widget==='review-questions').length,1,'Performance chapter needs its worked review questions');
+    }else{
     const quiz=JSON.parse(readFileSync(new URL('content/quizzes/'+page.id+'.json',root),'utf8'));
     assert(quiz.length>=3,page.id+': at least three questions');
     for(const q of quiz){assert(q.title&&q.explanation);assert(Array.isArray(q.options)&&q.options.length>1);assert(Number.isInteger(q.answer)&&q.answer>=0&&q.answer<q.options.length);questionCount++;}
     // Why Robo Trade ends with a summary; its existing supplementary files stay validated.
     const expectedQuizCount=page.id==='chapter-12'?0:1;
     assert.equal(chunks.filter(c=>c.widget==='quiz').length,expectedQuizCount,page.id+': expected quiz count');
+    }
     const notebook=JSON.parse(readFileSync(new URL('public/downloads/robo-trade-'+page.number+'.ipynb',root),'utf8'));
     const code=notebook.cells.filter(c=>c.cell_type==='code');assert(code.length>=5,'Notebook needs worked examples');
     for(const cell of code){assert(Number.isInteger(cell.execution_count),page.id+': notebook has unexecuted cells');assert(!cell.outputs.some(o=>o.output_type==='error'),page.id+': notebook has errors');}

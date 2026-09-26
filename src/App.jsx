@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react';
 import config from '../content/book.json';
 import welcomeSource from '../content/intro.md?raw';
 import webullSource from '../content/chapters/11-webull-openapi-setup.md?raw';
+import performanceSource from '../content/chapters/14-backtest-performance-evaluation.md?raw';
 import backtestSource from '../content/chapters/13-introduction-backtest.md?raw';
 import backtestQuestions from '../content/quizzes/chapter-13.json';
 import BacktestIntroLab from './components/BacktestIntroLab.jsx';
@@ -22,7 +23,7 @@ import {Quiz} from './components/LessonWidgets.jsx';
 import WelcomeAtlas from './components/WelcomeAtlas.jsx';
 import BookShell from './components/BookShell.jsx';
 
-const sources={welcome:welcomeSource,'chapter-11':webullSource,'chapter-12':whyRoboSource,'chapter-13':backtestSource};
+const sources={welcome:welcomeSource,'chapter-11':webullSource,'chapter-12':whyRoboSource,'chapter-13':backtestSource,'chapter-14':performanceSource};
 const pages=config.pages.map(page=>({...page,navigationTitle:page.label,...(sources[page.id]?parsePage(sources[page.id]):{})}));
 const publishedPages=pages.filter(page=>isPublishedPage(page.id));
 const lessonPresentation={
@@ -48,13 +49,14 @@ export default function App(){
   useEffect(()=>{
     document.title=archived?'Robo Trade Notes':welcome?'Quantara | Robo Trade Notes':page.title+' | Robo Trade Notes';
     if(archived)return;
+    if(page.id==='chapter-14'){window.location.replace(pageHref(page.id,route.section));return;}
     const frame=requestAnimationFrame(()=>{
       if(route.section)document.getElementById(route.section)?.scrollIntoView();
       else window.scrollTo(0,0);
     });
     return()=>cancelAnimationFrame(frame);
   },[archived,page.title,route,welcome]);
-  if(archived)return null;
+  if(archived||page.id==='chapter-14')return null;
   if(welcome)return <BookShell page={page} pages={publishedPages} route={route} menuOpen={menuOpen} setMenuOpen={setMenuOpen}><WelcomeAtlas page={page} imageDimensions={imageDimensions}/></BookShell>;
   const presentation=lessonPresentation[page.id];
   const readingOrder=publishedPages.filter(item=>item.kind==='lesson');

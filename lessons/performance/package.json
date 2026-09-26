@@ -1,0 +1,23 @@
+{
+  "name": "robo-trade-performance-review",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local-only editable review chapter for Robo Trade Notes",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "python3 verify-ema.py && node verify-ema-metrics.cjs"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "dependencies": {
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "react-markdown": "10.1.0",
+    "remark-gfm": "4.0.1",
+    "remark-math": "6.0.0",
+    "rehype-katex": "7.0.1",
+    "katex": "0.16.22"
+  },
+  "type": "commonjs"
+}

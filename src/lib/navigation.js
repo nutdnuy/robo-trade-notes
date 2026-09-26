@@ -26,7 +26,7 @@ function validPageId(pageId) {
 export function pageHref(pageId, section = '', context = {}) {
   const id = validPageId(pageId);
   const fragment = section ? encodeURIComponent(section) : '';
-  if (environment(context).standalone) {
+  if (id === 'chapter-14' || environment(context).standalone) {
     return (id === 'welcome' ? 'index' : id) + '.html' + (fragment ? '#' + fragment : '');
   }
   return '#/' + id + (fragment ? '/' + fragment : '');

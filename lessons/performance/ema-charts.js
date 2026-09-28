@@ -106,7 +106,7 @@
     const x = scale(0, sessions.at(-1), LEFT, RIGHT);
     const unit = mode === 'drawdown' ? 'ลดลงจากยอดสูงสุด (%)' : mode === 'cumulative' ? 'ผลตอบแทนสะสมสุทธิ (%)' : 'มูลค่าพอร์ต (USD)';
     let body = txt(LEFT, 20, unit, 'muted') + txt(RIGHT, 20, `${rows.length} วันซื้อขาย · เลือก ${dateLabel(selected)}`, 'muted', 'end');
-    body += legend(LEFT, 43, COLORS.strategy, 'EMA 20/200') + legend(280, 43, COLORS.benchmark, 'S&P 500 ซื้อแล้วถือ', true);
+    body += legend(LEFT, 43, COLORS.strategy, 'EMA 20/200') + legend(280, 43, COLORS.benchmark, 'SPY ซื้อแล้วถือ', true);
     body += yGrid(limits[0], limits[1], y, value => isPercent ? num(value * 100, mode === 'cumulative' ? 0 : 1) + '%' : num(value), mode === 'cumulative' ? cumulativeHigh - cumulativeLow + 1 : 5);
     if (mode === 'cumulative') body += line(LEFT, y(0), RIGHT, y(0), 'zero');
     body += path(benchmark.map((value, i) => [x(sessions[i]), y(value)]), COLORS.benchmark, true);
@@ -116,8 +116,8 @@
     body += circle(x(sessions[selected]), y(strategy[selected]), COLORS.strategy, 3.5);
     ticks(0, sessions.at(-1)).forEach((session, i, labels) => { body += txt(x(session), 270, dateLabel(Math.round(session)), 'muted tick', i === 0 ? 'start' : i === labels.length - 1 ? 'end' : 'middle'); });
     body += txt(RIGHT, 304, 'วันที่ซื้อขาย', 'muted', 'end');
-    body += txt(LEFT, 293, mode === 'drawdown' ? '0% = กลับถึงยอดเดิม · ค่าลบ = ยังต่ำกว่ายอด' : mode === 'cumulative' ? 'เริ่มที่ 0% ก่อนซื้อ · S&P 500 ไม่รวมเงินปันผล · ทั้งคู่หักค่าธรรมเนียม' : 'จุด 0 คือเงินเริ่มต้น · แต่ละจุดถัดไปคือมูลค่าสิ้นวัน', 'muted');
-    const title = mode === 'drawdown' ? 'พอร์ตแต่ละเส้นเคยลดลงจากยอดเดิมลึกเพียงใด' : mode === 'cumulative' ? 'ผลตอบแทนสะสมของ EMA 20/200 เทียบกับ S&P 500 ซื้อแล้วถือ' : 'เงินพอร์ตของกลยุทธ์ EMA และพอร์ตอ้างอิงเปลี่ยนไปอย่างไร';
+    body += txt(LEFT, 293, mode === 'drawdown' ? '0% = กลับถึงยอดเดิม · ค่าลบ = ยังต่ำกว่ายอด' : mode === 'cumulative' ? 'เริ่มที่ 0% ก่อนซื้อ · ราคา SPY ปรับย้อนหลังแล้ว · ทั้งคู่หักค่าธรรมเนียม' : 'จุด 0 คือเงินเริ่มต้น · แต่ละจุดถัดไปคือมูลค่าสิ้นวัน', 'muted');
+    const title = mode === 'drawdown' ? 'พอร์ตแต่ละเส้นเคยลดลงจากยอดเดิมลึกเพียงใด' : mode === 'cumulative' ? 'ผลตอบแทนสะสมของ EMA 20/200 เทียบกับ SPY ซื้อแล้วถือ' : 'เงินพอร์ตของกลยุทธ์ EMA และพอร์ตอ้างอิงเปลี่ยนไปอย่างไร';
     const valueText = isPercent ? `กลยุทธ์ ${num(strategy[selected] * 100, 4)}% พอร์ตอ้างอิง ${num(benchmark[selected] * 100, 4)}%` : `กลยุทธ์ ${num(strategy[selected], 2)} USD พอร์ตอ้างอิง ${num(benchmark[selected], 2)} USD`;
     return svg(title, `ข้อมูลสิ้นวัน ${rows.length} วันซื้อขายและจุดเงินเริ่มต้น ไม่มีการลดจำนวนจุด เส้นทึบสีม่วงคือกลยุทธ์ เส้นประสีเขียวคือพอร์ตอ้างอิง เลือก ${dateLabel(selected)} ${valueText}${mode === 'drawdown' ? ' วัดจากยอดสะสมของแต่ละพอร์ต ไม่แปลงเป็นรายปี' : ''}`, body);
   }
@@ -257,9 +257,11 @@
       body += line(x(i), top, x(i), bottom, 'selection') + circle(x(i), y(value), COLORS.strategy);
     });
     body += txt(LEFT, 270, date(peak), 'muted tick', 'start');
-    body += txt(x(trough), 270, date(trough), 'muted tick', 'middle');
+    // Keep the trough date clear of the edge labels when a drawdown or recovery is very short.
+    const labelX = Math.min(Math.max(x(trough), LEFT + 125), RIGHT - 125);
+    body += txt(labelX, 270, date(trough), 'muted tick', 'middle');
     body += txt(RIGHT, 270, date(recovery), 'muted tick', 'end');
-    const bracket = (a, b, yy, color, label) => `<line x1="${coord(x(a))}" y1="${yy}" x2="${coord(x(b))}" y2="${yy}" stroke="${color}" stroke-width="2"/>` + [a,b].map(i => `<line x1="${coord(x(i))}" y1="${yy - 5}" x2="${coord(x(i))}" y2="${yy + 5}" stroke="${color}" stroke-width="2"/>`).join('') + txt((x(a) + x(b)) / 2, yy + 23, label, 'muted', 'middle');
+    const bracket = (a, b, yy, color, label) => `<line x1="${coord(x(a))}" y1="${yy}" x2="${coord(x(b))}" y2="${yy}" stroke="${color}" stroke-width="2"/>` + [a,b].map(i => `<line x1="${coord(x(i))}" y1="${yy - 5}" x2="${coord(x(i))}" y2="${yy + 5}" stroke="${color}" stroke-width="2"/>`).join('') + txt(Math.min(Math.max((x(a) + x(b)) / 2, LEFT + 90), RIGHT - 90), yy + 23, label, 'muted', 'middle');
     body += bracket(peak, trough, 296, COLORS.loss, `Drawdown period: ${declineDays} วัน`);
     body += bracket(trough, recovery, 296, COLORS.benchmark, recovered ? `Recovery period: ${recoveryDays} วัน` : `หลังจุดต่ำสุด: ${recoveryDays} วัน (ยังไม่ฟื้น)`);
     body += bracket(peak, recovery, 347, COLORS.strategy, recovered ? `Underwater period: ${underwaterDays} วันซื้อขาย` : `Underwater: อย่างน้อย ${underwaterDays} วันซื้อขาย`);
@@ -285,7 +287,7 @@
     const y = scale(limits[0], limits[1], bottom, top), x = scale(0, Math.max(1, count - 1), LEFT, RIGHT);
     const selectedBar = bars[selected];
     const barNumber = (bar, fallback) => finite(bar.index) ? bar.index + 1 : fallback + 1;
-    let body = txt(LEFT, 20, 'S&P 500 และ EMA (จุด)', 'muted');
+    let body = txt(LEFT, 20, 'SPY และ EMA (USD)', 'muted');
     body += txt(RIGHT, 20, selectedBar.date+(selectedBar.warmup?' · เตรียม EMA':''), 'muted', 'end');
     body += legend(LEFT, 43, COLORS.price, 'ราคาปิด') + legend(235, 43, COLORS.strategy, 'EMA 20') + legend(390, 43, COLORS.benchmark, 'EMA 200', true);
     const dx = (RIGHT - LEFT) / Math.max(1, count - 1);

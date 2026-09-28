@@ -11,13 +11,13 @@ r = json.loads((ROOT / 'ema-results.json').read_text())
 pnl = [t['netPnl'] for t in r['tradeLedger']]
 eq = [r['parameters']['initialEquity']] + [d['equity'] for d in r['dailyEquity']]
 benchmark = [eq[0]] + [d['benchmarkEquity'] for d in r['dailyEquity']]
-assert len(pnl) == 19 and sum(x > 0 for x in pnl) == 8 and sum(x < 0 for x in pnl) == 11
-assert sum(-20000 <= x < 20000 for x in pnl) == 14
-assert sum(-10000 <= x < 10000 for x in pnl) == 12
+assert len(pnl) == 17 and sum(x > 0 for x in pnl) == 8 and sum(x < 0 for x in pnl) == 9
+assert sum(-20000 <= x < 20000 for x in pnl) == 12
+assert sum(-10000 <= x < 10000 for x in pnl) == 8
 top_two = sum(sorted((x for x in pnl if x > 0), reverse=True)[:2])
 share = top_two / sum(x for x in pnl if x > 0)
-assert round(share * 100, 2) == 47.26
-assert round(max(pnl), 2) == 69362.18 and round(min(pnl), 2) == -17730.43
+assert round(share * 100, 2) == 46.76
+assert round(max(pnl), 2) == 117672.92 and round(min(pnl), 2) == -19355.85
 
 # Derive the worst episode from the full cash-and-position equity path.
 running = eq[0]
@@ -29,8 +29,8 @@ trough = min(range(len(dd)), key=dd.__getitem__)
 high = max(eq[:trough + 1])
 peak = max(i for i in range(trough) if eq[i] == high)
 recovery = next(i for i in range(trough + 1, len(eq)) if eq[i] >= high)
-assert (peak, trough, recovery) == (900, 1325, 1757)
-assert (trough - peak, recovery - trough, recovery - peak) == (425, 432, 857)
+assert (peak, trough, recovery) == (3372, 3388, 3616)
+assert (trough - peak, recovery - trough, recovery - peak) == (16, 228, 244)
 assert all(x < high for x in eq[peak + 1:recovery])
 
 cumulative = [x / eq[0] - 1 for x in eq]
@@ -39,7 +39,7 @@ assert cumulative[0] == cum_benchmark[0] == 0
 assert math.isclose(cumulative[-1], r['portfolioMetrics']['totalReturn'])
 assert math.isclose(cum_benchmark[-1], r['benchmarkMetrics']['totalReturn'])
 dates = ['initial'] + [d['date'] for d in r['dailyEquity']]
-for date, a, b in [('2009-03-09', 1.04, -49.04), ('2009-07-15', 1.04, -29.75)]:
+for date, a, b in [('2009-03-09', 2.41, -46.14), ('2009-07-15', 2.41, -25.31)]:
     i = dates.index(date)
     assert round(cumulative[i] * 100, 2) == a
     assert round(cum_benchmark[i] * 100, 2) == b
@@ -47,7 +47,7 @@ for date, a, b in [('2009-03-09', 1.04, -49.04), ('2009-07-15', 1.04, -29.75)]:
 charts = json.loads(subprocess.check_output(['node', '-e', '''
 const C=require('./ema-charts.js'),r=require('./ema-results.json');
 console.log(JSON.stringify({
- distribution:C.tradeDistribution(r.tradeLedger,18),
+ distribution:C.tradeDistribution(r.tradeLedger,16),
  cumulative:C.equity(r.dailyEquity,r.parameters.initialEquity,0,'cumulative'),
  duration:C.drawdownEpisode(r.dailyEquity,r.parameters.initialEquity,r.portfolioMetrics)
 }));
@@ -57,14 +57,14 @@ for svg in charts.values():
     ET.fromstring(svg)
 distribution = ET.fromstring(charts['distribution'])
 counts = [int(x.attrib['data-bin-count']) for x in distribution.iter() if 'data-bin-count' in x.attrib]
-assert counts == [11, 3, 1, 2, 2], counts
+assert counts == [9, 3, 4, 1], counts
 ids = [x.attrib['data-trade-id'] for x in distribution.iter() if 'data-trade-id' in x.attrib]
-assert set(ids) == {f'T{i}' for i in range(1, 20)} and len(ids) == 19
+assert set(ids) == {f'T{i}' for i in range(1, 18)} and len(ids) == 17
 
 result = {'status': 'passed', 'revision': 6, 'closedTrades': len(pnl),
-          'histogramWidthUSD': 20000, 'histogramCounts': counts,
+          'histogramWidthUSD': 50000, 'histogramCounts': counts,
           'topTwoShareOfWinningNetPnl': share,
-          'drawdownPeriod': 425, 'recoveryPeriod': 432, 'underwaterPeriod': 857,
+          'drawdownPeriod': 16, 'recoveryPeriod': 228, 'underwaterPeriod': 244,
           'cumulativeFinalPercent': [100 * cumulative[-1], 100 * cum_benchmark[-1]],
           'svgValid': list(charts)}
 (ROOT / 'qa/review-comments-numeric.json').write_text(json.dumps(result, indent=2) + '\n')

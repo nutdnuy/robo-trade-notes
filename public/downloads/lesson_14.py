@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reproducible EMA20/EMA200 teaching backtest on historical S&P 500 daily OHLC.
+"""Reproducible EMA20/EMA200 teaching backtest on SPY daily OHLC from Webull OpenAPI.
 Run: python3 lesson_14.py --output-dir .
 The frozen market-data CSV is read locally; fills and costs are modeled.
 """
@@ -14,23 +14,23 @@ from pathlib import Path
 DATA_DIR = Path(__file__).resolve().parent / 'data'
 PROVENANCE = json.loads((DATA_DIR / 'provenance.json').read_text(encoding='utf-8'))
 DEFAULTS = {
-    'initialEquity': 100000.0, 'currency': 'USD', 'priceUnit': 'index points',
+    'initialEquity': 100000.0, 'currency': 'USD', 'priceUnit': 'USD per share',
     'frequency': 'daily', 'barsPerSession': 1, 'sessions': PROVENANCE['evaluationBars'],
     'warmupBars': PROVENANCE['warmupBars'], 'fastSpan': 20, 'slowSpan': 200,
     'feeRatePerSide': 0.001, 'periodsPerYear': 252, 'riskFreeAnnual': 0.0, 'marAnnual': 0.0,
     'startDate': PROVENANCE['evaluationStart'], 'endDate': PROVENANCE['evaluationEnd'],
-    'calendarYears': PROVENANCE['calendarYears'], 'symbol': '^GSPC',
+    'calendarYears': PROVENANCE['calendarYears'], 'symbol': 'SPY',
 }
 ASSUMPTIONS = [
-    'Historical daily S&P 500 Price Index (^GSPC) OHLC from Yahoo Finance; source snapshot and hashes accompany the files.',
+    'Daily SPY OHLC from Webull OpenAPI (POST /market-data/stocks/bars/list, US_ETF, RTH); the fetched file and its hash accompany the lesson.',
     'Evaluate 2006-09-26 through 2026-09-25. The preceding 400 daily closes initialize EMA and are excluded from performance.',
-    'The index itself cannot be bought. Fractional index exposure is modeled in USD at one USD per index point per unit; these are simulated fills, not realized trading profits.',
+    'Fractional SPY shares are modeled in USD; these are simulated fills, not realized trading profits.',
     'EMA20 and EMA200 use daily closes, seeded at the first warmup close. Target 100% long when fast EMA exceeds slow EMA, otherwise cash. Execute changes at the next trading day open.',
     'At the first evaluation open, act on the last warmup signal; this first entry need not be a new crossover inside the evaluation window.',
     'Fractional units, no borrowing, no shorting, no deposits or withdrawals. Entry quantity includes buy fees in the cash budget.',
-    'Assumed fee 0.1% per side on notional. Spread, slippage, impact, taxes and cash interest are zero. Price-index returns exclude dividends; no currency conversion is applied.',
+    'Assumed fee 0.1% per side on notional. Spread, slippage, impact, taxes and cash interest are zero. Webull daily prices are forward-adjusted, so dividends are reflected in the price series; no currency conversion is applied.',
     'Force any remaining position closed at the final close and mark forced_end, including its sell fee. This is a boundary convention, not an EMA exit signal.',
-    'Benchmark holds the same price-index exposure from first open to final close with equal initial capital and equal fee rate.',
+    'Benchmark holds SPY from first open to final close with equal initial capital and equal fee rate.',
     'CAGR uses elapsed calendar days / 365.25. Risk metrics use all daily close-to-close portfolio returns (including cash days), sample SD and sqrt(252). First return is initial open capital to first close.',
     'Sharpe risk-free and Sortino MAR default to zero as assumptions, not historical Treasury rates. Downside squared deviations divide by all observations.',
     'Drawdown uses daily closing equity and cannot reveal the complete intraday path. Recovery durations count trading days.',
@@ -38,10 +38,12 @@ ASSUMPTIONS = [
 
 
 def generate_bars(parameters=None):
-    """Read the frozen historical CSV and calculate EMA; never synthesize prices."""
+    """Read the frozen Webull CSV and calculate EMA; never synthesize prices."""
     p = dict(DEFAULTS, **(parameters or {}))
-    with (DATA_DIR / 'sp500-daily.csv').open(newline='', encoding='utf-8') as f:
+    with (DATA_DIR / 'spy-webull-daily.csv').open(newline='', encoding='utf-8') as f:
         source = list(csv.DictReader(f))
+    first = next(i for i, row in enumerate(source) if row['date'] >= p['startDate'])
+    source = source[first - p['warmupBars']:]
     bars, fast, slow = [], None, None
     af, al = 2 / (p['fastSpan'] + 1), 2 / (p['slowSpan'] + 1)
     for index, row in enumerate(source):
@@ -309,6 +311,7 @@ def create_report(results, path):
     daily = results['dailyEquity']
     equity = [[p['initialEquity']] + [x[key] for x in daily] for key in ('equity', 'benchmarkEquity')]
     dds = [pm['drawdowns'], bm['drawdowns']]
+    source_label = results.get('provenance', {}).get('reportLabel', {})
 
     def plot(series, title, percentage=False, zero_ceiling=False):
         width, height, left, top, right, bottom = 860, 275, 85, 20, 60, 43
@@ -333,7 +336,7 @@ def create_report(results, path):
         for values, color in zip(series, ['#673ab7', '#148a80']):
             points = ' '.join(f'{xscale(i):.2f},{yscale(value):.2f}' for i, value in enumerate(values))
             content.append(f'<polyline points="{points}" fill="none" stroke="{color}" stroke-width="2.5"/>')
-        return f'<figure><figcaption>{html.escape(title)}</figcaption><svg role="img" aria-label="{html.escape(title)}" viewBox="0 0 {width} {height}">' + ''.join(content) + f'</svg><p class="legend"><span>━ EMA20/EMA200</span> <span>━ Buy &amp; Hold S&P 500 Price Index</span></p><p class="small">แกนนอน: วันที่ซื้อขาย {p["startDate"]} ถึง {p["endDate"]}</p></figure>'
+        return f'<figure><figcaption>{html.escape(title)}</figcaption><svg role="img" aria-label="{html.escape(title)}" viewBox="0 0 {width} {height}">' + ''.join(content) + f'</svg><p class="legend"><span>━ EMA20/EMA200</span> <span>━ {source_label.get("benchmark", "Buy &amp; Hold SPY")}</span></p><p class="small">แกนนอน: วันที่ซื้อขาย {p["startDate"]} ถึง {p["endDate"]}</p></figure>'
 
     def distribution_plot():
         """Equal-width histogram plus exact, vertically separated trade observations."""
@@ -473,8 +476,7 @@ def create_report(results, path):
         'ช่วงที่ EMA ถือเงินสด เส้นจะราบเพราะสมมติว่าดอกเบี้ยเงินสดเป็นศูนย์ '
         'จึงอาจช่วยหลบการลงบางช่วงและพลาดการขึ้นบางช่วงได้ '
         'ต้องอ่านกราฟ Drawdown ประกอบเพื่อดูความเสี่ยงระหว่างทาง</p>'
-        '<p class="small">Benchmark คือ S&P 500 Price Index (^GSPC) ไม่รวมเงินปันผล '
-        'ไม่ใช่ผลตอบแทนรวมของกองทุนที่ซื้อขายได้จริง '
+        f'<p class="small">{source_label.get("benchmarkNote", "Benchmark คือการถือ SPY ตั้งแต่วันแรกถึงวันสุดท้าย ราคาจาก Webull ปรับย้อนหลังแล้ว จึงสะท้อนเงินปันผลในราคา ")}'
         'เส้นนี้เป็นผลตอบแทนสะสมตลอดช่วง ไม่ใช่ CAGR ต่อปี</p>'
     )
 
@@ -492,13 +494,13 @@ def create_report(results, path):
         ('Win Rate', percent(tm['winRate'])), ('Average Win (USD)', number(tm['averageWin'])), ('Average Loss (USD; ขนาดบวก)', number(tm['averageLoss'])),
         ('Payoff Ratio', number(tm['payoffRatio'])), ('Expectancy (USD ต่อเทรด)', number(tm['expectancy'])), ('Profit Factor', number(tm['profitFactor'])),
         ('รายการส่งคำสั่งที่เกิดการซื้อ/ขาย', str(results['transactionCount'])), ('ปิดสถานะบังคับปลายการทดสอบ', str(results['forcedExitCount']))])
-    assumptions = ''.join(f'<li>{html.escape(a)}</li>' for a in ASSUMPTIONS)
+    assumptions = ''.join(f'<li>{html.escape(a)}</li>' for a in results.get('assumptions', ASSUMPTIONS))
     output = f'''<!doctype html><html lang="th"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Performance Report — EMA20 / EMA200</title>
 <style>body{{margin:0;background:#f6f7fb;color:#232634;font:16px/1.7 system-ui,sans-serif}}main{{max-width:960px;margin:auto;padding:32px 20px 60px}}h1{{font-size:2rem;line-height:1.3}}h2{{font-size:1.4rem;margin-top:34px}}.note{{border-left:4px solid #d9952d;background:#fff3d9;padding:15px 20px}}table{{border-collapse:collapse;width:100%;background:white;font-size:.95rem}}th,td{{border-bottom:1px solid #e3e6ef;padding:10px 12px;text-align:left}}td{{text-align:right}}th{{font-weight:500}}thead th{{background:#eee9f6;font-weight:700}}figure{{margin:28px 0;padding:20px;background:white;border:1px solid #e2e5ed}}figcaption{{font-weight:700}}svg{{width:100%;height:auto;font:12px system-ui}}.legend{{display:flex;flex-wrap:wrap;gap:20px;font-size:14px}}.legend span:first-child{{color:#673ab7}}.legend span:last-child{{color:#148a80}}.small{{font-size:14px;color:#545c6e}}.scroll{{overflow:auto}}@media(max-width:600px){{main{{padding:20px 12px}}h1{{font-size:1.6rem}}figure{{padding:8px}}th,td{{padding:8px;font-size:13px}}}}</style>
-<main><p>Robo Trade Notes · บทที่ 14 · เอกสารตรวจ</p><h1>Performance Report<br>EMA20 / EMA200 · daily bars</h1><p class="note">ราคาจริง S&P 500 (^GSPC) จาก Yahoo Finance · การซื้อขายเป็นแบบจำลองบนดัชนีราคา ไม่รวมเงินปันผล ดัชนีซื้อขายตรง ๆ ไม่ได้</p>
+<main><p>Robo Trade Notes · บทที่ 14 · เอกสารตรวจ</p><h1>Performance Report<br>EMA20 / EMA200 · daily bars</h1><p class="note">{source_label.get('note', 'ราคาจริง SPY รายวันจาก Webull OpenAPI · การซื้อขายและต้นทุนเป็นแบบจำลอง ราคาปรับย้อนหลังแล้วจึงสะท้อนเงินปันผล')}</p>
 <p>{p['startDate']} ถึง {p['endDate']} · {p['sessions']} วันซื้อขาย · 1 แท่งต่อวัน · EMA 20/200 วัน · เงินเริ่มต้น 100,000 USD · ต้นทุน 0.10% ต่อข้าง · long/cash · สัญญาณเมื่อแท่งปิด ส่งคำสั่งที่ราคาเปิดแท่งถัดไป</p>
 <h2>ผลตอบแทนและความเสี่ยงจากข้อมูลรายวัน</h2><div class="scroll"><table><thead><tr><th>ตัวชี้วัด</th><th>EMA20 / EMA200</th><th>Buy &amp; Hold</th></tr></thead><tbody>{table}</tbody></table></div>
-{plot(cumulative, 'ผลตอบแทนสะสม: EMA 20/200 เทียบกับซื้อแล้วถือ S&P 500', True)}{cumulative_caption}
+{plot(cumulative, 'ผลตอบแทนสะสม: EMA 20/200 เทียบกับซื้อแล้วถือ SPY', True)}{cumulative_caption}
 {plot(equity, 'เงินเริ่มต้นเท่ากัน แต่เส้นทางมูลค่าพอร์ตต่างกัน')}{plot(dds, 'Drawdown รายวันวัดระยะห่างจากจุดสูงสุดของแต่ละพอร์ต', True, True)}
 <p>Maximum Drawdown วัดจากมูลค่าพอร์ตสิ้นวัน จึงไม่เห็นจุดต่ำระหว่างวันทั้งหมด</p>
 {drawdown_period_plot()}
@@ -539,7 +541,7 @@ def main():
     args = parser.parse_args()
     _, _, results = export_all(args.output_dir)
     tm, pm = results['tradeMetrics'], results['portfolioMetrics']
-    print(f"Exported historical S&P 500 backtest: {tm['count']} trades, {tm['wins']} wins, {tm['losses']} losses")
+    print(f"Exported historical SPY backtest: {tm['count']} trades, {tm['wins']} wins, {tm['losses']} losses")
     print(f"Net final equity {pm['finalEquity']:,.2f}; total return {pm['totalReturn']:.4%}; daily MDD {pm['maxDrawdown']:.4%}")
     print(f"Output directory: {Path(args.output_dir).resolve()}")
 

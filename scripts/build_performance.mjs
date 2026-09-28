@@ -15,7 +15,7 @@ html=html.replace('<html lang="th" data-theme="light">','<html lang="th" data-th
  .replaceAll('Robo Trade Notes · ฉบับตรวจในเครื่อง','Robo Trade Notes')
  .replaceAll('ฉบับตรวจส่วนตัว: ','')
  .replaceAll('https://nutdnuy.github.io/robo-trade-notes/','./');
-for(const file of ['robo-trade-performance-review.zip','performance-report.html','data/sp500-daily.csv','data/provenance.json']) {
+for(const file of ['robo-trade-performance-review.zip','performance-report.html','data/spy-webull-daily.csv','data/provenance.json']) {
  html=html.replaceAll(`href="${file}"`,`href="downloads/performance/${file}"`);
 }
 writeFileSync(path.join(root,'public/chapter-14.html'),html);

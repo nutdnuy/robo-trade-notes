@@ -10,7 +10,8 @@ with zipfile.ZipFile(target, 'w', zipfile.ZIP_DEFLATED) as archive:
         if not item.is_file() or item.is_symlink():
             continue
         relative = item.relative_to(SOURCE)
-        if any(part in ('qa', '__pycache__', 'node_modules') for part in relative.parts) or item.name == '.DS_Store':
+        if any(part in ('qa', '__pycache__', 'node_modules', 'webull-run', '.venv') or part.startswith(('.env', '.webull-token'))
+               for part in relative.parts) or item.name == '.DS_Store' or item.name.startswith('webull-') and item.suffix == '.csv':
             continue
         archive.write(item, str(relative))
     archive.write(ROOT / 'content/chapters/14-backtest-performance-evaluation.md', 'chapter.md')

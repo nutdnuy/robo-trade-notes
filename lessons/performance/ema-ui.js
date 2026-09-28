@@ -18,15 +18,15 @@
   const i=+$('signal-bar').value,b=bars[i],next=bars[i+1],target=b.ema20>b.ema200?1:0,current=b.target;
   $('signal-bar-out').textContent=V.barLabel(b);$('signal-chart').innerHTML=C.signal(bars,i);
   const executions=r.transactions.filter(x=>x.bar===b.index);
-  const action=executions.length?executions.map(x=>`${x.side==='buy'?'ซื้อ':'ขาย'}ที่ ${n(x.price,5)} จุด · ต้นทุน ${n(x.fee)} USD`).join('<br>'):'ไม่มีคำสั่งซื้อขายในแท่งนี้';
+  const action=executions.length?executions.map(x=>`${x.side==='buy'?'ซื้อ':'ขาย'}ที่ ${n(x.price,5)} USD · ต้นทุน ${n(x.fee)} USD`).join('<br>'):'ไม่มีคำสั่งซื้อขายในแท่งนี้';
   const nextAction=!next?'จบช่วงทดสอบแล้ว ไม่มีแท่งถัดไปให้ส่งคำสั่ง':target===current?'เป้าหมายคงเดิม จึงไม่ซื้อขายเพิ่ม':`เป้าหมายเปลี่ยนเป็น ${target?'ถือสินทรัพย์':'ถือเงินสด'} จะ${target?'ซื้อ':'ขาย'}ที่ราคาเปิดแท่งถัดไป ${n(next.open,5)} จุด`;
-  $('signal-detail').innerHTML=facts([['ราคาปิดแท่งที่เลือก',n(b.close,5)+' จุด'],['EMA 20 / EMA 200',n(b.ema20,5)+' / '+n(b.ema200,5)],['เป้าหมายที่ใช้ในแท่งนี้',b.warmup?'ช่วงเตรียม ยังไม่ลงทุน':current?'100% สินทรัพย์':'0% สินทรัพย์ (เงินสด)'],['สัญญาณเมื่อแท่งนี้ปิด',target?'EMA 20 > EMA 200':'EMA 20 ≤ EMA 200']])+`<p>${action}</p><p>${nextAction}</p>`;
+  $('signal-detail').innerHTML=facts([['ราคาปิดแท่งที่เลือก',n(b.close,5)+' USD'],['EMA 20 / EMA 200',n(b.ema20,5)+' / '+n(b.ema200,5)],['เป้าหมายที่ใช้ในแท่งนี้',b.warmup?'ช่วงเตรียม ยังไม่ลงทุน':current?'100% สินทรัพย์':'0% สินทรัพย์ (เงินสด)'],['สัญญาณเมื่อแท่งนี้ปิด',target?'EMA 20 > EMA 200':'EMA 20 ≤ EMA 200']])+`<p>${action}</p><p>${nextAction}</p>`;
   $('bar-back').disabled=i<=r.parameters.warmupBars-1;$('bar-next').disabled=i>=bars.length-1;
   $('signal-status').textContent=V.barLabel(b)+' '+(target?'สัญญาณถือสินทรัพย์':'สัญญาณถือเงินสด');
  }
  $('signal-bar')?.addEventListener('input',signal);$('signal-event')?.addEventListener('change',()=>{$('signal-bar').value=$('signal-event').value;signal();});
  $('bar-back')?.addEventListener('click',()=>{$('signal-bar').value=Math.max(r.parameters.warmupBars-1,+$('signal-bar').value-1);signal();});$('bar-next')?.addEventListener('click',()=>{$('signal-bar').value=Math.min(bars.length-1,+$('signal-bar').value+1);signal();});
- function trade(){const i=+$('trade-index').value-1,x=r.tradeLedger[i];$('trade-index-out').textContent=x.id;$('trade-chart').innerHTML=C.tradeBars(r.tradeLedger,i);$('trade-detail').innerHTML=facts([['ซื้อ → ขาย',x.entryTime+' → '+x.exitTime],['ราคาซื้อ → ราคาขาย',n(x.entryPrice,5)+' → '+n(x.exitPrice,5)+' จุด'],['จำนวนหน่วย',n(x.quantity,6)],['กำไรขาดทุนสุทธิ',s(x.netPnl)+' USD']])+`<p>ก่อนต้นทุน: ${n(x.quantity,6)} × (${n(x.exitPrice,5)} − ${n(x.entryPrice,5)}) ≈ ${s(x.grossPnl)} USD<br>หักต้นทุนซื้อ ${n(x.entryFee)} และขาย ${n(x.exitFee)} USD → สุทธิ <strong>${s(x.netPnl)} USD</strong></p><p class="formula-note">จำนวนและราคาแสดงแบบปัดเศษ การคำนวณจริงใช้ค่าความละเอียดเต็มใน CSV</p>`;$('trade-status').textContent=x.id+' กำไรขาดทุนสุทธิ '+s(x.netPnl)+' USD';}
+ function trade(){const i=+$('trade-index').value-1,x=r.tradeLedger[i];$('trade-index-out').textContent=x.id;$('trade-chart').innerHTML=C.tradeBars(r.tradeLedger,i);$('trade-detail').innerHTML=facts([['ซื้อ → ขาย',x.entryTime+' → '+x.exitTime],['ราคาซื้อ → ราคาขาย',n(x.entryPrice,5)+' → '+n(x.exitPrice,5)+' USD'],['จำนวนหน่วย SPY',n(x.quantity,6)],['กำไรขาดทุนสุทธิ',s(x.netPnl)+' USD']])+`<p>ก่อนต้นทุน: ${n(x.quantity,6)} × (${n(x.exitPrice,5)} − ${n(x.entryPrice,5)}) ≈ ${s(x.grossPnl)} USD<br>หักต้นทุนซื้อ ${n(x.entryFee)} และขาย ${n(x.exitFee)} USD → สุทธิ <strong>${s(x.netPnl)} USD</strong></p><p class="formula-note">จำนวนและราคาแสดงแบบปัดเศษ การคำนวณจริงใช้ค่าความละเอียดเต็มใน CSV</p>`;$('trade-status').textContent=x.id+' กำไรขาดทุนสุทธิ '+s(x.netPnl)+' USD';}
  $('trade-index')?.addEventListener('input',trade);
  function distribution(){
   const i=+$('distribution-index').value-1,x=r.tradeLedger[i];
@@ -41,7 +41,7 @@
   const a=(row?row.equity:base)/base-1,b=(row?row.benchmarkEquity:base)/base-1;
   $('cumulative-session-out').textContent=row?row.date:'ก่อนลงทุน';
   $('cumulative-chart').innerHTML=C.equity(r.dailyEquity,base,day,'cumulative');
-  $('cumulative-detail').innerHTML=facts([['วันที่',row?row.date:r.parameters.startDate+' ก่อนเปิด'],['EMA 20/200 สะสม',p(a,2)],['S&P 500 ซื้อแล้วถือ สะสม',p(b,2)],['EMA ลบซื้อแล้วถือ',s((a-b)*100)+' จุดเปอร์เซ็นต์']])+`<p>ลงทุนเริ่มต้น 100 USD จะมีมูลค่า ${n(100*(1+a))} USD ใน EMA และ ${n(100*(1+b))} USD ในพอร์ตซื้อแล้วถือ ณ จุดนี้ ส่วนต่างเป็นจุดเปอร์เซ็นต์ ไม่ใช่อัตราการเติบโตต่อปี</p>`;
+  $('cumulative-detail').innerHTML=facts([['วันที่',row?row.date:r.parameters.startDate+' ก่อนเปิด'],['EMA 20/200 สะสม',p(a,2)],['SPY ซื้อแล้วถือ สะสม',p(b,2)],['EMA ลบซื้อแล้วถือ',s((a-b)*100)+' จุดเปอร์เซ็นต์']])+`<p>ลงทุนเริ่มต้น 100 USD จะมีมูลค่า ${n(100*(1+a))} USD ใน EMA และ ${n(100*(1+b))} USD ในพอร์ตซื้อแล้วถือ ณ จุดนี้ ส่วนต่างเป็นจุดเปอร์เซ็นต์ ไม่ใช่อัตราการเติบโตต่อปี</p>`;
   $('cumulative-status').textContent=(row?row.date:'ก่อนลงทุน')+' ผลตอบแทนสะสม EMA '+p(a)+' ซื้อแล้วถือ '+p(b);
  }
  $('cumulative-session')?.addEventListener('input',cumulative);

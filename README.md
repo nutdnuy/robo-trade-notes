@@ -6,7 +6,7 @@ A Thai learning website about Python and Webull OpenAPI. The book contains Welco
 
 ## Edit the book
 
-The fourth published lesson, [Backtest Performance Evaluation](https://nutdnuy.github.io/robo-trade-notes/chapter-14.html), uses the owner-reviewed Thai text and daily S&P 500 EMA 20/200 example. Edit `content/chapters/14-backtest-performance-evaluation.md`. Its deterministic interactive renderer, Python engine, executed notebook and frozen public data are in `lessons/performance/`; `npm run build:pages` integrates the page and downloads into the book. See `lessons/performance/README.md` for authoring commands and source boundaries.
+The fourth published lesson, [Backtest Performance Evaluation](https://nutdnuy.github.io/robo-trade-notes/chapter-14.html), uses the owner-reviewed Thai text and a daily SPY EMA 20/200 example on data fetched with Webull OpenAPI. Edit `content/chapters/14-backtest-performance-evaluation.md`. Its deterministic interactive renderer, Python engine, executed notebook and frozen public data are in `lessons/performance/`; `npm run build:pages` integrates the page and downloads into the book. See `lessons/performance/README.md` for authoring commands and source boundaries.
 
 The canonical source is deliberately small and familiar:
 

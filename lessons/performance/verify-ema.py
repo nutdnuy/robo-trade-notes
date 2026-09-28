@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent audit of the historical S&P 500 EMA backtest, execution timing and exports.
+"""Independent audit of the SPY (Webull OpenAPI) EMA backtest, execution timing and exports.
 
 Run after lesson_14.py: python3 verify-ema.py
 Uses only Python's standard library and local files. Includes source snapshot, coverage and OHLC integrity checks.
@@ -46,19 +46,17 @@ def reference_statistics(values, annualization=252):
 
 def main():
     import hashlib, csv, datetime
-    raw = (ROOT/'data/sp500-yahoo-raw.json').read_bytes()
+    source_csv = (ROOT/'data/spy-webull-daily.csv').read_bytes()
     provenance = json.loads((ROOT/'data/provenance.json').read_text())
-    assert hashlib.sha256(raw).hexdigest()==provenance['rawSHA256']
-    assert hashlib.sha256((ROOT/'data/sp500-daily.csv').read_bytes()).hexdigest()==provenance['csvSHA256']
-    provider = json.loads(raw)['chart']['result'][0]
-    assert provider['meta']['symbol']=='^GSPC' and provider['meta']['instrumentType']=='INDEX'
-    quotes=provider['indicators']['quote'][0]
-    original={datetime.datetime.fromtimestamp(ts,datetime.timezone.utc).date().isoformat():
-              {k: quotes[k][i] for k in ['open','high','low','close','volume']}
-              for i,ts in enumerate(provider['timestamp'])}
+    assert hashlib.sha256(source_csv).hexdigest()==provenance['csvSHA256']
+    assert provenance['symbol']=='SPY' and provenance['provider'].startswith('Webull OpenAPI')
+    rows = list(csv.DictReader(source_csv.decode('utf-8').splitlines()))
+    assert len(rows)==provenance['fetchedBars'] and rows[0]['date']==provenance['fetchedStart']
+    original={row['date']: {k: float(row[k]) for k in ['open','high','low','close','volume']} for row in rows}
     bars = lesson.generate_bars()
     for bar in bars:
         for key in ['open','high','low','close','volume']:close(bar[key],original[bar['date']][key],'source '+key)
+    assert bars[0]['date']==provenance['warmupStart']
     assert max(original)==provenance['evaluationEnd']
     assert provenance['evaluationEnd']<='2026-09-26'
 
@@ -85,12 +83,12 @@ def main():
     assert result == saved, 'results JSON must match current engine and parameters'
     assert len(bt['dailyEquity']) == 5031
     assert len(bt['observations']) == 5031
-    assert len(bt['tradeLedger']) == 19
-    assert len(bt['transactions']) == 38
+    assert len(bt['tradeLedger']) == 17
+    assert len(bt['transactions']) == 34
     assert bt['finalUnits'] == 0
     assert saved['forcedExitCount'] == 1
     assert saved['tradeMetrics']['wins'] == 8
-    assert saved['tradeMetrics']['losses'] == 11
+    assert saved['tradeMetrics']['losses'] == 9
     assert saved['tradeMetrics']['totalPnl'] > 0
     assert saved['tradeMetrics']['winRate'] < .5
 
@@ -150,9 +148,9 @@ def main():
     peaks = itertools.accumulate(intraday_values, max)
     close(saved['sampling']['daily']['maxDrawdown'], min((value - peak) / peak for value, peak in zip(intraday_values, peaks)), 'independent daily MDD')
     assert saved['sampling']['daily']['maxDrawdown'] <= saved['portfolioMetrics']['maxDrawdown']
-    assert saved['portfolioMetrics']['maxDrawdownPeakIndex'] == 900
-    assert saved['portfolioMetrics']['maxDrawdownTroughIndex'] == 1325
-    assert saved['portfolioMetrics']['maxDrawdownRecoveryIndex'] == 1757
+    assert saved['portfolioMetrics']['maxDrawdownPeakIndex'] == 3372
+    assert saved['portfolioMetrics']['maxDrawdownTroughIndex'] == 3388
+    assert saved['portfolioMetrics']['maxDrawdownRecoveryIndex'] == 3616
     assert saved['portfolioMetrics']['underwaterPeriodsToEnd'] == 30
 
     # A changed future cannot change trades/equity before that future arrives.
@@ -212,7 +210,7 @@ def main():
             raise AssertionError('invalid equity accepted')
         except ValueError:
             pass
-    (ROOT/'qa/sp500-numeric.json').write_text(json.dumps({'status':'passed','checks':CHECKS,'sourceHashesVerified':True,'rawOHLCCompared':len(bars),'evaluationBars':len(bt['dailyEquity']),'firstDate':bars[400]['date'],'lastDate':bars[-1]['date'],'independentCashReplay':True,'futureMutationCausality':True},indent=2)+'\n')
+    (ROOT/'qa/spy-numeric.json').write_text(json.dumps({'status':'passed','checks':CHECKS,'sourceHashVerified':True,'sourceOHLCCompared':len(bars),'evaluationBars':len(bt['dailyEquity']),'firstDate':bars[400]['date'],'lastDate':bars[-1]['date'],'independentCashReplay':True,'futureMutationCausality':True},indent=2)+'\n')
     print(f'PASS: {CHECKS:,} numeric comparisons plus determinism, CSV precision, EMA recurrence, no-lookahead timing, ledger reconciliation, benchmark costs, daily risk, future-mutation causality, final liquidation and undefined-metric cases.')
     print(f'No-fee rerun final equity (separate diagnostic only): {no_fee["finalCash"]:,.8f}')
 

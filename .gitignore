@@ -20,3 +20,6 @@ data/private/
 /lessons/performance/chapter-14-review.html
 /lessons/performance/figures-ema/
 /lessons/performance/qa/
+/lessons/performance/webull-run/
+/lessons/performance/webull-*.csv
+/lessons/performance/.webull-token/

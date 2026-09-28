@@ -12,4 +12,4 @@ python3 lesson_14.py --output-dir output
 
 Open `chapter-14-review.html` for the complete lesson or `output/performance-report.html` for the generated report. To rebuild the standalone lesson HTML, run `npm ci` then `node build.mjs`.
 
-`data/` contains the frozen Yahoo Finance S&P 500 price-index observations and provenance. Trading, fees, cash interest and risk-free rates are model assumptions. The index excludes dividends and cannot be traded directly. See `SOURCES.md` for theory-source boundaries. Private book PDFs are excluded.
+`data/` contains the SPY daily bars fetched with Webull OpenAPI and their provenance. Trading, fees, cash interest and risk-free rates are model assumptions. Webull daily prices are forward-adjusted, so dividends are reflected in the price series. `webull_data.py` refetches the data (credentials in `.env`, never committed or packaged); `verify-webull-data.py` tests it offline. See `SOURCES.md` for theory-source boundaries. Private book PDFs are excluded.

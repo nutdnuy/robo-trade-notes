@@ -287,7 +287,7 @@
       "outcome": "อ่านและอธิบายรายงาน Backtest พร้อมคำนวณด้วย Python",
       "duration": "60–90",
       "meta": [
-        "ข้อมูล S&P 500 รายวัน 20 ปี",
+        "ข้อมูล SPY รายวัน 20 ปีจาก Webull API",
         "กราฟและห้องทดลอง",
         "Python Notebook"
       ],

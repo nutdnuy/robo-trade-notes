@@ -19,6 +19,7 @@ import textwrap
 import nbformat
 
 ROOT = Path(__file__).resolve().parent
+WEBULL_MARKER = '# ต้องใช้กุญแจ Webull'
 
 
 def make_notebook():
@@ -27,26 +28,28 @@ def make_notebook():
     notebook.metadata = {
         'kernelspec': {'display_name': 'Python 3', 'language': 'python', 'name': 'python3'},
         'language_info': {'name': 'python', 'version': platform.python_version()},
-        'title': 'Backtest Performance Evaluation — S&P 500 EMA20 / EMA200',
+        'title': 'Backtest Performance Evaluation — SPY (Webull) EMA20 / EMA200',
         'execution_method': 'Sequential Python exec in a fresh namespace; not a Jupyter-kernel validation run.',
         'data_provenance': json.loads((ROOT/'data/provenance.json').read_text())}
-    cells = [nbformat.v4.new_markdown_cell('''# S&P 500: EMA 20/200 บนข้อมูลจริง 20 ปี
+    cells = [nbformat.v4.new_markdown_cell('''# SPY: EMA 20/200 บนข้อมูลจริง 20 ปีจาก Webull OpenAPI
 
-ใช้ราคา Yahoo Finance ช่วง 2006-09-26 ถึง 2026-09-25 และ 400 วันก่อนหน้าสำหรับ EMA
-ราคาเป็นข้อมูลจริง แต่การซื้อขาย ต้นทุน และดอกเบี้ยเป็นสมมติฐาน ดัชนีราคาไม่รวมเงินปันผล
+ใช้ราคา SPY รายวันที่ดึงผ่าน Webull OpenAPI ช่วง 2006-09-26 ถึง 2026-09-25 และ 400 วันก่อนหน้าสำหรับ EMA
+ราคาเป็นข้อมูลจริง แต่การซื้อขาย ต้นทุน และดอกเบี้ยเป็นสมมติฐาน ราคา SPY ปรับย้อนหลังแล้วจึงสะท้อนเงินปันผล
 
-เลือก Run All ได้โดยไม่ต้องดาวน์โหลดข้อมูลเพิ่ม Snapshot ราคาและ engine ฝังใน Notebook นี้
+เลือก Run All ได้โดยไม่ต้องดาวน์โหลดข้อมูลเพิ่ม ราคาที่ดึงจาก Webull และ engine ฝังใน Notebook นี้
 เซลล์แรกแตกไฟล์ลงโฟลเดอร์ชั่วคราว ส่วนรายงานที่สร้างเองเขียนไว้ในโฟลเดอร์ที่รัน
+เซลล์ที่ขึ้นต้นด้วย "ต้องใช้กุญแจ Webull" ดึงราคาจริงผ่าน Webull OpenAPI ให้ตั้ง WEBULL_APP_KEY / WEBULL_APP_SECRET ก่อนรัน ไฟล์ที่บันทึกไว้จึงไม่มีผลลัพธ์ของเซลล์เหล่านั้น
 เนื้อหาและตัวอย่างโค้ดถัดไปดึงจาก chapter.md เพื่อให้ตัวเลขตรงกับบทเรียน''')]
-    files = {name:base64.b64encode((ROOT/name).read_bytes()).decode() for name in ['lesson_14.py','data/sp500-daily.csv','data/provenance.json']}
+    files = {name:base64.b64encode((ROOT/name).read_bytes()).decode() for name in ['lesson_14.py','webull_data.py','data/spy-webull-daily.csv','data/provenance.json']}
     setup = '''from pathlib import Path
 import base64, tempfile, importlib.util, sys
-work_dir = Path(tempfile.mkdtemp(prefix="robo-sp500-"))
+work_dir = Path(tempfile.mkdtemp(prefix="robo-spy-"))
 embedded_files = '''+repr(files)+'''
 for name, encoded in embedded_files.items():
     target = work_dir / name
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_bytes(base64.b64decode(encoded))
+sys.path.insert(0, str(work_dir))
 spec = importlib.util.spec_from_file_location("lesson_14", work_dir / "lesson_14.py")
 lesson = importlib.util.module_from_spec(spec)
 sys.modules["lesson_14"] = lesson
@@ -60,14 +63,20 @@ print(len(backtest['dailyEquity']), "trading days;", len(backtest['tradeLedger']
     text=(chapter if chapter.exists() else ROOT/'chapter.md').read_text()
     for i,part in enumerate(re.split(r'```python\n(.*?)\n```',text,flags=re.S)):
         if i%2:
-            source=part.replace('Path("trades.csv")','(work_dir / "trades.csv")').replace('Path("equity-daily.csv")','(work_dir / "equity-daily.csv")').replace('load_bars("ema-bars.csv")','load_bars(work_dir / "ema-bars.csv")')
-            cells.append(nbformat.v4.new_code_cell(source))
+            source=part.replace('else Path(".")','else work_dir').replace('load_bars("ema-bars.csv")','load_bars(work_dir / "ema-bars.csv")')
+            # Webull cells need the reader's own credentials; keep them runnable but do not execute here.
+            tags=['requires-webull-credentials'] if source.startswith(WEBULL_MARKER) else []
+            if tags:  # Run All still works for readers without keys
+                source=('import os\nif not (os.environ.get("WEBULL_APP_KEY") and os.environ.get("WEBULL_APP_SECRET")):\n'
+                        '    print("ข้ามเซลล์นี้: ยังไม่ได้ตั้ง WEBULL_APP_KEY / WEBULL_APP_SECRET")\nelse:\n'
+                        +textwrap.indent(source,'    '))
+            cells.append(nbformat.v4.new_code_cell(source, metadata={'tags':tags} if tags else {}))
         else:
             part=re.sub(r' \{#[a-z0-9-]+\}','',part)
             part=re.sub(r'^::: details (.+)$',r'### \1',part,flags=re.M)
             part=re.sub(r'^:::.*$', '',part,flags=re.M)
             if part.strip():cells.append(nbformat.v4.new_markdown_cell(part.strip()))
-    cells.append(nbformat.v4.new_markdown_cell('## กราฟจากข้อมูลเดียวกัน\n\nกราฟเปรียบเทียบพอร์ตใช้สีม่วงสำหรับ EMA 20/200 และสีเขียวสำหรับการถือ S&P 500 Price Index ทั้งช่วง ส่วนกราฟการแจกแจงใช้สีเขียวสำหรับกำไรและสีแดงสำหรับขาดทุน ภาพครอบคลุมมูลค่าพอร์ต ผลตอบแทนสะสม ผลรายเทรด และระยะเวลาของ Drawdown'))
+    cells.append(nbformat.v4.new_markdown_cell('## กราฟจากข้อมูลเดียวกัน\n\nกราฟเปรียบเทียบพอร์ตใช้สีม่วงสำหรับ EMA 20/200 และสีเขียวสำหรับการถือ SPY ทั้งช่วง ส่วนกราฟการแจกแจงใช้สีเขียวสำหรับกำไรและสีแดงสำหรับขาดทุน ภาพครอบคลุมมูลค่าพอร์ต ผลตอบแทนสะสม ผลรายเทรด และระยะเวลาของ Drawdown'))
     cells.append(nbformat.v4.new_code_cell('''import re
 report_html = (work_dir / "performance-report.html").read_text(encoding="utf-8")
 for svg in re.findall(r"<svg.*?</svg>", report_html, flags=re.S):
@@ -105,8 +114,14 @@ def execute_cells(notebook):
 
                 namespace['display'] = display
                 stdout, stderr = io.StringIO(), io.StringIO()
-                with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
-                    exec(compile(cell.source, f'notebook-cell-{count}', 'exec'), namespace)
+                # Webull cells are recorded without credentials, so they print the skip message and never call the API.
+                hidden = {k: os.environ.pop(k) for k in ('WEBULL_APP_KEY', 'WEBULL_APP_SECRET') if k in os.environ} \
+                    if 'requires-webull-credentials' in cell.metadata.get('tags', []) else {}
+                try:
+                    with contextlib.redirect_stdout(stdout), contextlib.redirect_stderr(stderr):
+                        exec(compile(cell.source, f'notebook-cell-{count}', 'exec'), namespace)
+                finally:
+                    os.environ.update(hidden)
                 if stdout.getvalue():
                     outputs.insert(0, nbformat.v4.new_output('stream', name='stdout', text=stdout.getvalue()))
                 if stderr.getvalue():

@@ -36,7 +36,7 @@ const lessonPresentation={
   'chapter-12':{secondarySection:'summary',secondaryLabel:'สรุปท้ายบท',questions:whyRoboQuestions,meta:'Trading / Investing / Quant',start:'why-robo',startLabel:'ทำไมต้อง Robo Trade',art:'images/deltaris-masters.png',width:1024,height:1536,alt:'ช่างและหุ่นกลในโรงช่าง Deltaris ภาพประกอบโลกสมมติ Quantara'}
 };
 const noop=()=>{};
-const imageDimensions={'images/quantara-story-optimization-armor.png':[1264,848],'images/quantara-story-optimization-weathervanes.png':[1264,848],'images/quantara-story-optimization-sails.png':[1264,848],'images/quantara-story-backtest-exam.png':[1536,1024],'images/quantara-story-backtest-letter.png':[1536,1024],'images/quantara-story-backtest-cargo.png':[1536,1024],...Object.fromEntries(webullImages.images.map(image=>[image.file,image.size])),[webullQuote.file]:webullQuote.size,'images/quantara-story-horizons.png':[1536,1024],'images/quantara-story-discarded-plans.png':[1536,1024],'images/quantara-story-delivery.png':[1536,1024]};
+const imageDimensions={'images/quantara-story-optimization-armor.png':[1536,1024],'images/quantara-story-optimization-weathervanes.png':[1536,1024],'images/quantara-story-optimization-sails.png':[1536,1024],'images/quantara-story-backtest-exam.png':[1536,1024],'images/quantara-story-backtest-letter.png':[1536,1024],'images/quantara-story-backtest-cargo.png':[1536,1024],...Object.fromEntries(webullImages.images.map(image=>[image.file,image.size])),[webullQuote.file]:webullQuote.size,'images/quantara-story-horizons.png':[1536,1024],'images/quantara-story-discarded-plans.png':[1536,1024],'images/quantara-story-delivery.png':[1536,1024]};
 
 export default function App(){
   const [route,setRoute]=useState(()=>readRoute(pages));

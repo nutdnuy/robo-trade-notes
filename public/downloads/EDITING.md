@@ -123,6 +123,7 @@ Standalone interactive markers:
 - `::: backtest-lab` — chapter 04 transaction-cost experiment
 - `::: drawdown-lab` — chapter 05 drawdown/recovery experiment
 - `::: execution-lab` — chapter 09 partial fills and duplicate events
+- `::: parameter-heatmap`, `::: is-oos-scatter`, `::: optimization-equity`, `::: noise-trials-viz`, `::: walk-forward-viz` — chapter 15 optimization and overfitting figures
 - `::: quiz` — questions for the current chapter
 - `::: downloads` — the current notebook and editable Markdown
 - `::: chapter-card` — chapter overview on the Welcome page
@@ -189,3 +190,7 @@ Run `npm run package:website` to rebuild the separate HTML pages and create `out
 ## Backtest introduction artifacts
 
 Chapter 13 uses `src/components/BacktestIntroLab.jsx` and `src/lib/backtest-intro.js`. Its original offline Python source is `public/downloads/lesson_13.py`; `scripts/build_backtest_intro.py` executes the notebook and refreshes the synthetic data/results JSON. Rebuild these files together after numerical changes, then run the backtest numerical tests and inspect the chapter at desktop/mobile sizes. The standalone exporter includes both JSON downloads for this chapter.
+
+## Parameter optimization artifacts
+
+Chapter 15 uses `src/components/OptimizationLab.jsx`, `src/lib/optimization.js` and `src/optimization.css`. Its Python source is `public/downloads/lesson_15.py`, which reads the frozen Webull SPY bars from chapter 14 (`lessons/performance/data/spy-webull-daily.csv`) and never calls the API. After changing the grid, windows, fee or noise settings, run `python3 scripts/build_optimization.py` to refresh `public/downloads/optimization-results.json` and execute `robo-trade-15.ipynb`, then update any numbers quoted in the chapter Markdown and `tests/optimization.test.mjs`. The three Quantara story images and their prompts are recorded in `references/optimization-quantara-generation.json`.

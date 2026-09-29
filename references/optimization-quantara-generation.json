@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "project": "robo-trade-notes",
+  "lesson": "Parameter Optimization & Overfitting",
+  "brand": "QuantCorner / QuantSeras; fictional Quantara narrative art (cute storybook variant requested by Nuth)",
+  "mode": "Antigravity CLI (agy) generate_image tool, print mode",
+  "generatedOn": "2026-09-29",
+  "route": "image-generator-only",
+  "scopeBoundary": "Standalone fictional story illustrations only. Charts, heatmaps, data and UI in this lesson are native React/SVG (no-image-generator route).",
+  "referenceImagesSent": "none; continuity described in text only",
+  "assets": [
+    {
+      "scene": "overfit-armor",
+      "path": "public/images/quantara-story-optimization-armor.png",
+      "sha256": "72d91a00747b834a6d48af4458825d9a8d6c6f3f92d435bbc51a56464c0c5e52",
+      "size": [
+        1264,
+        848
+      ],
+      "prompt": "Use your generate_image tool to create ONE image, then save it as the PNG file <scratch>/quantara-optimization-armor.png (create the file at exactly that path). Reply only with the saved path.\n\nStyle: cute, warm fantasy storybook illustration in the established Quantara world, soft painterly shading, rounded friendly shapes, gently chibi proportions (big heads, small bodies), expressive faces, cozy golden light, clean readable composition, rich but not cluttered detail. Landscape 3:2, 1536x1024. Absolutely no text, letters, numbers, labels, logos, charts, graphs, UI, watermarks or signatures anywhere in the image.\nRecurring characters (keep consistent): (1) a small, round, cheerful dwarven craftmaster with warm tan skin, rosy cheeks, bushy dark eyebrows, a thick dark beard in several braids with small brass beads, brass goggles pushed up on the forehead, cream shirt, leather work apron, blue vest. (2) a big but adorable friendly automaton with a round head, two large glowing round cyan eyes, rounded charcoal-blue armor plates with antique brass edges and delicate gold filigree, and a large faceted sapphire-blue crystal in the middle of its chest.\nSetting: Deltaris, a sunny coastal fantasy harbor town with an ivory stone city on a hill, a slender central tower topped with a glowing sapphire beacon, sailboats on a turquoise sea.\n\nScene: inside the craftmaster's bright workshop that opens onto the harbor. The craftmaster stands on a little wooden step stool, beaming with pride, holding a tiny screwdriver. He has spent all night fitting a shiny brass shoulder plate onto the automaton: the plate is covered with dozens of tiny adjustment screws and little dials, all tuned to fit the automaton perfectly while it holds one frozen, slightly silly pose (one arm raised like a statue). Now the automaton has taken one normal step forward and relaxed its arm, and the over-tuned plate has popped off with a comic \"boing\": little screws and springs fly through the air. The automaton looks down at the falling plate with an apologetic, surprised expression. On the workbench behind them lies a simpler, plain plate with only two large straps, untouched. The joke: the plate fit one frozen pose perfectly but fails the moment anything moves.\n"
+    },
+    {
+      "scene": "data-snooping-weathervanes",
+      "path": "public/images/quantara-story-optimization-weathervanes.png",
+      "sha256": "586369163854eceaa716f50d79f97038a4911dea446f262ee3459fdc716633d7",
+      "size": [
+        1264,
+        848
+      ],
+      "prompt": "Use your generate_image tool to create ONE image, then save it as the PNG file <scratch>/quantara-optimization-weathervanes.png (create the file at exactly that path). Reply only with the saved path.\n\nStyle: cute, warm fantasy storybook illustration in the established Quantara world, soft painterly shading, rounded friendly shapes, gently chibi proportions (big heads, small bodies), expressive faces, cozy golden light, clean readable composition, rich but not cluttered detail. Landscape 3:2, 1536x1024. Absolutely no text, letters, numbers, labels, logos, charts, graphs, UI, watermarks or signatures anywhere in the image.\nRecurring characters (keep consistent): (1) a small, round, cheerful dwarven craftmaster with warm tan skin, rosy cheeks, bushy dark eyebrows, a thick dark beard in several braids with small brass beads, brass goggles pushed up on the forehead, cream shirt, leather work apron, blue vest. (2) a big but adorable friendly automaton with a round head, two large glowing round cyan eyes, rounded charcoal-blue armor plates with antique brass edges and delicate gold filigree, and a large faceted sapphire-blue crystal in the middle of its chest.\nSetting: Deltaris, a sunny coastal fantasy harbor town with an ivory stone city on a hill, a slender central tower topped with a glowing sapphire beacon, sailboats on a turquoise sea.\n\nScene: on a flat stone rooftop terrace overlooking the Deltaris harbor, the craftmaster has set up a whole field of many small handmade weathervanes (dozens of them, rooster, fish, ship and star shapes, all slightly different), planted in neat rows like a garden. He is excitedly hugging one single little fish-shaped weathervane and pointing at it, triumphant, because yesterday it happened to point the right way. Behind him the automaton holds a big blue umbrella over both of them because the wind has just changed: a gust is turning all the weathervanes in random directions and blowing the craftmaster's beard sideways, and a few leaves swirl past. The automaton's cyan eyes look gently amused. The joke: with enough weathervanes, one will always look lucky yesterday.\n"
+    },
+    {
+      "scene": "walk-forward-sails",
+      "path": "public/images/quantara-story-optimization-sails.png",
+      "sha256": "1f4477fc582e8363d8d255e08e3d4043efed9826fd9f69b7e9000e851f2bf075",
+      "size": [
+        1264,
+        848
+      ],
+      "prompt": "Use your generate_image tool to create ONE image, then save it as the PNG file <scratch>/quantara-optimization-sails.png (create the file at exactly that path). Reply only with the saved path.\n\nStyle: cute, warm fantasy storybook illustration in the established Quantara world, soft painterly shading, rounded friendly shapes, gently chibi proportions (big heads, small bodies), expressive faces, cozy golden light, clean readable composition, rich but not cluttered detail. Landscape 3:2, 1536x1024. Absolutely no text, letters, numbers, labels, logos, charts, graphs, UI, watermarks or signatures anywhere in the image.\nRecurring characters (keep consistent): (1) a small, round, cheerful dwarven craftmaster with warm tan skin, rosy cheeks, bushy dark eyebrows, a thick dark beard in several braids with small brass beads, brass goggles pushed up on the forehead, cream shirt, leather work apron, blue vest. (2) a big but adorable friendly automaton with a round head, two large glowing round cyan eyes, rounded charcoal-blue armor plates with antique brass edges and delicate gold filigree, and a large faceted sapphire-blue crystal in the middle of its chest.\nSetting: Deltaris, a sunny coastal fantasy harbor town with an ivory stone city on a hill, a slender central tower topped with a glowing sapphire beacon, sailboats on a turquoise sea.\n\nScene: on the wooden deck of a small cute sailboat moored at the Deltaris harbor quay. The craftmaster sits on a barrel with an open ship's log book on his knees, studying last seasons' notes (the pages show only little doodles of clouds and waves, no writing). The automaton is carefully adjusting the sail rigging by hand, following his instructions. Along the quay behind them, a row of four small identical boats each has a sail trimmed in a slightly different way, as if the pair has re-tuned the sail every season and kept each old version. The sky shows a gentle transition from spring blossoms on the left to autumn leaves on the right, suggesting time passing season by season. Calm, hopeful, curious mood.\n"
+    }
+  ]
+}

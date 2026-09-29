@@ -4,7 +4,7 @@ import katex from 'katex';
 import {parsePage,splitWidgets} from '../src/lib/book.js';
 const root=new URL('../',import.meta.url);
 const book=JSON.parse(readFileSync(new URL('content/book.json',root),'utf8'));
-const known=new Set(['chapter-card','api-example','sma-example','sma-formula','bar-question','lab','quiz','downloads','backtest-lab','backtest-intro-lab','timing-viz','volatility-sizing-viz','drawdown-recovery-viz','drawdown-lab','execution-lab','trade-lab','distribution-lab','expectancy-lab','drawdown-period-lab','risk-lab','cumulative-lab','review-questions']);
+const known=new Set(['chapter-card','api-example','sma-example','sma-formula','bar-question','lab','quiz','downloads','backtest-lab','backtest-intro-lab','timing-viz','volatility-sizing-viz','drawdown-recovery-viz','drawdown-lab','execution-lab','trade-lab','distribution-lab','expectancy-lab','drawdown-period-lab','risk-lab','cumulative-lab','review-questions','parameter-heatmap','is-oos-scatter','optimization-equity','noise-trials-viz','walk-forward-viz']);
 assert(book.pages.length>0,'At least one book page is required');
 assert.equal(new Set(book.pages.map(p=>p.id)).size,book.pages.length,'Page IDs must be unique');
 const pages=book.pages.map(page=>{const raw=readFileSync(new URL('content/'+page.file,root),'utf8');return {...page,raw,...parsePage(raw)};});

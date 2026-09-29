@@ -157,6 +157,7 @@ export async function buildStandalone() {
       const files=['content/'+page.file];
       if(page.kind==='lesson') files.push('robo-trade-'+page.number+'.ipynb','lesson_'+page.number+'.py');
       if(page.id==='chapter-13') files.push('backtest-intro-data.json','backtest-intro-results.json');
+      if(page.id==='chapter-15') files.push('optimization-results.json');
       for(const file of files) {
         const target=path.join(staging,'downloads',file);
         await mkdir(path.dirname(target),{recursive:true});

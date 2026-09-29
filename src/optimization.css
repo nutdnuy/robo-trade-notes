@@ -1,0 +1,108 @@
+/* Lesson 15 figures. Series colours passed scripts/validate_palette.js (light, surface #fffefa). */
+.opt-lab {
+  --opt-pick: #6200ee;
+  --opt-baseline: #00897b;
+  --opt-hold: #d9730d;
+  --opt-best: #1f1f1f;
+  width: 100%;
+  min-width: 0;
+  margin: 32px 0;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.7;
+}
+.opt-header {display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;}
+.opt-eyebrow {display: block; margin-bottom: 8px; color: var(--muted); font-size: 11px; font-weight: 500; letter-spacing: .08em;}
+.opt-lab .opt-header h3 {margin: 0; padding: 0; color: var(--text); font-size: 22px; font-weight: 500; line-height: 1.5;}
+.opt-data-label {flex-shrink: 0; margin-top: 3px; padding: 4px 8px; border: 1px solid var(--line); border-radius: 4px; font-size: 12px; line-height: 1.5;}
+.opt-lab .opt-lead {margin: 16px 0 20px; color: var(--muted); font-size: 15px; line-height: 1.8;}
+.opt-toolbar {display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;}
+.opt-segmented {display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border: 1px solid var(--line); border-radius: 5px;}
+.opt-segmented button {min-height: 44px; padding: 8px 12px; border-radius: 3px; font-size: 13px; line-height: 1.4;}
+.opt-segmented button[aria-pressed=true] {background: var(--primary); color: var(--on-primary);}
+.opt-segmented button:not([aria-pressed=true]):hover {background: var(--code);}
+.opt-lab :is(button, input, select, [tabindex]):focus-visible {outline: 3px solid var(--primary); outline-offset: 3px;}
+.opt-chart {width: 100%; min-width: 0;}
+.opt-chart svg {display: block; width: 100%; height: auto; overflow: visible; touch-action: pan-y;}
+.opt-chart svg text {fill: var(--muted); font-family: Roboto, 'Noto Sans Thai', sans-serif; font-size: 11px; font-variant-numeric: tabular-nums;}
+.opt-chart svg .opt-axis-title {fill: var(--text); font-size: 12px;}
+.opt-chart svg .opt-ref-label {font-size: 11px; paint-order: stroke; stroke: var(--surface); stroke-width: 4px; stroke-linejoin: round;}
+.opt-lab .opt-chart-unit {margin: 0 0 4px; color: var(--muted); font-size: 12px;}
+.opt-cell {cursor: pointer;}
+.opt-mark {fill: none; stroke-width: 2.5;}
+.opt-mark-baseline {stroke: var(--opt-baseline); border-color: var(--opt-baseline);}
+.opt-mark-pick {stroke: var(--opt-pick); border-color: var(--opt-pick);}
+.opt-mark-best {stroke: var(--opt-best); stroke-dasharray: 3 2; border-color: var(--opt-best);}
+.opt-box.opt-mark-best {border-style: dashed;}
+.opt-mark-selected {stroke: #fff; stroke-width: 1.5;}
+.opt-scale {display: flex; align-items: center; gap: 8px; margin: 8px 0 0; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums;}
+.opt-scale-bar {display: flex; flex: 1; max-width: 280px; height: 10px; border-radius: 2px; overflow: hidden;}
+.opt-scale-bar i {flex: 1;}
+.opt-lab .opt-legend {display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 0; margin: 12px 0; list-style: none;}
+.opt-lab .opt-legend li {display: flex; align-items: center; gap: 8px; margin: 0; padding: 0; font-size: 12px; line-height: 1.6;}
+.opt-box {display: inline-block; width: 14px; height: 14px; border-width: 2.5px; border-style: solid; border-radius: 3px;}
+.opt-swatch {display: inline-block; flex-shrink: 0; width: 20px; height: 0; margin-right: 6px; vertical-align: middle; border-top: 3px solid currentColor;}
+.opt-pick {color: var(--opt-pick); stroke: var(--opt-pick);}
+.opt-baseline {color: var(--opt-baseline); stroke: var(--opt-baseline);}
+.opt-hold {color: var(--opt-hold); stroke: var(--opt-hold); border-top-style: dashed; stroke-dasharray: 6 4;}
+.opt-line {fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;}
+.opt-band {stroke: none; fill: currentColor; fill-opacity: .12;}
+.opt-point {fill: var(--surface); stroke-width: 2; stroke-dasharray: none;}
+.opt-grid {stroke: var(--line); stroke-width: 1;}
+.opt-ref {stroke: var(--chart-muted); stroke-opacity: .7; stroke-dasharray: 4 4;}
+.opt-split {stroke: var(--text); stroke-opacity: .5; stroke-dasharray: 4 3;}
+.opt-train-zone {fill: var(--code);}
+.opt-cursor {stroke: var(--chart-muted); stroke-width: 1; stroke-dasharray: 2 4;}
+.opt-hit {fill: transparent; cursor: pointer;}
+.opt-dot {fill: #b8b8b8; stroke: var(--surface); stroke-width: 1;}
+.opt-dot-top {fill: var(--opt-pick); stroke: var(--surface); stroke-width: 2;}
+.opt-dot-baseline {fill: var(--opt-baseline); stroke: var(--surface); stroke-width: 2;}
+.opt-dot.is-active {stroke: var(--text); stroke-width: 2;}
+.opt-dot-key {display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #b8b8b8;}
+.opt-dot-key.opt-dot-top {background: var(--opt-pick);}
+.opt-dot-key.opt-dot-baseline {background: var(--opt-baseline);}
+.opt-select {display: grid; gap: 4px; margin: 4px 0 8px; font-size: 13px;}
+.opt-select select {min-height: 44px; max-width: 100%; padding: 8px 12px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--text); font: inherit;}
+.opt-readout {display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 12px 0 16px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);}
+.opt-readout dt {color: var(--muted); font-size: 11px; line-height: 1.7;}
+.opt-readout dd {margin: 6px 0 0; font-size: 21px; font-weight: 500; font-variant-numeric: tabular-nums; line-height: 1.4;}
+.opt-readout dd small {display: block; color: var(--muted); font-size: 11px; font-weight: 400; line-height: 1.5;}
+.opt-readout-line dd {font-size: 17px;}
+.opt-controls label {display: block; min-width: 0;}
+.opt-controls label > span {display: flex; justify-content: space-between; align-items: baseline; gap: 12px;}
+.opt-controls strong {color: var(--primary); font-variant-numeric: tabular-nums;}
+.opt-lab input[type=range] {display: block; width: 100%; min-width: 0; height: 44px; margin: 0; cursor: pointer; accent-color: var(--primary);}
+.opt-controls small {display: block; color: var(--muted); font-size: 12px; line-height: 1.6;}
+.opt-table-wrap {max-width: 100%; margin-top: 16px; overflow-x: auto; border: 1px solid var(--line); border-radius: 4px;}
+.opt-lab .opt-table {width: 100%; min-width: 520px; margin: 0; border-collapse: collapse; font-size: 13px; line-height: 1.6; font-variant-numeric: tabular-nums;}
+.opt-table caption {padding: 10px 14px; color: var(--muted); text-align: left; font-size: 12px;}
+.opt-lab .opt-table :is(th, td) {padding: 10px 12px; border: 0; border-top: 1px solid var(--line); text-align: right; white-space: nowrap; background: transparent;}
+.opt-lab .opt-table thead th {background: var(--code); font-weight: 500;}
+.opt-lab .opt-table th:first-child {text-align: left;}
+.opt-table tbody th {font-weight: 400;}
+.opt-years {display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 6px; padding: 0; margin: 0 0 12px; list-style: none;}
+.opt-years li {margin: 0; padding: 0;}
+.opt-years button {display: grid; width: 100%; min-height: 64px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 4px; text-align: left; line-height: 1.35;}
+.opt-years button span {color: var(--muted); font-size: 11px;}
+.opt-years button strong {font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums;}
+.opt-years button small {font-size: 12px; font-variant-numeric: tabular-nums; color: var(--secondary-text);}
+.opt-years button small.is-negative {color: var(--error);}
+.opt-years button[aria-pressed=true] {border-color: var(--primary); background: var(--selected); box-shadow: inset 0 0 0 1px var(--primary);}
+.opt-lab .opt-year-note {margin: 0 0 12px; font-size: 14px; line-height: 1.7;}
+.opt-lab .opt-footnote {margin: 12px 0 0; color: var(--muted); font-size: 12px; line-height: 1.75;}
+@media (max-width: 700px) {
+  .opt-lab {padding: 16px; margin: 24px 0;}
+  .opt-lab .opt-header {flex-direction: column; gap: 8px;}
+  .opt-lab .opt-header h3 {font-size: 19px;}
+  .opt-readout {grid-template-columns: repeat(2, minmax(0, 1fr));}
+  .opt-readout dd {font-size: 18px;}
+  .opt-segmented {width: 100%;}
+  .opt-segmented button {flex: 1 1 auto;}
+}
+.opt-lab .opt-box.opt-mark-baseline {border-color: var(--opt-baseline);}
+.opt-lab .opt-box.opt-mark-pick {border-color: var(--opt-pick);}
+.opt-lab .opt-box.opt-mark-best {border-color: var(--opt-best);}

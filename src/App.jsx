@@ -6,6 +6,9 @@ import performanceSource from '../content/chapters/14-backtest-performance-evalu
 import backtestSource from '../content/chapters/13-introduction-backtest.md?raw';
 import backtestQuestions from '../content/quizzes/chapter-13.json';
 import BacktestIntroLab from './components/BacktestIntroLab.jsx';
+import optimizationSource from '../content/chapters/15-parameter-optimization-overfitting.md?raw';
+import optimizationQuestions from '../content/quizzes/chapter-15.json';
+import {optimizationWidgets} from './components/OptimizationLab.jsx';
 import {TimingViz,VolatilitySizingViz,DrawdownRecoveryViz} from './components/BacktestConceptViz.jsx';
 import whyRoboSource from '../content/chapters/12-why-robo-trade.md?raw';
 import whyRoboQuestions from '../content/quizzes/chapter-12.json';
@@ -23,16 +26,17 @@ import {Quiz} from './components/LessonWidgets.jsx';
 import WelcomeAtlas from './components/WelcomeAtlas.jsx';
 import BookShell from './components/BookShell.jsx';
 
-const sources={welcome:welcomeSource,'chapter-11':webullSource,'chapter-12':whyRoboSource,'chapter-13':backtestSource,'chapter-14':performanceSource};
+const sources={welcome:welcomeSource,'chapter-11':webullSource,'chapter-12':whyRoboSource,'chapter-13':backtestSource,'chapter-14':performanceSource,'chapter-15':optimizationSource};
 const pages=config.pages.map(page=>({...page,navigationTitle:page.label,...(sources[page.id]?parsePage(sources[page.id]):{})}));
 const publishedPages=pages.filter(page=>isPublishedPage(page.id));
 const lessonPresentation={
   'chapter-13':{questions:backtestQuestions,meta:'Backtesting / Research / Validation',start:'research-before-backtest',startLabel:'หลักคิดก่อนทดสอบ',secondarySection:'lab',secondaryLabel:'เปิดห้องทดลอง',art:null},
+  'chapter-15':{questions:optimizationQuestions,meta:'Backtesting / Optimization / Overfitting',start:'why-optimize',startLabel:'ทำไมต้องเป็น 20 กับ 200',secondarySection:'grid-search',secondaryLabel:'เปิด Heatmap 484 คู่',art:null},
   'chapter-11':{questions:webullQuestions,meta:'Python / Webull OpenAPI',start:'before-start',startLabel:'Start with the checklist',art:'images/deltaris-workshop-v2.png',width:1536,height:1024,alt:'โรงงานริมทะเลแห่ง Deltaris ช่างฝีมือกำลังประกอบโกเลมทองเหลือง ภาพประกอบโลก Quantara'},
   'chapter-12':{secondarySection:'summary',secondaryLabel:'สรุปท้ายบท',questions:whyRoboQuestions,meta:'Trading / Investing / Quant',start:'why-robo',startLabel:'ทำไมต้อง Robo Trade',art:'images/deltaris-masters.png',width:1024,height:1536,alt:'ช่างและหุ่นกลในโรงช่าง Deltaris ภาพประกอบโลกสมมติ Quantara'}
 };
 const noop=()=>{};
-const imageDimensions={'images/quantara-story-backtest-exam.png':[1536,1024],'images/quantara-story-backtest-letter.png':[1536,1024],'images/quantara-story-backtest-cargo.png':[1536,1024],...Object.fromEntries(webullImages.images.map(image=>[image.file,image.size])),[webullQuote.file]:webullQuote.size,'images/quantara-story-horizons.png':[1536,1024],'images/quantara-story-discarded-plans.png':[1536,1024],'images/quantara-story-delivery.png':[1536,1024]};
+const imageDimensions={'images/quantara-story-optimization-armor.png':[1264,848],'images/quantara-story-optimization-weathervanes.png':[1264,848],'images/quantara-story-optimization-sails.png':[1264,848],'images/quantara-story-backtest-exam.png':[1536,1024],'images/quantara-story-backtest-letter.png':[1536,1024],'images/quantara-story-backtest-cargo.png':[1536,1024],...Object.fromEntries(webullImages.images.map(image=>[image.file,image.size])),[webullQuote.file]:webullQuote.size,'images/quantara-story-horizons.png':[1536,1024],'images/quantara-story-discarded-plans.png':[1536,1024],'images/quantara-story-delivery.png':[1536,1024]};
 
 export default function App(){
   const [route,setRoute]=useState(()=>readRoute(pages));
@@ -63,12 +67,12 @@ export default function App(){
   const lessonIndex=readingOrder.findIndex(item=>item.id===page.id);
   const previousLesson=readingOrder[lessonIndex-1];
   const nextLesson=readingOrder[lessonIndex+1];
-  const widgets={'timing-viz':<TimingViz/>,'volatility-sizing-viz':<VolatilitySizingViz/>,'drawdown-recovery-viz':<DrawdownRecoveryViz/>,'backtest-intro-lab':<BacktestIntroLab/>,quiz:<Quiz key={page.id} questions={presentation.questions} onComplete={noop} onReset={noop}/>};
+  const widgets={'timing-viz':<TimingViz/>,'volatility-sizing-viz':<VolatilitySizingViz/>,'drawdown-recovery-viz':<DrawdownRecoveryViz/>,'backtest-intro-lab':<BacktestIntroLab/>,...optimizationWidgets,quiz:<Quiz key={page.id} questions={presentation.questions} onComplete={noop} onReset={noop}/>};
   // Retain the canonical Markdown; only the former introductory illustration
   // is replaced in this presentation by the shared Deltaris workshop artwork.
   const lessonIntro=page.intro.split('\n').filter(line=>!line.trim().startsWith('![')||!line.includes(']('+webullQuote.file+')')).join('\n').trim();
   return <BookShell page={page} pages={publishedPages} route={route} menuOpen={menuOpen} setMenuOpen={setMenuOpen}>
-        <article className={"lesson-article field-guide-article"+(page.id==='chapter-12'?' why-robo-article':page.id==='chapter-13'?' backtest-intro-article':'')}>
+        <article className={"lesson-article field-guide-article"+(page.id==='chapter-12'?' why-robo-article':page.id==='chapter-13'||page.id==='chapter-15'?' backtest-intro-article':'')}>
           <header className="field-guide-cover" id="page-top">
             {presentation.art&&<figure className="field-guide-art">
               <img src={assetUrl(presentation.art)} alt={presentation.alt} width={presentation.width} height={presentation.height} fetchPriority="high"/>
@@ -81,7 +85,7 @@ export default function App(){
               <nav className="field-guide-actions" aria-label="Start or practice"><a href={pageHref(page.id,presentation.start)}>{presentation.startLabel} <span aria-hidden="true">↓</span></a><a href={pageHref(page.id,presentation.secondarySection||'practice')}>{presentation.secondaryLabel||'Notebook & files'} <span aria-hidden="true">↗</span></a></nav>
             </div>
           </header>
-          {page.id==='chapter-13'?null:page.id==='chapter-11'?<aside className="field-guide-lore" aria-labelledby="gem-story-title" lang="th">
+          {page.id==='chapter-13'||page.id==='chapter-15'?null:page.id==='chapter-11'?<aside className="field-guide-lore" aria-labelledby="gem-story-title" lang="th">
             <h2 id="gem-story-title">เรื่องเล่าจาก Quantara: เสียงจากอัญมณีสีน้ำเงิน</h2>
             <p>ช่างแห่ง Deltaris หมุนสลักที่อกหุ่นกล อัญมณีสีน้ำเงินสว่างขึ้น ก่อนส่งเสียงของเขาไปยังหอกลางเมือง “ได้ยินหรือไม่?” เขาถาม เสียงตอบดังกลับมาทันที “ได้ยิน ตั้งแต่เจ้าบ่นว่าประแจหายเมื่อเช้าแล้ว”</p>
             <p>หุ่นกลก้มมองอัญมณีของตัวเอง แล้วกระซิบว่า “ถ้าอย่างนั้น ช่วยแจ้งหอกลางด้วยว่าข้าขอพัก” ช่างยื่นมือจะปิดสัญญาณ แต่ช้าไป เสียงหัวเราะจากหอส่งกลับมาถึงโรงงาน ตามด้วยคำถามว่า “หุ่นขอพัก หรือคนถือประแจ?”</p>

@@ -6,6 +6,8 @@ A Thai learning website about Python and Webull OpenAPI. The book contains Welco
 
 ## Edit the book
 
+The fifth published lesson, [Parameter Optimization & Overfitting](https://nutdnuy.github.io/robo-trade-notes/chapter-15.html), searches 484 EMA pairs on the same Webull SPY data, then tests the winner out of sample, on shuffled-return markets and with walk-forward re-selection. Edit `content/chapters/15-parameter-optimization-overfitting.md`; rebuild its data and notebook with `python3 scripts/build_optimization.py`.
+
 The fourth published lesson, [Backtest Performance Evaluation](https://nutdnuy.github.io/robo-trade-notes/chapter-14.html), uses the owner-reviewed Thai text and a daily SPY EMA 20/200 example on data fetched with Webull OpenAPI. Edit `content/chapters/14-backtest-performance-evaluation.md`. Its deterministic interactive renderer, Python engine, executed notebook and frozen public data are in `lessons/performance/`; `npm run build:pages` integrates the page and downloads into the book. See `lessons/performance/README.md` for authoring commands and source boundaries.
 
 The canonical source is deliberately small and familiar:

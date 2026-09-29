@@ -298,6 +298,26 @@
       "kind": "lesson",
       "label": "Backtest Performance Evaluation: Return, Risk, and Trading Metrics",
       "file": "chapters/14-backtest-performance-evaluation.md"
+    },
+    {
+      "id": "chapter-15",
+      "number": "15",
+      "eyebrow": "BACKTESTING / OPTIMIZATION / OVERFITTING",
+      "part": "วิจัยและทดสอบ",
+      "outcome": "หาพารามิเตอร์ EMA ด้วย grid search แล้วตรวจ overfitting ด้วยช่วงทดสอบ ตลาดสุ่ม และ walk-forward",
+      "duration": "60–90",
+      "meta": [
+        "ข้อมูล SPY รายวัน 20 ปีจาก Webull API",
+        "Heatmap 484 คู่และห้องทดลอง 5 ชุด",
+        "Python Notebook"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-15/why-optimize",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-15.ipynb",
+      "kind": "lesson",
+      "label": "Parameter Optimization & Overfitting",
+      "file": "chapters/15-parameter-optimization-overfitting.md"
     }
   ]
 }

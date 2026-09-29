@@ -112,7 +112,7 @@ export function ParameterHeatmap() {
       <span>{METRICS[metric].format(max)}</span>
     </div>
     <ul className="opt-legend">
-      <li><span className="opt-box opt-mark-baseline" aria-hidden="true"/>EMA 20/200 จากบทที่ 14</li>
+      <li><span className="opt-box opt-mark-baseline" aria-hidden="true"/>EMA 20/200 จากบทที่ 4</li>
       <li><span className="opt-box opt-mark-pick" aria-hidden="true"/>EMA {pickKey} ดีที่สุดในช่วงฝึก</li>
       <li><span className="opt-box opt-mark-best" aria-hidden="true"/>ดีที่สุดในมุมมองนี้ ({pairKey(best.f, best.s)})</li>
     </ul>

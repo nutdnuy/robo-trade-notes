@@ -1,9 +1,10 @@
-"""Lesson 15: Parameter Optimization & Overfitting with an EMA crossover.
+"""Chapter 5: Parameter Optimization & Overfitting with an EMA crossover.
 
 Pure Python 3.9+ (standard library only). Reads the frozen SPY daily bars that
-lesson 14 fetched with Webull OpenAPI; this script never calls an API.
+chapter 4 (Backtest Performance Evaluation) fetched with Webull OpenAPI; this
+script never calls an API.
 
-Rules shared with lesson 14:
+Rules shared with chapter 4:
 - EMA(fast) and EMA(slow) of daily closes, seeded at the first warmup close.
 - Target 100% long when EMA(fast) > EMA(slow) at the previous close, else cash.
 - Trade at the next open. Fee 0.1% per side on notional. No leverage or shorting.
@@ -60,7 +61,7 @@ def load_bars(path=None):
 
 
 def ema(values, span):
-    """Exponential moving average seeded at the first value (same as lesson 14)."""
+    """Exponential moving average seeded at the first value (same as chapter 4)."""
     alpha = 2 / (span + 1)
     out, level = [], None
     for value in values:

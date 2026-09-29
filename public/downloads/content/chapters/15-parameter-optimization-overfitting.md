@@ -16,11 +16,11 @@ $$
 \text{Sharpe} = \frac{\bar r}{s_r}\sqrt{252}
 $$
 
-$n_f$ คือจำนวนวันของ EMA เร็ว $n_s$ คือจำนวนวันของ EMA ช้า $\bar r$ กับ $s_r$ คือค่าเฉลี่ยและส่วนเบี่ยงเบนมาตรฐานของผลตอบแทนรายวันหลังค่าธรรมเนียม บทนี้ใช้อัตราปลอดความเสี่ยง 0% เหมือนบทที่ 14
+$n_f$ คือจำนวนวันของ EMA เร็ว $n_s$ คือจำนวนวันของ EMA ช้า $\bar r$ กับ $s_r$ คือค่าเฉลี่ยและส่วนเบี่ยงเบนมาตรฐานของผลตอบแทนรายวันหลังค่าธรรมเนียม บทนี้ใช้อัตราปลอดความเสี่ยง 0% เหมือนบทที่ 4
 
 ## Parameter Optimization: ลองทุกคู่ {#grid-search}
 
-เราใช้ข้อมูลและกติกาชุดเดียวกับบทที่ 14 ทุกอย่าง คือราคา SPY รายวันจาก Webull OpenAPI ถือ SPY 100% เมื่อ EMA เร็วอยู่เหนือ EMA ช้าที่ราคาปิดวันก่อน ซื้อขายที่ราคาเปิดวันถัดไป และเสียค่าธรรมเนียมสมมติ 0.1% ต่อข้าง สิ่งเดียวที่เปลี่ยนคือคู่ EMA
+เราใช้ข้อมูลและกติกาชุดเดียวกับบทที่ 4 ทุกอย่าง คือราคา SPY รายวันจาก Webull OpenAPI ถือ SPY 100% เมื่อ EMA เร็วอยู่เหนือ EMA ช้าที่ราคาปิดวันก่อน ซื้อขายที่ราคาเปิดวันถัดไป และเสียค่าธรรมเนียมสมมติ 0.1% ต่อข้าง สิ่งเดียวที่เปลี่ยนคือคู่ EMA
 
 | สิ่งที่ลอง | ค่า |
 | --- | --- |
@@ -30,7 +30,7 @@ $n_f$ คือจำนวนวันของ EMA เร็ว $n_s$ คื�
 | จำนวนคู่ที่ทดสอบ | 484 คู่ |
 | ตัวชี้วัดที่ใช้เลือก | Sharpe รายวัน × √252 |
 
-โค้ดในไฟล์ `lesson_15.py` ทำแค่วนลูปเรียก backtest ของบทที่ 14 ทีละคู่
+โค้ดในไฟล์ `lesson_15.py` ทำแค่วนลูปเรียก backtest ของบทที่ 4 ทีละคู่
 
 ```python
 from lesson_15 import load_bars, run_grid, EVALUATION
@@ -87,7 +87,7 @@ Hilpisch ยกนิยามของ Man Institute ว่า overfitting ค�
 | ช่วงทดสอบ 2016–2026 | Sharpe | CAGR | Max DD | อันดับ Sharpe จาก 484 คู่ |
 | --- | --- | --- | --- | --- |
 | EMA 65/120 (ชนะช่วงฝึก) | 0.77 | 10.42% | −29.36% | 197 |
-| EMA 20/200 (ค่าที่ใช้ในบทที่ 14) | 0.83 | 10.93% | −26.67% | 101 |
+| EMA 20/200 (ค่าที่ใช้ในบทที่ 4) | 0.83 | 10.93% | −26.67% | 101 |
 | ซื้อแล้วถือ SPY | 0.89 | 15.42% | −33.72% | — |
 
 Sharpe ของ EMA 65/120 ในช่วงทดสอบ (0.77) สูงกว่าในช่วงฝึก (0.72) เสียอีก ตัวเลขนี้หลอกตาได้ง่าย เพราะสิบปีหลังเป็นตลาดขาขึ้นเกือบตลอด 475 จาก 484 คู่ได้ Sharpe ในช่วงทดสอบสูงกว่าช่วงฝึก ค่ามัธยฐานของทั้ง 484 คู่ขยับจาก 0.57 ในช่วงฝึกเป็น 0.74 ในช่วงทดสอบ เวลาอ่านผลช่วงทดสอบ ให้เทียบกับทางเลือกอื่นในช่วงเวลาเดียวกัน อย่าเทียบกับตัวเลขของตัวเองในช่วงฝึก
@@ -179,7 +179,7 @@ Walk-forward ขาดทุนหนักสุดน้อยกว่า EMA
 
 [ดาวน์โหลด Notebook ที่รันแล้ว](downloads/robo-trade-15.ipynb) · [Python example](downloads/lesson_15.py) · [ราคา SPY จาก Webull (CSV)](downloads/performance/data/spy-webull-daily.csv) · [ผลคำนวณ JSON](downloads/optimization-results.json) · [Markdown บทนี้](downloads/content/chapters/15-parameter-optimization-overfitting.md)
 
-`lesson_15.py` ใช้แค่ Python standard library อ่านราคา SPY จากไฟล์ `data/spy-webull-daily.csv` ชุดเดียวกับบทที่ 14 ถ้าดาวน์โหลดแยกไฟล์ ให้วาง CSV ไว้ในโฟลเดอร์ `data` ข้างสคริปต์ ไม่เรียก API ใหม่ รันกี่ครั้งก็ได้ตัวเลขเดิม ใช้เวลาไม่ถึง 10 วินาที
+`lesson_15.py` ใช้แค่ Python standard library อ่านราคา SPY จากไฟล์ `data/spy-webull-daily.csv` ชุดเดียวกับบทที่ 4 ถ้าดาวน์โหลดแยกไฟล์ ให้วาง CSV ไว้ในโฟลเดอร์ `data` ข้างสคริปต์ ไม่เรียก API ใหม่ รันกี่ครั้งก็ได้ตัวเลขเดิม ใช้เวลาไม่ถึง 10 วินาที
 
 ```shell
 python3 lesson_15.py --output-dir output
@@ -198,7 +198,7 @@ python3 lesson_15.py --output-dir output
 
 1. **Yves Hilpisch, *Python for Algorithmic Trading: From Idea to Cloud Deployment*, O'Reilly, 2020.** ใช้ไฟล์ `python for algorithmic trading book (js).pdf` ที่แนบมา หน้า PDF 87–88 เรื่อง `optimize_parameters` แบบ brute force กับ SMA บน EUR/USD, หน้า 100–101 เรื่อง Data Snooping and Overfitting และหน้า 118 เรื่องการ fit ในช่วง in-sample แล้วประเมินใน out-of-sample เลขหน้าเป็นลำดับหน้า PDF เริ่มที่ 1
 2. White (2000) *A Reality Check for Data Snooping*, Bailey, Borwein, López de Prado และ Zhu (2015) *The Probability of Backtest Overfitting* และบทความเรื่อง overfitting ของ Man Institute อ้างผ่านหนังสือของ Hilpisch หน้า PDF 100–101 เท่านั้น เรายังไม่ได้อ่านต้นฉบับของงานเหล่านี้
-3. [Webull Thailand · List Stock Historical Bars](https://developer.webull.co.th/apis/docs/reference/trade-api/historical-bars) ที่มาของราคา SPY รายวัน ดึงเมื่อ 28 กันยายน 2026 ตามรายละเอียดและ checksum ในบทที่ 14 บทนี้ใช้ไฟล์เดิมโดยไม่ดึงใหม่
+3. [Webull Thailand · List Stock Historical Bars](https://developer.webull.co.th/apis/docs/reference/trade-api/historical-bars) ที่มาของราคา SPY รายวัน ดึงเมื่อ 28 กันยายน 2026 ตามรายละเอียดและ checksum ในบทที่ 4 บทนี้ใช้ไฟล์เดิมโดยไม่ดึงใหม่
 4. โครงหัวข้อของคอร์ส [Foundations of Alpha: The Theory Behind Algorithmic Trading](https://www.udemy.com/course/foundations-of-alpha-the-theory-behind-algorithmic-trading/) (Hudson and Thames) ส่วน Research และ Risks in Models และคอร์ส [Algorithmic Trading A-Z with Python, Machine Learning & AWS](https://www.udemy.com/course/algorithmic-trading-with-python-and-machine-learning/) ส่วน Finding the optimal SMA Strategy, Overfitting และ Out-Sample Forward Testing ใช้เป็นแนวในการเรียงเนื้อหา ตรวจจากหน้าแนะนำคอร์สเมื่อ 29 กันยายน 2026 ไม่ได้ใช้เนื้อหาในวิดีโอ
 
 การทดลองทั้งหมดในบทนี้ ทั้ง grid 484 คู่ การแบ่งช่วง ตลาดสุ่ม 60 โลก และ walk-forward เป็นการออกแบบใหม่สำหรับบทนี้ ตัวเลขทุกตัวคำนวณจาก `lesson_15.py` ภาพเรื่องเล่า Quantara สร้างด้วย Antigravity CLI เป็นภาพประกอบเรื่องสมมติ ไม่ได้แสดงข้อมูลใด ๆ

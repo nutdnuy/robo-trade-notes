@@ -29,19 +29,19 @@ def code(text):
 
 
 cells = [
-    markdown("""# Parameter Optimization & Overfitting — Notebook บทที่ 15
+    markdown("""# Parameter Optimization & Overfitting — Notebook บทที่ 5
 
-Notebook นี้ใช้ราคา SPY รายวันจาก Webull OpenAPI ชุดเดียวกับบทที่ 14 (ไฟล์ `data/spy-webull-daily.csv`)
+Notebook นี้ใช้ราคา SPY รายวันจาก Webull OpenAPI ชุดเดียวกับบทที่ 4 (ไฟล์ `data/spy-webull-daily.csv`)
 ไม่มีการเรียก API ใหม่ รันซ้ำกี่ครั้งก็ได้ตัวเลขเดิม ใช้เพียง Python standard library
 
-กติกาเหมือนบทที่ 14: ถือ SPY 100% เมื่อ EMA เร็วอยู่เหนือ EMA ช้าที่ราคาปิดวันก่อน มิฉะนั้นถือเงินสด
+กติกาเหมือนบทที่ 4: ถือ SPY 100% เมื่อ EMA เร็วอยู่เหนือ EMA ช้าที่ราคาปิดวันก่อน มิฉะนั้นถือเงินสด
 ซื้อขายที่ราคาเปิดวันถัดไป ค่าธรรมเนียมสมมติ 0.1% ต่อข้าง ไม่มี leverage และไม่ short
 Sharpe = ค่าเฉลี่ย / ส่วนเบี่ยงเบนมาตรฐานของผลตอบแทนรายวัน × √252 โดยใช้อัตราปลอดความเสี่ยง 0%
 """),
     code(DEFINITIONS + "\nprint('Loaded lesson 15 definitions; grid', len(grid_pairs()), 'pairs')\n"),
-    markdown("""## 1. โหลดข้อมูลและตรวจว่าตรงกับบทที่ 14
+    markdown("""## 1. โหลดข้อมูลและตรวจว่าตรงกับบทที่ 4
 
-EMA 20/200 ช่วง 2006-09-26 ถึง 2026-09-25 ต้องได้ผลตอบแทนสะสม 367.41% และ 17 เทรดเท่ากับบทที่ 14
+EMA 20/200 ช่วง 2006-09-26 ถึง 2026-09-25 ต้องได้ผลตอบแทนสะสม 367.41% และ 17 เทรดเท่ากับบทที่ 4
 """),
     code("""bars = load_bars()
 lines = EmaCache([b['close'] for b in bars])

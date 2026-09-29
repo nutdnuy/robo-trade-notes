@@ -42,3 +42,10 @@ test('completed lessons are published while the withdrawn edition stays empty',(
     assert.doesNotMatch(archived,/<script/);
   }
 });
+
+test('page titles use the reading-order chapter number, not the file number',()=>{
+  const pages=['chapter-11','chapter-12','chapter-13','chapter-14','chapter-15'].map((id,i)=>({id,kind:'lesson',number:String(11+i),title:'Lesson '+(i+1)}));
+  const book={title:'Robo Trade Notes',pages:[{id:'welcome',kind:'welcome'},{id:'chapter-05',kind:'lesson',number:'05'},...pages]};
+  assert.match(makeStandaloneHtml(pages[0],book,'assets/book.js',['assets/book.css']),/<title>บทที่ 1 · Lesson 1/);
+  assert.match(makeStandaloneHtml(pages[4],book,'assets/book.js',['assets/book.css']),/<title>บทที่ 5 · Lesson 5/);
+});

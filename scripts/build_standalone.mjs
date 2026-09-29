@@ -25,7 +25,10 @@ export function htmlFilename(pageId) {
 
 export function makeStandaloneHtml(page, book, jsFile, cssFiles) {
   if(!isPublishedPage(page.id)) return '<!doctype html>\n<html lang="th" data-theme="light" data-standalone="true"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Robo Trade Notes</title></head><body></body></html>\n';
-  const label=page.kind==='welcome'?'Welcome':'บทที่ '+page.number;
+  // Readers see the reading-order number (1, 2, ...); page.number stays the stable file/route ID.
+  const lessons=(book.pages||[]).filter(item=>item.kind==='lesson'&&isPublishedPage(item.id));
+  const position=lessons.findIndex(item=>item.id===page.id);
+  const label=page.kind==='welcome'?'Welcome':'บทที่ '+(position>=0?position+1:page.number);
   const title=label+' · '+page.title+' | '+book.title;
   const styles=cssFiles.map(file=>`<link rel="stylesheet" href="${escapeHtml(file)}"/>`).join('\n');
   return `<!doctype html>

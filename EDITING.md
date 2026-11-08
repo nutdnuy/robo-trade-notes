@@ -210,3 +210,19 @@ Chapter 13 uses `src/components/BacktestIntroLab.jsx` and `src/lib/backtest-intr
 ## Parameter optimization artifacts
 
 Chapter 15 uses `src/components/OptimizationLab.jsx`, `src/lib/optimization.js` and `src/optimization.css`. Its Python source is `public/downloads/lesson_15.py`, which reads the frozen Webull SPY bars from chapter 14 (`lessons/performance/data/spy-webull-daily.csv`) and never calls the API. After changing the grid, windows, fee or noise settings, run `python3 scripts/build_optimization.py` to refresh `public/downloads/optimization-results.json` and execute `robo-trade-15.ipynb`, then update any numbers quoted in the chapter Markdown and `tests/optimization.test.mjs`. The three Quantara story images and their prompts are recorded in `references/optimization-quantara-generation.json`.
+
+## Course lessons 16 to 25
+
+Pages `chapter-16` to `chapter-25` hold Prework P1 and P3 and course chapters 2 and 6 to 12. The outline in `_toc.yml` links each one with `page:`. Each lesson has one Python source, `public/downloads/lesson_NN.py`, written in percent format: definitions first, then cells that start with `# %% [markdown]` or `# %%`. Markdown cell lines keep a leading `# ` that the builder removes. The asserts in each file check every number the chapter quotes, and the last line prints `ALL CHECKS PASSED`.
+
+All ten use only the Python standard library and seeded synthetic data. None of them connects to Webull, reads a credential or sends an order.
+
+After editing a lesson, run it, rebuild its notebook, then update any numbers quoted in the chapter Markdown and quiz:
+
+```shell
+python3 public/downloads/lesson_19.py
+python3 scripts/build_course_lessons.py 19
+npm test
+```
+
+`scripts/build_course_lessons.py` with no arguments rebuilds notebooks 16 to 25. It runs every code cell in one namespace and saves the real outputs. `tests/course-lessons.test.mjs` runs each script and checks each notebook for errors.

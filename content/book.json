@@ -220,6 +220,26 @@
       "file": "chapters/10-operations.md"
     },
     {
+      "id": "chapter-16",
+      "number": "16",
+      "eyebrow": "PREWORK / AI-ASSISTED CODING",
+      "part": "Prework",
+      "outcome": "สั่ง AI เขียนโค้ด backtest แล้วตรวจ look-ahead ต้นทุน และ annualization ด้วย test ที่รันได้",
+      "duration": 45,
+      "meta": [
+        "อ่านและทดลอง 45 นาที",
+        "Python Notebook ออฟไลน์",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-16/ai-workflow",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-16.ipynb",
+      "kind": "lesson",
+      "label": "ใช้ AI เขียนและตรวจโค้ด Python",
+      "file": "chapters/16-ai-assisted-coding.md"
+    },
+    {
       "id": "chapter-11",
       "number": "11",
       "eyebrow": "WEBULL OPENAPI / คู่มือภาพ",
@@ -240,6 +260,26 @@
       "file": "chapters/11-webull-openapi-setup.md"
     },
     {
+      "id": "chapter-17",
+      "number": "17",
+      "eyebrow": "PREWORK / WEBULL API MCP",
+      "part": "Prework",
+      "outcome": "ตั้งค่า Webull API MCP แบบอ่านอย่างเดียว แล้วตรวจคำตอบของ AI กับข้อมูลที่คำนวณเอง",
+      "duration": 45,
+      "meta": [
+        "อ่านและทดลอง 45 นาที",
+        "Python Notebook ออฟไลน์",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-17/what-is-mcp",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-17.ipynb",
+      "kind": "lesson",
+      "label": "Webull API MCP: ให้ AI อ่านข้อมูลจาก Webull",
+      "file": "chapters/17-webull-api-mcp.md"
+    },
+    {
       "id": "chapter-12",
       "number": "12",
       "eyebrow": "TRADING / INVESTING / QUANT",
@@ -258,6 +298,26 @@
       "kind": "lesson",
       "label": "Why Robo Trade",
       "file": "chapters/12-why-robo-trade.md"
+    },
+    {
+      "id": "chapter-18",
+      "number": "18",
+      "eyebrow": "MARKET DATA / TIME / CORPORATE ACTIONS",
+      "part": "ภาค 1: คิดเป็นกฎ",
+      "outcome": "ตรวจเขตเวลา ปฏิทินตลาด แท่งที่ขาดหรือซ้ำ และการปรับราคาจาก split และปันผล",
+      "duration": "45–60",
+      "meta": [
+        "อ่านและทดลอง 45–60 นาที",
+        "Python Notebook ออฟไลน์",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-18/bar-anatomy",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-18.ipynb",
+      "kind": "lesson",
+      "label": "ข้อมูลตลาดและเวลา",
+      "file": "chapters/18-market-data-and-time.md"
     },
     {
       "id": "chapter-13",
@@ -318,6 +378,146 @@
       "kind": "lesson",
       "label": "Parameter Optimization & Overfitting",
       "file": "chapters/15-parameter-optimization-overfitting.md"
+    },
+    {
+      "id": "chapter-19",
+      "number": "19",
+      "eyebrow": "CROSS-SECTION / SCREENING / SURVIVORSHIP",
+      "part": "ภาค 3: จากหุ้นตัวเดียวสู่หลายตัว",
+      "outcome": "สร้าง screener หุ้นสหรัฐแบบ point-in-time วัด IC และตรวจ survivorship bias",
+      "duration": "60–75",
+      "meta": [
+        "อ่านและทดลอง 60–75 นาที",
+        "Python Notebook ออฟไลน์",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-19/screener-question",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-19.ipynb",
+      "kind": "lesson",
+      "label": "Stock Screener หุ้นสหรัฐ",
+      "file": "chapters/19-us-stock-screener.md"
+    },
+    {
+      "id": "chapter-20",
+      "number": "20",
+      "eyebrow": "REGRESSION / CAPM / FACTORS",
+      "part": "ภาค 3: จากหุ้นตัวเดียวสู่หลายตัว",
+      "outcome": "ประมาณ beta และ alpha พร้อม standard error แล้วแยกผลตอบแทนออกเป็น factor exposure",
+      "duration": "60–75",
+      "meta": [
+        "อ่านและทดลอง 60–75 นาที",
+        "Python Notebook ออฟไลน์",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-20/beta-intuition",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-20.ipynb",
+      "kind": "lesson",
+      "label": "Beta, CAPM และ Factor Exposure",
+      "file": "chapters/20-beta-capm-factors.md"
+    },
+    {
+      "id": "chapter-21",
+      "number": "21",
+      "eyebrow": "RISK / SIZING / PORTFOLIO",
+      "part": "ภาค 3: จากหุ้นตัวเดียวสู่หลายตัว",
+      "outcome": "แบ่งงบความเสี่ยงด้วย inverse volatility และ ERC แล้วตรวจ VaR ในช่วงตลาดผันผวน",
+      "duration": "60–75",
+      "meta": [
+        "อ่านและทดลอง 60–75 นาที",
+        "Python Notebook ออฟไลน์",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-21/risk-budget",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-21.ipynb",
+      "kind": "lesson",
+      "label": "Risk และ Position Sizing ระดับพอร์ต",
+      "file": "chapters/21-portfolio-risk-sizing.md"
+    },
+    {
+      "id": "chapter-22",
+      "number": "22",
+      "eyebrow": "MEAN REVERSION / COINTEGRATION / PAIRS",
+      "part": "ภาค 4: ความสัมพันธ์และการพยากรณ์",
+      "outcome": "แยก correlation ออกจาก cointegration วัด half-life และทดสอบ pairs โดยนับจำนวนคู่ที่ค้นหา",
+      "duration": "60–75",
+      "meta": [
+        "อ่านและทดลอง 60–75 นาที",
+        "Python Notebook ออฟไลน์",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-22/mean-reversion-idea",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-22.ipynb",
+      "kind": "lesson",
+      "label": "Mean Reversion และ Pairs Trading",
+      "file": "chapters/22-mean-reversion-pairs.md"
+    },
+    {
+      "id": "chapter-23",
+      "number": "23",
+      "eyebrow": "TIME SERIES / MACHINE LEARNING / LEAKAGE",
+      "part": "ภาค 4: ความสัมพันธ์และการพยากรณ์",
+      "outcome": "หา leakage จาก label ที่ซ้อนกันและ feature ที่เห็นอนาคต แล้วประเมินด้วย purged walk-forward",
+      "duration": "60–75",
+      "meta": [
+        "อ่านและทดลอง 60–75 นาที",
+        "Python Notebook ออฟไลน์",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-23/prediction-question",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-23.ipynb",
+      "kind": "lesson",
+      "label": "Time Series และ Machine Learning: กับดัก Leakage",
+      "file": "chapters/23-time-series-ml-leakage.md"
+    },
+    {
+      "id": "chapter-24",
+      "number": "24",
+      "eyebrow": "EXECUTION / PAPER TRADING / CONTROLS",
+      "part": "ภาค 5: ใช้งานแบบจำลอง",
+      "outcome": "เปลี่ยนน้ำหนักเป็นคำสั่งผ่าน risk gate วัด implementation shortfall และกระทบยอดจาก audit log",
+      "duration": "60–75",
+      "meta": [
+        "อ่านและทดลอง 60–75 นาที",
+        "Python Notebook ออฟไลน์",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-24/backtest-to-orders",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-24.ipynb",
+      "kind": "lesson",
+      "label": "Execution และ Paper Trading",
+      "file": "chapters/24-execution-paper-trading.md"
+    },
+    {
+      "id": "chapter-25",
+      "number": "25",
+      "eyebrow": "CAPSTONE / RESEARCH DOSSIER",
+      "part": "ภาค 5: ใช้งานแบบจำลอง",
+      "outcome": "เขียน Spec Card เก็บ trial log หักผลของการเลือกด้วย Deflated Sharpe และเปิด holdout ครั้งเดียว",
+      "duration": "90–120",
+      "meta": [
+        "อ่านและทดลอง 90–120 นาที",
+        "Python Notebook ออฟไลน์",
+        "แบบทบทวนพร้อมคำอธิบาย"
+      ],
+      "primaryLabel": "เริ่มอ่านบทเรียน",
+      "primaryHref": "#/chapter-25/dossier-purpose",
+      "secondaryLabel": "ดาวน์โหลด Notebook",
+      "secondaryHref": "downloads/robo-trade-25.ipynb",
+      "kind": "lesson",
+      "label": "Capstone: Research Dossier",
+      "file": "chapters/25-capstone-research-dossier.md"
     }
   ],
   "outline": [
@@ -326,7 +526,8 @@
       "entries": [
         {
           "number": "P1",
-          "title": "ใช้ AI เขียนและตรวจโค้ด Python"
+          "title": "ใช้ AI เขียนและตรวจโค้ด Python",
+          "page": "chapter-16"
         },
         {
           "number": "P2",
@@ -335,7 +536,8 @@
         },
         {
           "number": "P3",
-          "title": "Webull API MCP: ให้ AI อ่านข้อมูลจาก Webull"
+          "title": "Webull API MCP: ให้ AI อ่านข้อมูลจาก Webull",
+          "page": "chapter-17"
         }
       ]
     },
@@ -349,7 +551,8 @@
         },
         {
           "number": "2",
-          "title": "ข้อมูลตลาดและเวลา"
+          "title": "ข้อมูลตลาดและเวลา",
+          "page": "chapter-18"
         }
       ]
     },
@@ -378,15 +581,18 @@
       "entries": [
         {
           "number": "6",
-          "title": "Stock Screener หุ้นสหรัฐ"
+          "title": "Stock Screener หุ้นสหรัฐ",
+          "page": "chapter-19"
         },
         {
           "number": "7",
-          "title": "Beta, CAPM และ Factor Exposure"
+          "title": "Beta, CAPM และ Factor Exposure",
+          "page": "chapter-20"
         },
         {
           "number": "8",
-          "title": "Risk และ Position Sizing ระดับพอร์ต"
+          "title": "Risk และ Position Sizing ระดับพอร์ต",
+          "page": "chapter-21"
         }
       ]
     },
@@ -395,11 +601,13 @@
       "entries": [
         {
           "number": "9",
-          "title": "Mean Reversion และ Pairs Trading"
+          "title": "Mean Reversion และ Pairs Trading",
+          "page": "chapter-22"
         },
         {
           "number": "10",
-          "title": "Time Series และ Machine Learning: กับดัก Leakage"
+          "title": "Time Series และ Machine Learning: กับดัก Leakage",
+          "page": "chapter-23"
         }
       ]
     },
@@ -408,11 +616,13 @@
       "entries": [
         {
           "number": "11",
-          "title": "Execution และ Paper Trading"
+          "title": "Execution และ Paper Trading",
+          "page": "chapter-24"
         },
         {
           "number": "12",
-          "title": "Capstone: Research Dossier"
+          "title": "Capstone: Research Dossier",
+          "page": "chapter-25"
         }
       ]
     }

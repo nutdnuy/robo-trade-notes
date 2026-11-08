@@ -55,7 +55,7 @@
 .bti-biased-target {color: var(--bti-teal-muted); stroke: var(--bti-teal-muted); border-top-style: dashed; stroke-dasharray: 3 4;}
 .bti-chart {width: 100%; min-width: 0;}
 .bti-chart svg {display: block; width: 100%; height: auto; overflow: visible;}
-.bti-chart svg text {fill: var(--muted); font-family: Roboto, 'Noto Sans Thai', sans-serif; font-size: 11px; font-variant-numeric: tabular-nums;}
+.bti-chart svg text {fill: var(--muted); font-family: Roboto, 'Noto Sans Thai Looped', sans-serif; font-size: 11px; font-variant-numeric: tabular-nums;}
 .backtest-intro-lab .bti-chart-unit {margin: 0; color: var(--muted); font-size: 12px;}
 .backtest-intro-lab .bti-x-label {margin: 0; color: var(--muted); font-size: 11px; text-align: right;}
 .bti-grid {stroke: var(--line); stroke-width: 1;}

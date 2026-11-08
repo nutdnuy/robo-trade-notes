@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@fontsource/noto-sans-thai": "5.2.8",
+    "@fontsource/noto-sans-thai-looped": "5.2.8",
     "@fontsource/roboto": "5.2.8",
     "@fontsource/roboto-mono": "5.2.8",
     "@tabler/icons-react": "3.34.1",

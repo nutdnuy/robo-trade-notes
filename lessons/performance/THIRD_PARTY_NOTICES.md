@@ -5,7 +5,7 @@ The rendered document bundles the existing project fonts and KaTeX font/CSS outp
 | Component | Version | License / local notice | Use |
 | --- | --- | --- | --- |
 | Roboto via Fontsource | 5.2.8 | SIL OFL 1.1; assets/fonts/roboto-LICENSE.txt | Latin typography |
-| Noto Sans Thai via Fontsource | 5.2.8 | SIL OFL 1.1; assets/fonts/noto-sans-thai-LICENSE.txt | Thai typography |
+| Noto Sans Thai Looped via Fontsource | 5.2.8 | SIL OFL 1.1; assets/fonts/noto-sans-thai-looped-LICENSE.txt | Thai typography (looped) |
 | KaTeX | 0.16.22 | MIT; assets/katex-LICENSE.txt | Static formula markup and fonts |
 | React / React DOM | 19.1.1 | MIT; assets/react-LICENSE.txt and assets/react-dom-LICENSE.txt | Build only, server-side rendering |
 | React Markdown | 10.1.0 | MIT; assets/react-markdown-LICENSE.txt | Build only |

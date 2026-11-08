@@ -51,7 +51,7 @@ notebook={"cells":cells,"metadata":{"kernelspec":{"display_name":"Python 3","lan
 (out/"robo-trade-01.ipynb").write_text(json.dumps(notebook,ensure_ascii=False,indent=2))
 notice="Robo Trade learning website - third-party notices\n\nOriginal Thai lesson and examples. No Hilpisch book code or QuantGirl artwork redistributed.\n\nReact Bits: CountUp, AnimatedList, Stepper from official registry, retrieved 2026-09-10. Modified within this app: Material 2 tokens, local keyboard interaction, reduced motion, accessible numeric text and quiz semantics.\n\n"
 notice+=(root/"references/licenses/react-bits.txt").read_text()+"\n\n"
-for package in ["react","react-dom","motion","react-markdown","remark-gfm","@tabler/icons-react","@fontsource/roboto","@fontsource/noto-sans-thai","@fontsource/roboto-mono"]:
+for package in ["react","react-dom","motion","react-markdown","remark-gfm","@tabler/icons-react","@fontsource/roboto","@fontsource/noto-sans-thai","@fontsource/noto-sans-thai-looped","@fontsource/roboto-mono"]:
     folder=root/"node_modules"/package
     candidates=[p for p in folder.iterdir() if p.name.upper().startswith(("LICENSE","OFL")) and p.is_file()]
     notice+="\nPACKAGE: "+package+"\n"

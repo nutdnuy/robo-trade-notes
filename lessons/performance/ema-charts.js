@@ -17,7 +17,7 @@
     loss: 'var(--error,#b00020)',
     surface: 'var(--surface,#fff)'
   };
-  const CSS = `.ema-chart{font-family:Roboto,'Noto Sans Thai',sans-serif;background:var(--surface,#fff)}.ema-chart text{fill:var(--text,rgba(0,0,0,.87));font-size:13px}.ema-chart .muted{fill:var(--muted,rgba(0,0,0,.60));font-size:12px}.ema-chart .tick{font-variant-numeric:tabular-nums;font-size:12px}.ema-chart .grid{stroke:var(--line,rgba(0,0,0,.13));stroke-width:1}.ema-chart .zero{stroke:var(--muted,rgba(0,0,0,.60));stroke-width:1.2}.ema-chart .selection{stroke:var(--text,rgba(0,0,0,.87));stroke-width:1;stroke-dasharray:3 4}.ema-chart path{stroke-linejoin:round;stroke-linecap:round}`;
+  const CSS = `.ema-chart{font-family:Roboto,'Noto Sans Thai Looped',sans-serif;background:var(--surface,#fff)}.ema-chart text{fill:var(--text,rgba(0,0,0,.87));font-size:13px}.ema-chart .muted{fill:var(--muted,rgba(0,0,0,.60));font-size:12px}.ema-chart .tick{font-variant-numeric:tabular-nums;font-size:12px}.ema-chart .grid{stroke:var(--line,rgba(0,0,0,.13));stroke-width:1}.ema-chart .zero{stroke:var(--muted,rgba(0,0,0,.60));stroke-width:1.2}.ema-chart .selection{stroke:var(--text,rgba(0,0,0,.87));stroke-width:1;stroke-dasharray:3 4}.ema-chart path{stroke-linejoin:round;stroke-linecap:round}`;
   const finite = value => typeof value === 'number' && Number.isFinite(value);
   const esc = value => String(value).replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
   const num = (value, digits = 0) => value.toLocaleString('en-US', {minimumFractionDigits: digits, maximumFractionDigits: digits});

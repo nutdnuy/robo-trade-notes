@@ -59,6 +59,22 @@ Every `file` is relative to the project root and must point inside `content/`. T
 
 The `title` field changes the sidebar title. The first Markdown `#` heading changes the chapter page heading. The two may differ deliberately. The `part` field groups related chapters; `outcome`, `duration` and `meta` describe the learning content. All current metadata is retained in the generated JSON for the reader and export tools.
 
+### Course outline
+
+The optional `outline` list at the end of `_toc.yml` is the course map. The sidebar, the page label ("Prework P2", "Chapter 3") and the standalone page titles follow it instead of the file numbers.
+
+```yaml
+outline:
+  - title: "Prework"
+    entries:
+      - number: "P1"
+        title: "ใช้ AI เขียนและตรวจโค้ด Python"   # planned: heading only, no page yet
+      - number: "P2"
+        page: "chapter-11"                        # links a chapter; uses its title
+```
+
+Use `P1`, `P2`, ... for prework and `1`, `2`, ... for chapters; numbers must be unique. An entry with `page` must name a chapter `id` above, once. An entry without `page` appears in the sidebar as a planned heading marked กำลังเขียน and has no route. When that chapter is written, add its chapter entry, add `page` to the outline entry, and add its ID to `src/lib/publishing.js`.
+
 ## Preview and build
 
 Requires Node.js 22.12 or later. Install dependencies once after unpacking the editable source:

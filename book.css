@@ -47,7 +47,7 @@ body{font-size:17px;line-height:1.85}
 .code-block pre{font-size:12px;line-height:1.95}
 .code-heading{font-size:11px}
 .welcome-art{margin:0 0 36px;border:0;border-radius:5px}
-.welcome-hero h1{font:500 48px/1.2 Roboto,"Noto Sans Thai",sans-serif;margin-bottom:24px}
+.welcome-hero h1{font:500 48px/1.2 Roboto,"Noto Sans Thai Looped",sans-serif;margin-bottom:24px}
 .welcome-hero .chapter-lead{font-size:27px;line-height:1.65;letter-spacing:-.02em;color:var(--text);max-width:780px}
 .welcome-hero .chapter-meta{font-size:12px}
 .welcome-setup-links{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 24px;font-size:14px}

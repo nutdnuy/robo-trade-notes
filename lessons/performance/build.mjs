@@ -64,7 +64,7 @@ for(const file of ['robo-trade-14.ipynb','lesson_14.py','trades.csv','equity-dai
 }
 const split=html.indexOf('<h2'),intro=html.slice(0,split),body=html.slice(split);
 let fontCss='';
-for(const [family,slug,subset,weights]of [['Roboto','roboto','latin',[400,500,700]],['Noto Sans Thai','noto-sans-thai','thai',[400,500,600,700]]])for(const w of weights){const buf=fs.readFileSync(path.join(dir,`assets/fonts/${slug}-${subset}-${w}-normal.woff2`));fontCss+=`@font-face{font-family:'${family}';font-style:normal;font-weight:${w};font-display:swap;src:url(data:font/woff2;base64,${buf.toString('base64')}) format('woff2');}`;}
+for(const [family,slug,subset,weights]of [['Roboto','roboto','latin',[400,500,700]],['Noto Sans Thai Looped','noto-sans-thai-looped','thai',[400,500,600,700]]])for(const w of weights){const buf=fs.readFileSync(path.join(dir,`assets/fonts/${slug}-${subset}-${w}-normal.woff2`));fontCss+=`@font-face{font-family:'${family}';font-style:normal;font-weight:${w};font-display:swap;src:url(data:font/woff2;base64,${buf.toString('base64')}) format('woff2');}`;}
 const katexCssPath=depRequire.resolve('katex/dist/katex.min.css');
 let katexCss=fs.readFileSync(katexCssPath,'utf8').replace(/url\(([^)]+)\)/g,(_,u)=>{const clean=u.replace(/["']/g,'');const file=path.resolve(path.dirname(katexCssPath),clean);return `url(data:font/${path.extname(file).slice(1)};base64,${fs.readFileSync(file).toString('base64')})`;});
 const logo=theme=>`data:image/svg+xml;base64,${fs.readFileSync(path.join(dir,`assets/quantcorner-mark-${theme}.svg`)).toString('base64')}`;

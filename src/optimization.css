@@ -28,7 +28,7 @@
 .opt-lab :is(button, input, select, [tabindex]):focus-visible {outline: 3px solid var(--primary); outline-offset: 3px;}
 .opt-chart {width: 100%; min-width: 0;}
 .opt-chart svg {display: block; width: 100%; height: auto; overflow: visible; touch-action: pan-y;}
-.opt-chart svg text {fill: var(--muted); font-family: Roboto, 'Noto Sans Thai', sans-serif; font-size: 11px; font-variant-numeric: tabular-nums;}
+.opt-chart svg text {fill: var(--muted); font-family: Roboto, 'Noto Sans Thai Looped', sans-serif; font-size: 11px; font-variant-numeric: tabular-nums;}
 .opt-chart svg .opt-axis-title {fill: var(--text); font-size: 12px;}
 .opt-chart svg .opt-ref-label {font-size: 11px; paint-order: stroke; stroke: var(--surface); stroke-width: 4px; stroke-linejoin: round;}
 .opt-lab .opt-chart-unit {margin: 0 0 4px; color: var(--muted); font-size: 12px;}

@@ -98,13 +98,43 @@ function checkHref(href, label, pages, sections, root) {
   localFile(root, 'public/' + href, 'public', label);
 }
 
+// The outline is the course map: parts in order, each with numbered entries.
+// An entry either links a lesson (page) or is a planned heading (title only).
+function compileOutline(outline, pages) {
+  if (!Array.isArray(outline) || !outline.length) fail('_toc.yml.outline', 'expected a nonempty list of parts');
+  const lessons = new Map(pages.filter(page => page.kind === 'lesson').map(page => [page.id, page]));
+  const numbers = new Set(), linked = new Set();
+  return outline.map((part, partIndex) => {
+    const partLabel = `_toc.yml.outline[${partIndex}]`;
+    keys(part, ['title', 'entries'], partLabel);
+    text(part.title, `${partLabel}.title`);
+    if (!Array.isArray(part.entries) || !part.entries.length) fail(`${partLabel}.entries`, 'expected a nonempty list of entries');
+    const entries = part.entries.map((entry, entryIndex) => {
+      const label = `${partLabel}.entries[${entryIndex}]`;
+      keys(entry, ['number', 'title', 'page'], label);
+      if (typeof entry.number !== 'string' || !/^(?:P\d+|\d+)$/.test(entry.number)) fail(`${label}.number`, 'quote a course number such as "1" or a prework number such as "P1"');
+      if (numbers.has(entry.number)) fail(`${label}.number`, `duplicate course number: ${entry.number}`);
+      numbers.add(entry.number);
+      if (has(entry, 'page')) {
+        if (!lessons.has(entry.page)) fail(`${label}.page`, `unknown chapter id: ${entry.page}`);
+        if (linked.has(entry.page)) fail(`${label}.page`, `chapter listed twice: ${entry.page}`);
+        linked.add(entry.page);
+        if (has(entry, 'title')) text(entry.title, `${label}.title`);
+        return { number: entry.number, title: entry.title || lessons.get(entry.page).label, page: entry.page };
+      }
+      return { number: entry.number, title: text(entry.title, `${label}.title`) };
+    });
+    return { title: part.title, entries };
+  });
+}
+
 export function compileBook(config, toc, { root = PROJECT_ROOT } = {}) {
   keys(config, GLOBAL_KEYS, '_config.yml');
   for (const key of GLOBAL_KEYS.filter(key => !['welcome', 'defaultTheme'].includes(key))) text(config[key], `_config.yml.${key}`);
   if (!['light', 'dark'].includes(config.defaultTheme)) fail('_config.yml.defaultTheme', 'choose light or dark');
   if (!/^https:\/\//.test(config.apiDocs)) fail('_config.yml.apiDocs', 'expected an HTTPS documentation URL');
   try { new URL(config.apiDocs); } catch { fail('_config.yml.apiDocs', 'invalid HTTPS URL'); }
-  keys(toc, ['format', 'root', 'chapters'], '_toc.yml');
+  keys(toc, ['format', 'root', 'chapters', 'outline'], '_toc.yml');
   if (toc.format !== 'robo-trade-book') fail('_toc.yml.format', 'expected robo-trade-book (the custom builder format)');
   if (!Array.isArray(toc.chapters) || !toc.chapters.length) fail('_toc.yml.chapters', 'add at least one chapter');
   const welcome = pageMetadata(config.welcome, '_config.yml.welcome', 'welcome', root);
@@ -130,7 +160,7 @@ export function compileBook(config, toc, { root = PROJECT_ROOT } = {}) {
   }));
   for (const page of pages) for (const name of ['primaryHref', 'secondaryHref']) if (page[name]) checkHref(page[name], `${page.id}.${name}`, pages, sections, root);
   const { welcome: ignored, ...settings } = config;
-  return { ...settings, pages };
+  return has(toc, 'outline') ? { ...settings, pages, outline: compileOutline(toc.outline, pages) } : { ...settings, pages };
 }
 
 export function generateBook({ root = PROJECT_ROOT, check = false, silent = false } = {}) {

@@ -11,6 +11,7 @@ import path from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 import {parsePage} from '../src/lib/book.js';
 import {isPublishedPage} from '../src/lib/publishing.js';
+import {courseLabel} from '../src/lib/outline.js';
 
 const projectRoot=path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -28,7 +29,7 @@ export function makeStandaloneHtml(page, book, jsFile, cssFiles) {
   // Readers see the reading-order number (1, 2, ...); page.number stays the stable file/route ID.
   const lessons=(book.pages||[]).filter(item=>item.kind==='lesson'&&isPublishedPage(item.id));
   const position=lessons.findIndex(item=>item.id===page.id);
-  const label=page.kind==='welcome'?'Welcome':'บทที่ '+(position>=0?position+1:page.number);
+  const label=page.kind==='welcome'?'Welcome':courseLabel(book.outline,page.id,'บทที่')||'บทที่ '+(position>=0?position+1:page.number);
   const title=label+' · '+page.title+' | '+book.title;
   const styles=cssFiles.map(file=>`<link rel="stylesheet" href="${escapeHtml(file)}"/>`).join('\n');
   return `<!doctype html>

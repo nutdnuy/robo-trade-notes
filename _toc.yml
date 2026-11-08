@@ -170,7 +170,7 @@ chapters:
     file: "content/chapters/11-webull-openapi-setup.md"
     number: "11"
     eyebrow: "WEBULL OPENAPI / คู่มือภาพ"
-    part: "เริ่มต้นใช้งาน"
+    part: "Prework"
     outcome: "สมัคร OpenAPI สร้าง Key ตรวจสิทธิ์ข้อมูล และอ่านคำตอบ API ทีละขั้น"
     duration: 45
     meta:
@@ -186,7 +186,7 @@ chapters:
     file: "content/chapters/12-why-robo-trade.md"
     number: "12"
     eyebrow: "TRADING / INVESTING / QUANT"
-    part: "แนวคิดก่อนสร้างระบบ"
+    part: "ภาค 1: คิดเป็นกฎ"
     outcome: "อธิบายเหตุผลของ Robo Trade แยกคำที่เกี่ยวข้อง และเขียนกติกาที่ทดสอบได้"
     duration: "45–60"
     meta:
@@ -202,7 +202,7 @@ chapters:
     file: "content/chapters/13-introduction-backtest.md"
     number: "13"
     eyebrow: "BACKTESTING / RESEARCH / VALIDATION"
-    part: "วิจัยและทดสอบ"
+    part: "ภาค 2: ทดสอบให้ถูก"
     outcome: "ตรวจเวลาใช้สัญญาณ ต้นทุน และความเสี่ยง ก่อนเชื่อผล Backtest"
     duration: "60–75"
     meta:
@@ -218,7 +218,7 @@ chapters:
     file: "content/chapters/14-backtest-performance-evaluation.md"
     number: "14"
     eyebrow: "BACKTESTING / RETURN / RISK / TRADING METRICS"
-    part: "วิจัยและทดสอบ"
+    part: "ภาค 2: ทดสอบให้ถูก"
     outcome: "อ่านและอธิบายรายงาน Backtest พร้อมคำนวณด้วย Python"
     duration: "60–90"
     meta:
@@ -234,7 +234,7 @@ chapters:
     file: "content/chapters/15-parameter-optimization-overfitting.md"
     number: "15"
     eyebrow: "BACKTESTING / OPTIMIZATION / OVERFITTING"
-    part: "วิจัยและทดสอบ"
+    part: "ภาค 2: ทดสอบให้ถูก"
     outcome: "หาพารามิเตอร์ EMA ด้วย grid search แล้วตรวจ overfitting ด้วยช่วงทดสอบ ตลาดสุ่ม และ walk-forward"
     duration: "60–90"
     meta:
@@ -246,3 +246,50 @@ chapters:
     secondaryLabel: "ดาวน์โหลด Notebook"
     secondaryHref: "downloads/robo-trade-15.ipynb"
     title: "Parameter Optimization & Overfitting"
+
+# Course map shown in the sidebar. Order here is the course order.
+# An entry with page: links to a chapter above and uses its title.
+# An entry without page: is a planned heading only; it has no route yet.
+outline:
+  - title: "Prework"
+    entries:
+      - number: "P1"
+        title: "ใช้ AI เขียนและตรวจโค้ด Python"
+      - number: "P2"
+        page: "chapter-11"
+      - number: "P3"
+        title: "Webull API MCP: ให้ AI อ่านข้อมูลจาก Webull"
+  - title: "ภาค 1: คิดเป็นกฎ"
+    entries:
+      - number: "1"
+        page: "chapter-12"
+      - number: "2"
+        title: "ข้อมูลตลาดและเวลา"
+  - title: "ภาค 2: ทดสอบให้ถูก"
+    entries:
+      - number: "3"
+        page: "chapter-13"
+      - number: "4"
+        page: "chapter-14"
+      - number: "5"
+        page: "chapter-15"
+  - title: "ภาค 3: จากหุ้นตัวเดียวสู่หลายตัว"
+    entries:
+      - number: "6"
+        title: "Stock Screener หุ้นสหรัฐ"
+      - number: "7"
+        title: "Beta, CAPM และ Factor Exposure"
+      - number: "8"
+        title: "Risk และ Position Sizing ระดับพอร์ต"
+  - title: "ภาค 4: ความสัมพันธ์และการพยากรณ์"
+    entries:
+      - number: "9"
+        title: "Mean Reversion และ Pairs Trading"
+      - number: "10"
+        title: "Time Series และ Machine Learning: กับดัก Leakage"
+  - title: "ภาค 5: ใช้งานแบบจำลอง"
+    entries:
+      - number: "11"
+        title: "Execution และ Paper Trading"
+      - number: "12"
+        title: "Capstone: Research Dossier"

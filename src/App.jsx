@@ -61,7 +61,7 @@ export default function App(){
     return()=>cancelAnimationFrame(frame);
   },[archived,page.title,route,welcome]);
   if(archived||page.id==='chapter-14')return null;
-  if(welcome)return <BookShell page={page} pages={publishedPages} route={route} menuOpen={menuOpen} setMenuOpen={setMenuOpen}><WelcomeAtlas page={page} imageDimensions={imageDimensions}/></BookShell>;
+  if(welcome)return <BookShell page={page} pages={publishedPages} outline={config.outline} route={route} menuOpen={menuOpen} setMenuOpen={setMenuOpen}><WelcomeAtlas page={page} imageDimensions={imageDimensions}/></BookShell>;
   const presentation=lessonPresentation[page.id];
   const readingOrder=publishedPages.filter(item=>item.kind==='lesson');
   const lessonIndex=readingOrder.findIndex(item=>item.id===page.id);
@@ -71,7 +71,7 @@ export default function App(){
   // Retain the canonical Markdown; only the former introductory illustration
   // is replaced in this presentation by the shared Deltaris workshop artwork.
   const lessonIntro=page.intro.split('\n').filter(line=>!line.trim().startsWith('![')||!line.includes(']('+webullQuote.file+')')).join('\n').trim();
-  return <BookShell page={page} pages={publishedPages} route={route} menuOpen={menuOpen} setMenuOpen={setMenuOpen}>
+  return <BookShell page={page} pages={publishedPages} outline={config.outline} route={route} menuOpen={menuOpen} setMenuOpen={setMenuOpen}>
         <article className={"lesson-article field-guide-article"+(page.id==='chapter-12'?' why-robo-article':page.id==='chapter-13'||page.id==='chapter-15'?' backtest-intro-article':'')}>
           <header className="field-guide-cover" id="page-top">
             {presentation.art&&<figure className="field-guide-art">

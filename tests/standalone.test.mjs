@@ -49,3 +49,12 @@ test('page titles use the reading-order chapter number, not the file number',()=
   assert.match(makeStandaloneHtml(pages[0],book,'assets/book.js',['assets/book.css']),/<title>บทที่ 1 · Lesson 1/);
   assert.match(makeStandaloneHtml(pages[4],book,'assets/book.js',['assets/book.css']),/<title>บทที่ 5 · Lesson 5/);
 });
+
+test('page titles follow the course outline when one is configured',()=>{
+  const pages=['chapter-11','chapter-12','chapter-15'].map((id,i)=>({id,kind:'lesson',number:String(11+i),title:'Lesson '+id}));
+  const outline=[{title:'Prework',entries:[{number:'P1',title:'AI'},{number:'P2',page:'chapter-11'}]},{title:'Part 1',entries:[{number:'1',page:'chapter-12'},{number:'5',page:'chapter-15'}]}];
+  const book={title:'Robo Trade Notes',pages:[{id:'welcome',kind:'welcome'},...pages],outline};
+  assert.match(makeStandaloneHtml(pages[0],book,'assets/book.js',['assets/book.css']),/<title>Prework P2 · Lesson chapter-11/);
+  assert.match(makeStandaloneHtml(pages[1],book,'assets/book.js',['assets/book.css']),/<title>บทที่ 1 · Lesson chapter-12/);
+  assert.match(makeStandaloneHtml(pages[2],book,'assets/book.js',['assets/book.css']),/<title>บทที่ 5 · Lesson chapter-15/);
+});

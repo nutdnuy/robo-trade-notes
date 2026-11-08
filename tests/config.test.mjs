@@ -97,3 +97,22 @@ test('generation detects stale intermediates and leaves last good JSON intact af
   assert.throws(() => generateBook({ root, silent: true }), /_config.yml/);
   assert.equal(readFileSync(join(root, 'content/book.json'), 'utf8'), changed);
 });
+
+test('outline links chapters, keeps planned headings and rejects bad entries', t => {
+  const { root, config, toc } = fixture(t);
+  const outline = [
+    { title: 'Prework', entries: [{ number: 'P1', title: 'ใช้ AI เขียนโค้ด' }, { number: 'P2', page: 'chapter-01' }] },
+    { title: 'ภาค 1', entries: [{ number: '1', title: 'บทที่ยังไม่เขียน' }] },
+  ];
+  const book = compileBook(config, { ...toc, outline }, { root });
+  assert.deepEqual(book.outline[0].entries[1], { number: 'P2', title: 'บทแรก', page: 'chapter-01' });
+  assert.deepEqual(book.outline[1].entries[0], { number: '1', title: 'บทที่ยังไม่เขียน' });
+  assert.equal(compileBook(config, toc, { root }).outline, undefined);
+  const withEntry = entry => ({ ...toc, outline: [{ title: 'ภาค', entries: [entry] }] });
+  assert.throws(() => compileBook(config, withEntry({ number: '1', page: 'chapter-99' }), { root }), /unknown chapter id/);
+  assert.throws(() => compileBook(config, withEntry({ number: 1, title: 'x' }), { root }), /course number/);
+  assert.throws(() => compileBook(config, withEntry({ number: '1' }), { root }), /nonempty text/);
+  assert.throws(() => compileBook(config, withEntry({ number: '1', title: 'x', status: 'draft' }), { root }), /unknown setting/);
+  assert.throws(() => compileBook(config, { ...toc, outline: [{ title: 'ภาค', entries: [{ number: '1', title: 'a' }, { number: '1', title: 'b' }] }] }, { root }), /duplicate course number/);
+  assert.throws(() => compileBook(config, { ...toc, outline: [{ title: 'ภาค', entries: [{ number: '1', page: 'chapter-01' }, { number: '2', page: 'chapter-01' }] }] }, { root }), /listed twice/);
+});

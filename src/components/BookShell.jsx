@@ -1,8 +1,9 @@
 import React,{useEffect,useState} from 'react';
 import {assetUrl} from '../lib/book.js';
 import {pageHref} from '../lib/navigation.js';
+import {courseLabel} from '../lib/outline.js';
 
-export default function BookShell({page, pages, route, menuOpen, setMenuOpen, children}) {
+export default function BookShell({page, pages, outline, route, menuOpen, setMenuOpen, children}) {
   const welcome = page.kind === 'welcome';
   const [sidebarCollapsed,setSidebarCollapsed]=useState(false);
   const chapterNumber=id=>pages.filter(item=>item.kind!=='welcome').findIndex(item=>item.id===id)+1;
@@ -19,6 +20,10 @@ export default function BookShell({page, pages, route, menuOpen, setMenuOpen, ch
     ? [{id:'deltaris-workshop',label:'Deltaris workshop'}, {id:'quantara-map',label:'Quantara'}]
     : page.sections;
   const closeMenu = () => setMenuOpen(false);
+  const pageLink=(item,number)=><a key={item.id} className={'book-link'+(item.id===page.id?' current':'')} href={pageHref(item.id)} aria-current={item.id===page.id?'page':undefined} onClick={closeMenu}>
+    {number!==null&&<span className="reader-chapter-number">{number}</span>}
+    <span>{item.navigationTitle || item.title}</span>
+  </a>;
   const onEscape = event => {
     if(menuOpen && event.key === 'Tab'){
       const controls=[document.getElementById('contents-toggle'),...document.querySelectorAll('#book-navigation a, #book-navigation summary')].filter(element=>element?.getClientRects().length);
@@ -52,10 +57,18 @@ export default function BookShell({page, pages, route, menuOpen, setMenuOpen, ch
         </a>
         <div className="reader-contents-title">Contents</div>
         <nav className="book-pages" aria-label="Chapters">
-          {pages.map(item=><a key={item.id} className={'book-link'+(item.id===page.id?' current':'')} href={pageHref(item.id)} aria-current={item.id===page.id?'page':undefined} onClick={closeMenu}>
-            {item.kind!=='welcome'&&<span className="reader-chapter-number">{chapterNumber(item.id)}</span>}
-            <span>{item.navigationTitle || item.title}</span>
-          </a>)}
+          {(outline?pages.filter(item=>item.kind==='welcome'):pages).map(item=>pageLink(item,item.kind==='welcome'?null:chapterNumber(item.id)))}
+          {outline&&outline.map(part=><div className="book-part" key={part.title}>
+            <div className="book-part-title">{part.title}</div>
+            {part.entries.map(entry=>{
+              const target=entry.page&&pages.find(item=>item.id===entry.page);
+              // Planned entries are headings only: no route exists until the chapter is written.
+              return target?pageLink(target,entry.number):<div key={entry.number} className="book-link book-link-planned">
+                <span className="reader-chapter-number">{entry.number}</span>
+                <span>{entry.title}<small>กำลังเขียน</small></span>
+              </div>;
+            })}
+          </div>)}
         </nav>
         {sections.length>0&&<details key={page.id} className="sidebar-local-toc" open>
           <summary>On this page</summary>
@@ -70,7 +83,7 @@ export default function BookShell({page, pages, route, menuOpen, setMenuOpen, ch
         </div>
       </aside>
       <main inert={menuOpen?true:undefined} id="main-content" className={'book-main reader-main'+(welcome?' reader-welcome':' reader-chapter')} tabIndex="-1">
-        <div className="reader-page-label"><button className="reader-desktop-toggle" aria-expanded={!sidebarCollapsed} aria-controls="book-navigation" onClick={()=>setSidebarCollapsed(value=>!value)}>{sidebarCollapsed?'Show contents':'Hide contents'}</button><span>{welcome?'Welcome':`Chapter ${chapterNumber(page.id)}`}</span></div>
+        <div className="reader-page-label"><button className="reader-desktop-toggle" aria-expanded={!sidebarCollapsed} aria-controls="book-navigation" onClick={()=>setSidebarCollapsed(value=>!value)}>{sidebarCollapsed?'Show contents':'Hide contents'}</button><span>{welcome?'Welcome':courseLabel(outline,page.id)||`Chapter ${chapterNumber(page.id)}`}</span></div>
         {children}
       </main>
     </div>
